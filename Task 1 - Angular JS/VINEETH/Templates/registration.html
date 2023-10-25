@@ -1,0 +1,97 @@
+<div style="background-color: #FCEDF0;height: 100vh;">
+  <div
+  ng-controller="RegistrationController"
+  class="registration-container col-10 col-lg-6  m-auto mt-5 pt-5" 
+>
+  <div class="mt-lg-5">
+    <div class="container-fluid col-lg-10 p-5 m-auto border" style="background-color: white;box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);">
+      <form>
+        <div class="text-center"><h4>REGISTRATION FORM</h4></div>
+        <hr />
+        <div class="mb-3">
+          <label for="exampleInputNAME" class="form-label">NAME*</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            ng-model="user.name"
+            ng-change="validateName()"
+          />
+          <div class="form-text text-danger" ng-bind="nameError">
+            {{ nameError }}
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputphone" class="form-label"
+            >PHONE NUMBER*</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            ng-model="user.phone"
+            ng-change="validatePhone()"
+          />
+          <div class="form-text text-danger" ng-show="phoneError">
+            {{ phoneError }}
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >EMAIL ADDRESS*</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            ng-model="user.email"
+            ng-change="validateEmail()"
+          />
+          <div class="form-text text-danger" ng-show="emailError">
+            {{ emailError }}
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >PASSWORD*</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            ng-model="user.password"
+            ng-change="validatePassword()"
+          />
+          <div class="form-text text-danger" ng-show="passwordError">
+            {{ passwordError }}
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword2" class="form-label"
+            >CONFIRM PASSWORD*</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="password2"
+            ng-model="user.confirmedPassword"
+            ng-change="validateConfirmedPassword()"
+          />
+          <div class="form-text text-danger" ng-show="confirmError">
+            {{ confirmError }}
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn" style="color:white;background-color:#ff527b ;" ng-click="signup()">
+            SIGN UP
+          </button>
+          <div class="pt-2 " >
+            <a class="text-decoration-none" style="color: #ff527b;" ui-sref="login">LOGIN</a>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>

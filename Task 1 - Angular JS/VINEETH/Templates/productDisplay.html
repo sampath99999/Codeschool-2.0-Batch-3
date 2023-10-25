@@ -1,0 +1,39 @@
+<div ng-controller="productlistCtrl" style="background-color: #FCEDF0;min-height: 95vh;" class="col-12">
+ <div class="col-10 mt-5 pt-5  m-auto">
+  <div
+  class="row row-cols-2 row-cols-lg-4 gap-5 d-flex justify-content-center"
+  id="productList"
+>
+  <div
+    class="card border-2 px-0"
+    ng-repeat="product in products"
+    style="width: 14rem; height: 20rem;"
+    ng-click="getSingleProduct(product.id, product.productname, product.image_url, product.price, product.rating)"
+  >
+    <div class="text-end pe-2"><i class="bi bi-heart"></i></div>
+    <img
+      ng-src="{{product.image_url }}"
+      id="image"
+      class="m-auto mt-4 mb-4 card-img-center"
+      alt="..."
+      style="width: 50%; height: 40%"
+    />
+    <div
+      class="card-body text-align-bottom"
+      style="background-color: #f1f1f1"
+    >
+      <h6 class="card-title overflow-hidden text-truncate text-nowrap">
+        {{ product.productname }}
+      </h6>
+      <div class="d-flex gap-4">
+        <p>RS {{ product.price }}</p>
+        <p class="d-flex gap-1">
+          <i class="bi bi-star-fill" style="color: #ffd700"></i
+          ><span id="rating">{{ product.rating }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+</div>

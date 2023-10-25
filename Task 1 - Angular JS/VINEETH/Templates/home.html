@@ -1,0 +1,35 @@
+<div class="mt-5 pt-4 " >
+  <div class="col-11 mt-4 m-auto">
+    <img
+      ng-src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/10/18/00e86d1e-57df-4a2c-afa5-c2aaa241b9511697631046572-FLAT-500-Off-on-1st-Purchase-Strip.jpg"
+      width="100%"
+      
+    />
+  </div>
+  <div class="col-12 mb-2">
+    <img
+      ng-src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/10/18/4c01e71e-8bb5-4c69-b541-99c21160047f1697628113451-Dussehra_Banner_MEN.jpg"
+      width="100%"
+    />
+  </div>
+  <div class="row col-12">
+      <div>
+  
+      </div>
+  </div>
+  <div
+    ng-conroller="mainCtrl"
+    class="row col-12 d-flex m-auto mt-5 justify-content-center"
+    ng-init="imgs=['https://img.freepik.com/free-photo/young-handsome-man-choosing-clothes-shop_1303-19720.jpg','./images/kateryna-hliznitsova-ceSCZzjTReg-unsplash.jpg','https://images-cdn.ubuy.co.in/1CFEY2UE-mystery-electronic-box-unexpected-gift.jpg','https://aranacouture.com/uploads/Online-Shopping.jpg']"
+  >
+    <div class="col-8 col-lg-3 mb-2 " ng-repeat="c in categories">
+      <div class="border " ng-click="getProducts(c.cat_id)" style="border-color: pink;">
+        <div>
+          <img ng-src="{{imgs[$index]}}" width="100%"  style="object-fit: cover;height: 300px;" />
+          <div class="text-center">{{c.name | uppercase}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

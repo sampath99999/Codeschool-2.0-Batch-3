@@ -1,0 +1,37 @@
+<div ng-controller="manageOrdersCtrl">
+    <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">CUSTOMER NAME</th>
+                <th scope="col">PRODUCT NAME</th>
+                <th scope="col">QUANTITY</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">CHANGE</th>
+              </tr>
+            </thead>
+            <tbody ng-repeat="x in Orders">
+              <tr class="col-12">
+                <td class="col-1">{{$index+1}}</td>
+                <td class="col-1">{{x.register_name}}</td>
+                <td class="col-5">{{x.productname}}</td>
+                <td class="col-1">{{x.product_quantity}}</td>
+                <td class="col-2">{{x.price}}</td>
+                <td class="col-2">
+                  <select ng-model="x.status">
+                    <option value="PENDING   ">PENDING</option>
+                    <option value="DELIVERED ">DELIVERED</option>
+                    <option value="RETURN    ">RETURN</option>
+                    <option value="CANCEL    ">CANCEL</option>
+                  </select>
+                </td>
+                <td><button type="button" ng-click="update(x.product_id,x.status)" class="btn btn-primary"  >
+                   UPDATE
+                </button></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
