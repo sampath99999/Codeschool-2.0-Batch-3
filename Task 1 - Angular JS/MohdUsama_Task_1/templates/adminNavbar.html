@@ -1,0 +1,125 @@
+<link rel="stylesheet" href="./assets/css/admin.css" />
+<script src="./assets/js/scripts/admin.js"></script>
+<aside
+  class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left"
+  id="show-side-navigation1"
+  width="250px"
+>
+  <i
+    class="fa-solid fa-x close-aside d-md-none d-lg-none"
+    data-close="show-side-navigation1"
+  ></i>
+  <div
+    class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4"
+  >
+    <img
+      class="rounded-pill img-fluid"
+      width="65"
+      src="./assets/images/admin.jpg"
+      alt=""
+    />
+    <div class="ms-2">
+      <h5 class="fs-6 mb-0">
+        <a class="text-decoration-none" href="#">Admin</a>
+      </h5>
+    </div>
+  </div>
+
+  <ul class="categories list-unstyled">
+    <li>
+      <i class="uil-shopping-cart-alt"></i><a ui-sref="adminUsers">Users</a>
+    </li>
+    <li class="has-dropdown">
+      <i class="uil-calendar-alt"></i><a>Categories</a>
+      <ul class="sidebar-dropdown list-unstyled">
+        <li><a ui-sref="adminCategories">View Categories</a></li>
+        <li><a ui-sref="adminAddCategories">Add Categories</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <i class="uil-envelope-download fa-fw"></i><a>Products</a>
+      <ul class="sidebar-dropdown list-unstyled">
+        <li><a ui-sref="adminProducts">View Products</a></li>
+        <li><a ui-sref="adminAddProduct">Add Products</a></li>
+      </ul>
+    </li>
+    <li>
+      <i class="uil-shopping-cart-alt"></i><a ui-sref="adminOrders">Orders</a>
+    </li>
+    <li class="has-dropdown">
+      <i class="uil-envelope-download fa-fw"></i><a>Roles</a>
+      <ul class="sidebar-dropdown list-unstyled">
+        <li><a ui-sref="adminRoles">View Roles</a></li>
+        <li><a ui-sref="adminChangeUserRoles">Change User Role</a></li>
+      </ul>
+    </li>
+  </ul>
+</aside>
+
+<section id="wrapper">
+  <nav class="navbar navbar-expand">
+    <div class="container-fluid mx-2">
+      <div class="navbar-header">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#toggle-navbar"
+          aria-controls="toggle-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="uil-bars text-white"></i>
+        </button>
+        <a class="navbar-brand" ui-sref="admin"
+          >admin<span class="main-color">kit</span></a
+        >
+      </div>
+      <div class="collapse navbar-collapse" id="toggle-navbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Settings
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">My account</a></li>
+              <li><a class="dropdown-item" href="#">My inbox</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" ui-sref="login" ng-click="logout()"
+                  >Log out</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link">
+              <i
+                data-show="show-side-navigation1"
+                class="uil-bars show-side-btn fa-solid fa-bars"
+                ng-click="resize()"
+              ></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="p-4">
+    <div class="welcome">
+      <div class="content rounded-3 p-3">
+        <h1 class="fs-3">Welcome to Admin Panel</h1>
+        <p>Please choose what you want to do with {{curPage}}</p>
+      </div>
+    </div>
+  </div>
+</section>

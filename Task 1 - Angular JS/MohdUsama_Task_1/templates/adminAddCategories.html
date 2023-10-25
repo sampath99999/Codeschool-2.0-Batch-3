@@ -1,0 +1,58 @@
+<admin-navbar></admin-navbar>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ADD CATEGORIES</h5>
+          <div>
+            <form
+              name="categoryForm"
+              ng-submit="addCategory()"
+              enctype="multipart/form-data"
+            >
+              <div class="mb-3">
+                <label for="name" class="form-label">Category Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  ng-model="name"
+                  name="name"
+                  placeholder="Enter Category Name"
+                  required
+                  ng-minlength="1"
+                  ng-maxlength="20"
+                />
+                <div
+                  ng-show="categoryForm.name.$invalid && !categoryForm.name.$pristine"
+                >
+                  <span class="text-danger"
+                    >Category Name is required and should be 1-20
+                    characters.</span
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Category Image</label>
+                <input type="file" onchange="angular.element(this).scope().filesChanged(this)" />
+                <div
+                  ng-show="categoryForm.image.$invalid && !categoryForm.image.$pristine"
+                >
+                  <span class="text-danger">Image is required.</span>
+                </div>
+              </div>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                ng-disabled="categoryForm.$invalid"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

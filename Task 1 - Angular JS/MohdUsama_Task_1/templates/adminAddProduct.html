@@ -1,0 +1,126 @@
+<admin-navbar></admin-navbar>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ADD PRODUCTS</h5>
+          <div>
+            <form
+              name="productForm"
+              ng-submit="addProduct()"
+              enctype="multipart/form-data"
+            >
+              <div class="mb-3">
+                <label for="title" class="form-label">Product Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  ng-model="title"
+                  name="title"
+                  placeholder="Enter Product Title"
+                  required
+                  ng-minlength="3"
+                  ng-maxlength="50"
+                />
+                <div
+                  ng-show="productForm.title.$invalid && !productForm.title.$pristine"
+                >
+                  <span class="text-danger"
+                    >Product Title is required and should be 3-50
+                    characters.</span
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label">Product Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  ng-model="price"
+                  name="price"
+                  placeholder="Enter Product Price"
+                  required
+                  ng-min="0.01"
+                  ng-max="100000"
+                />
+                <div
+                  ng-show="productForm.price.$invalid && !productForm.price.$pristine"
+                >
+                  <span class="text-danger"
+                    >Product Price is required and should be between $0.01 and
+                    $10,000.</span
+                  >
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                  class="form-control"
+                  ng-model="description"
+                  name="description"
+                  rows="4"
+                  placeholder="Enter Product Description"
+                  required
+                  ng-minlength="10"
+                  ng-maxlength="500"
+                ></textarea>
+                <div
+                  ng-show="productForm.description.$invalid && !productForm.description.$pristine"
+                >
+                  <span class="text-danger"
+                    >Product Description is required and should be 10-500
+                    characters.</span
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select
+                  ng-model="selectCategory"
+                  name="selectCategory"
+                  class="form-control"
+                  required
+                >
+                  <option value="" disabled>Select</option>
+                  <option
+                    ng-repeat="category in categories"
+                    value="{{category.id}}"
+                  >
+                    {{category.name}}
+                  </option>
+                </select>
+                <div
+                  ng-show="productForm.selectCategory.$invalid && !productForm.selectCategory.$pristine"
+                >
+                  <span class="text-danger">Category is required.</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Product Image</label>
+                <input
+                  type="file"
+                  onchange="angular.element(this).scope().filesChanged(this)"
+                />
+                <div
+                  ng-show="productForm.image.$invalid && !productForm.image.$pristine"
+                >
+                  <span class="text-danger">Image is required.</span>
+                </div>
+              </div>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                ng-disabled="productForm.$invalid"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

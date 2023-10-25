@@ -1,0 +1,236 @@
+<navbar></navbar>
+<div ng-show="loader" id="preloader">
+  <div id="loader"></div>
+</div>
+<div>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Register User</div>
+          <div class="card-body">
+            <form name="userForm" ng-submit="register()">
+              <div class="mb-3">
+                <label for="firstName" class="form-label"
+                  >First Name<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="first_name"
+                  ng-model="user.firstName"
+                  name="firstName"
+                  ng-required="true"
+                  ng-pattern="/^[A-Za-z]+$/"
+                />
+                <div
+                  ng-messages="userForm.firstName.$error"
+                  ng-if="userForm.firstName.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    First name is required.
+                  </div>
+                  <div class="text-danger" ng-message="pattern">
+                    First name must contain only alphabetic characters.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="lastName" class="form-label"
+                  >Last Name<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last_name"
+                  ng-model="user.lastName"
+                  name="lastName"
+                  ng-required="true"
+                  ng-pattern="/^[A-Za-z]+$/"
+                />
+                <div
+                  ng-messages="userForm.lastName.$error"
+                  ng-if="userForm.lastName.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Last name is required.
+                  </div>
+                  <div class="text-danger" ng-message="pattern">
+                    Last name must contain only alphabetic characters.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="username" class="form-label"
+                  >Username<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  ng-model="user.username"
+                  name="username"
+                  ng-required="true"
+                />
+                <div
+                  ng-messages="userForm.username.$error"
+                  ng-if="userForm.username.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Username is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label"
+                  >Email<span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  ng-model="user.email"
+                  name="email"
+                  ng-required="true"
+                  ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
+                />
+                <div
+                  ng-messages="userForm.email.$error"
+                  ng-if="userForm.email.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Email is required.
+                  </div>
+                  <div class="text-danger" ng-message="pattern">
+                    Email must be in the correct format.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="password" class="form-label"
+                  >Password<span class="text-danger">*</span></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  ng-model="user.password"
+                  name="password"
+                  ng-required="true"
+                  ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/"
+                />
+                <div
+                  ng-messages="userForm.password.$error"
+                  ng-if="userForm.password.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Password is required.
+                  </div>
+                  <div class="text-danger" ng-message="pattern">
+                    Password must be strong: at least 8 characters with letters
+                    and numbers.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label"
+                  >Confirm Password<span class="text-danger">*</span></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  ng-model="user.confirmPassword"
+                  name="confirmPassword"
+                  ng-required="true"
+                  ng-pattern="user.password"
+                />
+                <div
+                  ng-messages="userForm.confirmPassword.$error"
+                  ng-if="userForm.confirmPassword.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Confirm Password is required.
+                  </div>
+                  <div class="text-danger" ng-message="pattern">
+                    Passwords must match.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="address" class="form-label"
+                  >Address<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  name="address"
+                  ng-model="user.address"
+                  ng-required="true"
+                />
+                <div
+                  ng-messages="userForm.address.$error"
+                  ng-if="userForm.address.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Address is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="phNumber" class="form-label"
+                  >Phone Number<span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phNumber"
+                  name="phNumber"
+                  ng-model="user.phone"
+                  ng-required="true"
+                  ng-pattern="/^\d{10}$/"
+                />
+                <div
+                  ng-messages="userForm.phNumber.$error"
+                  ng-if="userForm.phNumber.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Phone Number is required.
+                  </div>
+                  <div class="text-danger" ng-message="pattern">
+                    Enter a valid 10-digit phone number.
+                  </div>
+                </div>
+              </div>
+
+              <button
+                id="registerUserBtn"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Register
+              </button>
+            </form>
+          </div>
+        </div>
+        <div ng-hide="registered">User Already Exists</div>
+        <div ng-hide="validFields">Enter Valid Details</div>
+        <h5 class="text-danger" ng-bind="message">{{message}}</h5>
+        <p class="text-black">Already Registered?</p>
+        <button class="btn btn-primary mb-5">
+          <a class="text-decoration-none text-white" ui-sref="login"
+            >Go to Login</a
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
