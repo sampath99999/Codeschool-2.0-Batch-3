@@ -1,0 +1,38 @@
+<div>
+
+  <div login-header></div>
+  <!-- Form -->
+  <div class="col-11 col-md-6 p-5 m-auto mt-5 shadow-lg border-0 rounded-3"
+    style="background-image: linear-gradient(220deg, #fff0f5, #e0ffff,#b0c4de)">
+    <h5 class="fw-bold text-dark">Register</h5>
+    <small class="text-secondary">Sign Up To Quiz</small>
+    <hr />
+    <form ng-submit="register(event)" class="text-center">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" ng-model="personName" id="personName" placeholder="ex: Rahul" />
+        <label for="name">Name</label>
+      </div>
+      <p class="text-danger">{{personNameErr}}</p>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" ng-model="userName" id="userName" placeholder="ex: rahul134" />
+        <label for="userName">Username</label>
+      </div>
+      <p class="text-danger">{{userNameErr}}</p>
+      <div class="form-floating mb-3">
+        <input type="mail" class="form-control" ng-model="mail" id="mail" placeholder="ex: rahul123@gmail.com" />
+        <label for="mail">Mail Id</label>
+      </div>
+      <p class="text-danger">{{mailErr}}</p>
+      <div class="form-floating">
+        <input type="password" class="form-control" ng-model="password" id="password" placeholder="Password" />
+        <label for="password">Password</label>
+      </div>
+      <p class="text-danger">{{passwordErr}}</p>
+      <button type="submit" class="col-6 col-md-4 mt-3 delete_button fw-medium fs-5 register"
+        style="background-image: linear-gradient(220deg, #95445f, #3e7c7c,#4873ab)">
+        Register
+      </button>
+    </form>
+  </div>
+
+</div>

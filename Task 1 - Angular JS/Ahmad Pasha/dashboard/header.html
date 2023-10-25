@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #333545">
+  <div class="container-fluid col-lg-9 p-0 m-auto">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="p-0" ui-sref="home()">
+      <img ng-src="quiz_logo.png" class="col-4" style="height: 80px; width: 150px" />
+    </a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
+      <div class="d-flex me-0 gap-2 justify-content-end align-items-center">
+        <button ng-click="logout()" class="delete_button">LogOut</button>
+        <button ng-click="ticketHistory()" class="historyBtn">
+          History
+        </button>
+        <a ui-sref="leaderBoard">
+          <button class="btn btn-info text-white">
+            Leader Board
+          </button>
+        </a>
+        <!-- <p><span class="fw-bolder text-warning fs-4">Coins <i class="fa-solid fa-coins"></i> :</span>
+          <span>{{coins}}</span> </p> -->
+      </div>
+    </div>
+  </div>
+</nav>
