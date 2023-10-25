@@ -1,0 +1,124 @@
+<loader ng-show="showLoader"></loader>
+<div class="min-vh-100" style="background-color: #F0F5FF;">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Payment Portal</h1>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="border p-3" ng-repeat="mode in paymentModes">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{mode.id}}"
+                                 ng-click="changePaymentMode(mode.id)">
+                            <label class="form-check-label" for="flexRadioDefault{{mode.id}}">
+                                {{mode.name}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="border p-3" ng-if="selectedPaymentType===3">
+                        <div class="d-flex mb-2">
+                            <h6>Card Number:</h6>
+                            <input class="ms-2" id="cardNumber" type="number" />
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <h6>Date:</h6>
+                                <input class="ms-2" id="cardDate" type="month" />
+                            </div>
+                            <div class="d-flex">
+                                <h6>CVV</h6>
+                                <input class="ms-2" id="cvv" type="number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="confirmPayment(cardNumber,cvv)">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 d-flex p-2">
+        <div class="col-12 d-flex justify-content-around">
+            <div class="col-6 p-2 bg-white">
+                <div>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <p class="mb-0">My Cart <span class="fw-bold">({{cartLength}})</span></p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://www.iconpacks.net/icons/2/free-location-icon-2955-thumb.png" width="20" />
+                            <p class="mb-0">Deliver to <span>{{address}}</span></p>
+                        </div>
+                    </div>
+                    <div class="d-flex  mb-3 col-12 cart-product-item" ng-repeat="item in cartItems track by $index">
+                        <div class="col-3">
+                            <div class="cart-product-image-container">
+                                <img src={{item.image}} />
+                            </div>
+                            <div class="d-flex gap-3 mt-2">
+                                <button class="border" style="border-radius: 50%;" fdprocessedid="zrwnil"><i
+                                        class="bi bi-dash" ng-click="decreaseQuantity(item.id)"></i></button>
+                                <span style="border: 1px solid;padding: 0px 13px;font-weight: bold;">{{item.quantity}}</span>
+                                <button class="border" style="border-radius: 50%;" fdprocessedid="hk3vv9"><i
+                                        class="bi bi-plus-lg" ng-click="increaseQuantity(item.id)"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-6 pe-3">
+                            <h6 class="text-nowrap overflow-hidden" style="text-align: justify;text-overflow: ellipsis !important;">{{item.name}}</h6>
+                            <p>Seller:<span>Unilever company</span></p>
+                            <p>Price:<span>{{item.price}}/-</span></p>
+                            <button type="button" ng-click="removeItem(item.id)" class="btn btn-danger">Remove</button>
+                        </div>
+                        <div class="col-3">
+                            <p>Delivery by <span>Thu oct 19th</span></p>
+                            <p class="fw-bold">Total :<span class="ms-2">{{item.quantity*item.price}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 p-4 bg-white align-self-start">
+                <h4 class="fw-bold">PRICE DETAILS</h4>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="fw-bold">Items</p>
+                    </div>
+                    <div>
+                        <p>{{cartLength}}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="fw-bold">Total Price</p>
+                    </div>
+                    <div>
+                        <p>{{totalPrice}}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="fw-bold">Delivery Fee</p>
+                    </div>
+                    <div>
+                        <p>{{deliveryFee}}</p>
+                    </div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="fw-bold">Total Amount</p>
+                    </div>
+                    <div>
+                        <p>{{totalPrice+deliveryFee}}</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                     <button class="btn btn-primary" ng-if="cartLength>0" data-bs-toggle="modal" data-bs-target="#exampleModal" fdprocessedid="zi8qzp">
+                      Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
