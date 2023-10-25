@@ -1,0 +1,33 @@
+.horizontalNavbar {
+  background: url(https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 5px solid pink;
+}
+.verticalNav {
+  background-color: #06162e !important;
+  height: 87vh !important;
+}
+.sideBarBtn {
+  outline: none !important;
+}
+ul li {
+  cursor: pointer;
+  border-bottom: 1px solid rgba(108, 117, 125, 0.5);
+}
+.verticalNav li:hover {
+  border-left: 5px solid pink;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+.headerBtn {
+  height: 6vh;
+  cursor: pointer;
+}
+.activeNavItem {
+  border-left: 5px solid pink !important;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+.mobileSideBar {
+  background-color: #08254f;
+  width: 65% !important;
+}

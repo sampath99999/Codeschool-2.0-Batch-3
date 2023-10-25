@@ -1,0 +1,245 @@
+<div class="container-fluid m-0 p-0 loginBg" ng-controller="LoginController">
+    <div class="header py-4">
+        <div class="offset-md-2 col-8">
+            <img src="./assets/images/ifmis-logo.png" alt="logo" />
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
+        <div class="offset-md-2 col-8">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" ng-repeat="item in menuItems|limitTo:3">
+                        <a class="nav-link text-white p-3"
+                           aria-current="page"
+                           ui-sref-active="active"
+                           ui-sref="{{item.state}}">{{item.name}}</a>
+                    </li>
+                    <li class="nav-item dropdown" ng-repeat="item in dropDownMenuItems">
+                        <a class="nav-link dropdown-toggle text-white p-3"
+                           href="#"
+                           id="navbarDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            {{item.name}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li ng-repeat="dropDownItem in item.dropDownItems">
+                                <a class="dropdown-item"
+                                   ui-sref-active="active"
+                                   ui-sref="{{dropDownItem.state}}">{{dropDownItem.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" ng-repeat="item in menuItems|limitTo: 2:3">
+                        <a class="nav-link text-white p-3"
+                           aria-current="page"
+                           ui-sref-active="active"
+                           ui-sref="{{item.state}}">{{item.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="row p-0 m-0 h-100">
+        <div class="offset-md-2 col-md-3 pe-0">
+            <div class="formBg p-3">
+                <p class="px-2">User Login</p>
+                <div class="d-flex outline-secondary w-100 p-2 textBox my-3 px-2">
+                    <div class="icon">
+                        <img class="img-fluid" src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/user.png"
+                             alt="img" />
+                    </div>
+                    <input type="text"
+                           ng-model="userName"
+                           id="userName"
+                           class="border-0 outline-none w-100 px-2"
+                           ng-class="{'is-invalid':errors.userName}"
+                           placeholder="User Name"
+                           autocomplete="off"
+                           required />
+                </div>
+                <div class="text-danger" ng-show="errors.userName">{{errors.userName}}</div>
+                <div class="d-flex outline-secondary w-100 p-2 textBox my-3">
+                    <div class="icon">
+                        <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/pwd.png"
+                             alt="img" />
+                    </div>
+                    <input type="password"
+                           ng-model="password"
+                           id="password"
+                           class="border-0 outline-none w-100 px-2"
+                           ng-class="{'is-invalid':errors.password}"
+                           placeholder="Password"
+                           required />
+                </div>
+                <div class="text-danger" ng-show="errors.password">{{errors.password}}</div>
+                <div class="captcha w-100 mb-3 d-flex">
+                    <img class="img-fluid p-0 m-0 captchaImg" src="./assets/images/captcha.png"/>
+                    <div class="btn bg-secondary bg-opacity-50 rounded-2 m-0 px-1 px-md-2"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 20 20"><path fill="currentColor" d="M15.65 4.35A8 8 0 1 0 17.4 13h-2.22a6 6 0 1 1-1-7.22L11 9h7V2z"/></svg></div>
+                  </div>
+                <div class="d-flex outline-secondary w-100 p-2 textBox my-3">
+                    <input type="text"
+                           ng-model="captcha"
+                           id="captchaInput"
+                           placeholder="Enter Captcha"
+                           class="border-0 outline-none w-100"
+                           ng-class="{'is-invalid':errors.captcha}"
+                           required />
+                </div>
+                <div class="text-danger" ng-show="errors.captcha">{{errors.captcha}}</div>
+                <div class="d-flex justify-content-between">
+                    <span class="text-secondary">Forget Password?</span> 
+                    <div class="btn text-white btn-success" ng-click="login()">SIGN IN</div>
+                </div>
+            </div>
+            <div class="bg-warning bg-opacity-50 p-2 mt-2">
+                <span>Important Notification to all PAO Branches!</span>
+                <p class="text-danger blink fw-bolder">
+                    All cheques numbers will now be same as token numbers in PAO.
+                </p>
+            </div>
+            <div class="noticeStrips text-white p-2">
+                <a class="btn btn-success" ui-sref="">click here</a>
+                <span>for Budget 2023-24</span>
+            </div>
+            <div class="noticeStrips text-white p-2">
+                <a class="btn btn-success" ui-sref="">click here</a>
+                <span> for Cadre Strength Data Entry</span>
+            </div>
+            <div class="noticeStrips text-white p-2">
+                <a class="btn btn-success" ui-sref="">click here</a>
+                <span> for Departments Bank Deposits</span>
+            </div>
+        </div>
+        <div class="col-md-5 bg-secondary bg-opacity-50">
+            <img class="img-fluid border-2 border-white my-3 SecretariatImg"
+                 src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/banners/29.jpg" />
+            <div class="text-white aboutSecretariat p-5">
+                <span>Telangana Secretariat - Dr. B.R. Ambedkar Telangana Secretariat</span>
+            </div>
+        </div>
+    </div>
+    <div class="row p-0 m-0">
+        <div class="offset-md-2 col-md-8 pe-0">
+            <div class="row m-0 p-0 footerBgImg">
+                <div class="col-md-4 p-3">
+                    <img class="img-fluid" src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/news_icon.png" />
+                    <h2>LATEST NEWS/NOTE</h2>
+                    <p class="news">
+                        All the HODs and DDO are hereby informed that the remuneration pertains to Contract/Honorarium based services will be paid through IFMIS-DBT mode only from the month of November, 2022. All the departments hereby are requested to strictly adhered to update the information of the persons engaged on contract/honorarium basis in 27 column proforma in Finance (HRM.VII) Department with relevant information immediately. Updating of bills in regular pattern will not be entertained further.
+                        <br>
+                        New Districts & Mandals Details -03-09-2021
+                        <br>
+                        Circular Memo for PRC 2020:
+                        Pay Fixation Circular Memo__Dt.17.6.2021
+                        Following are the GOs for PRC 2020:
+                        GO Ms NO.51_Dt.11.06.2021_PRC Main GO
+
+                        GO Ms No.52__Dt.11.06.2021__DA<br />
+
+
+                        GO Ms No.53__Dt.11.06.2021__HRA<br />
+
+
+                        GO Ms No.54__Dt.11.06.2021__CCA<br />
+
+
+                        G.O.Ms.No.55_dt.11.06.2021 - Consolidation of Pension<br />
+
+
+                        G.O.Ms.No.56_dt.11.06.2021 Enhancement Retirement Gratuity<br />
+
+
+                        G.O.Ms.No.57_dt.11.06.2021_ Additional Quantum of Pension<br />
+
+
+                        G.O.Ms.No.58_dt.11.06.2021_Family pension to CPS Employees<br />
+
+
+                        G.O.Ms.No.59_dt.11.06.2021_Medical Allowances<br />
+
+
+                        GO Ms No.60_Dt.11.06.2021__Con__Os__Enhancement<br />
+
+                        DWA DDOs Full Tutorial Link
+                        <a href="https://youtu.be/ker7MRrl3og">https://youtu.be/ker7MRrl3og</a><br />
+                        DWA PAOs Full Tutorial Link
+                        <a href="https://youtu.be/vi1SYgZybno">https://youtu.be/vi1SYgZybno</a><br />
+                        Generate DDO Code Link
+                        <a href="https://youtu.be/iqaLS9xg5Mc">https://youtu.be/iqaLS9xg5Mc</a><br?>
+                            Generate Employee Code Link
+                            <a href=" https://youtu.be/sseREP7fd88">https://youtu.be/sseREP7fd88</a><br />
+                            All DDs, DTOs and STOs are instructed not to process cheques/bills related to repayment of covid 19 deferred payment upto 21st of this month or untill further orders. The nessary software will be launched by 15th, strict compliance is required.
+                            <br />
+                            As per GO 34 the bill is not released yet we will update once it is released for all the DDOs so that Nil Bill Can be submitted against the deductions for March Pay bill
+                            <br />
+                            DTO ATTENTION PLEASE :
+                            You can now use the modules for new employee code and new ddocode generation present at DTO/DD login under the ADMIN section. Please note that mentioned screens will not be present in IMPACT anymore.
+                            <br />
+                            DDOs ATTENTION PLEASE :
+                            Indicate correct TSGLI policy number in the IFMIS Portal. Ensure policies for the entire subscriptions of each employee. If not done already, please send the proposal form and get policy bonds from the concerned District Insurance office so as to avail TSGLI scheme benefits in full. For further details visit
+                            www.tsgli.telangana.gov.in
+                            Govt Order Details:
+                            Salaries of all employees are to be deferred with regards to the COVID situation from henceforth according to GO 27. For further information,
+                            please download GO here
+
+
+                            First quarter budget is now released for certain HOAs. Grant-in-aids bills along with other rejected bills can be submitted now. For further information,
+                            please download GO here
+
+                            DTO ATTENTION PLEASE:
+                            You can now use the modules for FUV (IT) file generation present at DTO/DD login under the ADMIN section. Please note that mentioned screens will not be present in IMPACT anymore
+                    </p>
+                </div>
+                <div class="d-flex g-2 col-md-4">
+                    <div class="verticalLine"></div>
+                    <div class="p-3"><img class="img-fluid" src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/video_icon.png" />
+                    <h2>VIEW DEMO</h2>
+                    <h4>Demo:</h4>
+                    <p> Watch the demo to know more about how to different products and services on IFMIS</p>
+                    <div class="d-flex gap-5">
+                        <div><img class="img-fluid tutorialImg" src="https://i.vimeocdn.com/video/1232730060-5c11940b8e755fd0ba8e0d68e6e1f7b3b90592e8148fcdb200dd41564b75c863-d_640x360" /></div>
+                        <div>
+                            <span><b>How to Submit Salary Bill - IFMIS/DDO Tutorial</b></span><br><br>
+                            <span>Bill Submission </span><span> 20 Dec 2021</span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-5">
+                        <div><img class="img-fluid tutorialImg" src="https://i.vimeocdn.com/video/1558900843-82d0acf3dffbb3d54bd03b4e980d21674102cc3006a3f151eea0f5dcad6b31ac-d_640x360" /></div>
+                        <div>
+                            <span><b>
+                                How to Create Work ID- IFMIS/DWA Tutorial
+                                Add Agency
+                               </b></span><br><br>
+                            <span>  Add Agency </span><span class="d-inline-block ms-2">12 jan 2020</span>
+                        </div>
+                    </div><br>
+                    <a href="" class="text-dark">view more</a>
+                </div></div>
+                <div class=" d-flex g-2 col-md-4">
+                    <div class="verticalLine"></div>
+                    <div class="p-3">
+                    <img class="img-fluid" src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/vison_icon.png" />
+                    <h2>OUR VISION</h2>
+                    <p>We have developed IFMIS with the vision that Financial Technology shall be able to function using cutting-edge technology that ensures data security, efficiency and transparency.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-0 m-0 footer py-4">
+      <div class="offset-md-2 col-md-8 text-secondary ">
+          <p class="float-end me-5 text-opacity-10">Privacy Policy</p>
+      </div>
+    </div>
+</div>

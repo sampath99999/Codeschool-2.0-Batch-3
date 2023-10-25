@@ -1,0 +1,73 @@
+<div
+  class="container-fluid horizontalNavbar p-0 m-0"
+  ng-controller="HorizontalNavController"
+>
+  <div class="d-flex gap-2 p-3">
+    <div class="d-none d-md-block me-2">
+      <img
+        class="img-fluid"
+        ui-sref="budget"
+        src="./assets/images/ifmis-logo.png"
+        alt="logo"
+      />
+    </div>
+    <button
+      class="d-md-none bg-secondary bg-opacity-50 rounded-2 p-3 headerBtn text-white"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div
+      class="offcanvas offcanvas-start d-md-none mobileSideBar"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-body p-0">
+        <vertical-navbar></vertical-navbar>
+      </div>
+    </div>
+    <div
+      class="d-none d-md-block bg-secondary bg-opacity-50 rounded-2 p-3 headerBtn text-white"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div
+      class="d-none d-md-flex bg-secondary bg-opacity-50 rounded-2 p-3 headerBtn text-white"
+    >
+      <i class="fa-solid fa-house"></i><span class="ps-1">Modules</span>
+    </div>
+    <div
+      class="d-none d-md-flex bg-secondary bg-opacity-50 rounded-2 p-3 headerBtn text-white"
+    >
+      <i class="py-1 fa-solid fa-user"></i><span class="ps-1">Profile</span>
+    </div>
+    <div
+      class="d-flex bg-secondary bg-opacity-50 rounded-2 p-3 headerBtn text-white"
+      ng-click="removeToken()"
+    >
+      <i class="d-none d-md-block fas fa-sign-out-alt py-1"></i
+      ><span class="ps-1">Logout</span>
+    </div>
+    <div class="d-none d-md-block text-white">
+      <div>Last Login:</div>
+      <div>{{ currentDate | date:'dd-MMM-yyyy' }}</div>
+      <div>{{ currentDate | date:'h:mm a' }}</div>
+    </div>
+    <div class="ms-auto">
+      <div
+        class="d-flex bg-secondary bg-opacity-50 p-3 text-white rounded-2 gap-2"
+      >
+        <div><i class="fa-solid fa-user"></i></div>
+        <div>
+          <span> Pixelvide</span>
+          <div>(BRO-PIXELVIDE)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.budgetBtn,
+.requestBtn {
+  background-color: #00498d !important;
+  width: 17vh;
+  height: 17vh;
+  border: 4px dotted gold;
+}
+.pageBg {
+  background: url("../images/building.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.budget {
+  height: 81vh !important;
+}
+.budgetFooter {
+  background-color: #00498d !important;
+}
+.budgetBtn:hover,
+.requestBtn:hover {
+  background-color: #00498d !important;
+  width: 17vh;
+  height: 17vh;
+  border: 4px dotted gold;
+}

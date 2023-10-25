@@ -1,0 +1,99 @@
+.header {
+  background: url(https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.navbar {
+  background-color: #00498d !important;
+}
+.navbar ul li a:hover {
+  background-color: #0063c0;
+}
+.dropdown-menu li a:hover {
+  background-color: #2093ff !important;
+}
+.loginBg {
+  background: url(https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/login-bg.png);
+  width: 100%;
+  height: 100%;
+}
+.aboutSecretariat {
+  background-color: #00498d !important;
+}
+.formBg {
+  background-color: white !important;
+}
+.textBox {
+  border: ridge;
+}
+#password {
+  outline: none;
+}
+#userName {
+  outline: none;
+}
+.noticeStrips {
+  background-color: #00498d !important ;
+  border: 1px dashed #a06800 !important;
+}
+.footerBgImg {
+  background: url(https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/footer_bg.png);
+}
+.news {
+  height: 40vh;
+  overflow-y: scroll;
+}
+.news::-webkit-scrollbar {
+  width: 4px;
+}
+.news::-webkit-scrollbar-track-piece {
+  background-color: grey;
+  width: 4px;
+}
+.news::-webkit-scrollbar-thumb {
+  background-color: #0073e6;
+  width: 10px;
+}
+.news::-webkit-scrollbar-button {
+  display: none;
+}
+.secretariatImg {
+  height: 100vh;
+  width: 100vh;
+}
+.verticalLine {
+  width: 2px;
+  height: 60vh;
+  background-color: gray;
+}
+.footer {
+  background-color: #06162e;
+}
+.tutorialImg {
+  width: 4rem !important;
+  height: 4rem !important;
+}
+.captchaImg {
+  width: 85% !important;
+}
+.captcha {
+  height: 7vh !important;
+}
+#captchaInput {
+  outline: none !important;
+}
+.loader {
+  width: 10rem !important;
+  height: 10rem !important;
+}
+.blink {
+  animation: blink 2s infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
