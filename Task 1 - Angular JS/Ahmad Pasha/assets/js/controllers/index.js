@@ -2,12 +2,12 @@ app.controller("homeController", function ($scope, $http, $state, $rootScope) {
   $scope.userId = localStorage.getItem("user_id");
   $scope.userType = localStorage.getItem("user_type");
 
-  if (!$scope.userId) {
+  if ($scope.userId==undefined || $scope.userId==null) {
     $state.go("login");
   }
 
   $scope.spinner = false;
-  if($scope.userType=="null" || $scope.userType == null){
+  if ($scope.userType == "null" || $scope.userType == null) {
     $state.go("home");
   }
 
@@ -15,13 +15,9 @@ app.controller("homeController", function ($scope, $http, $state, $rootScope) {
     $state.go("admin");
   }
 
-  $rootScope.ticketHistory = function () {
-    $state.go("history");
-  };
 
 
-
-  $rootScope.logout = function () {
+  $scope.logout = function () {
     $rootScope.type = null;
     $rootScope.id = null;
     localStorage.removeItem("user_id");
@@ -35,7 +31,6 @@ app.controller("homeController", function ($scope, $http, $state, $rootScope) {
       function (response) {
         $scope.spinner = true;
         $scope.subjectNames = response.data["data"];
-        console.log(response.data["data"]);
       },
       function (error) {
         console.log(error);

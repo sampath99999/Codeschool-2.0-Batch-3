@@ -1,8 +1,15 @@
 app.controller(
   "leaderBoardController",
-  function ($scope, $http, $stateParams) {
+  function ($scope, $http, $rootScope,$state) {
 
     $scope.spinner = false;
+    $scope.logout = function () {
+      $rootScope.type = null;
+      $rootScope.id = null;
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("user_type");
+      $state.go("login");
+    };
 
     $scope.getDetails = function () {
       $http
@@ -10,9 +17,7 @@ app.controller(
         .then(
           function success(response) {
             $scope.spinner = true;
-            console.log(response);
             $scope.leaders = response.data.data;
-            console.log($scope.leaders);
             return true;
           },
           function error(error) {

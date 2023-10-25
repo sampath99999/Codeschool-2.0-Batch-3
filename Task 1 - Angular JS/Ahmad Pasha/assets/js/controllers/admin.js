@@ -37,9 +37,9 @@ app.controller(
         $scope.questionNameErr = $scope.notEmpty("Question Name");
         return false;
       }
-      if ($scope.questionName.length < 5 || $scope.questionName.length > 30) {
+      if ($scope.questionName.length < 5 || $scope.questionName.length > 200) {
         $scope.questionNameErr =
-          "Question Name Should Be In Between 3 To 30 Characters";
+          "Question Name Should Be In Between 3 To 200 Characters";
         return false;
       }
 
@@ -83,8 +83,6 @@ app.controller(
         level_id: $scope.level
       };
 
-      console.log(data);
-
       $http
         .post("./api/questions.php", $httpParamSerializerJQLike(data), {
           headers: {
@@ -93,15 +91,16 @@ app.controller(
         })
         .then(
           function (response) {
-            let data = response;
-            console.log(response);
-            // if (data.status) {
-            //   $state.go("login");
-            // } else {
-            //   $("#usernameErr").text(data.message);
-            // }
+            alert('Successfully Entered..');
+            $scope.questionName = "";
+            $scope.option1 = "";
+            $scope.option2 = "";
+            $scope.option3 = "";
+            $scope.option4 = "";
+            $scope.option5 = "";
+            $scope.subject = "";
+            $scope.level = "";
 
-            return true;
           },
           function (error) {
             console.log(error);
@@ -112,7 +111,6 @@ app.controller(
           console.log("error in api .....");
         });
 
-      // window.location.reload();
     };
   }
 );

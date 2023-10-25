@@ -6,7 +6,8 @@ app.controller(
     $stateParams,
     $state,
     $interval,
-    $httpParamSerializerJQLike
+    $httpParamSerializerJQLike,
+    $rootScope
   ) {
     $scope.subjectId = $stateParams.subjectId;
     $scope.userId = localStorage.getItem("user_id");
@@ -23,6 +24,13 @@ app.controller(
     $scope.txt_color = "";
 
     $scope.check = true;
+    $scope.logout = function () {
+      $rootScope.type = null;
+      $rootScope.id = null;
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("user_type");
+      $state.go("login");
+    };
 
     $scope.getValue = function (e) {
       $scope.selectedBtn = e;
@@ -66,12 +74,6 @@ app.controller(
         })
         .then(
           function (response) {
-            let data = response;
-            if (data.status) {
-              // $state.go("login");
-            } else {
-              $("#usernameErr").text(data.message);
-            }
 
             return true;
           },

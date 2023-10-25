@@ -1,4 +1,4 @@
-app.directive("header", function ($rootScope) {
+app.directive("header", function () {
   return {
     templateUrl: './dashboard/header.html'
   };

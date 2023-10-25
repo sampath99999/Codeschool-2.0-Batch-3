@@ -3,7 +3,7 @@ require_once "dbConfig.php";
 
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-    $response = ["status" => false, "message" => "","data" => null];
+    $response = ["status" => false, "message" => "", "data" => null];
 
     if (!isset($_POST["question_name"])) {
         $response["message"] = "Question Name Is Required!";
@@ -54,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $correctAnswer = $_POST["option_5"];
     $subjectId = $_POST["subject_id"];
     $levelId = $_POST["level_id"];
-    
 
 
     $query = "SELECT id FROM questions WHERE name = ?";
@@ -71,46 +70,21 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $statement1 = $pdo->prepare($query1);
     $statement1->execute([$subjectId, $levelId, $questionName]);
     $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
-    
-    $query2 = "SELECT id from questions where name=?";
 
+    $query2 = "INSERT INTO options (first_option,second_option,third_option,fouth_option)
+VALUES (?,?,?,?)";
     $statement2 = $pdo->prepare($query2);
-    $statement2->execute([$questionName]);
+    $statement2->execute([$option_1, $option_2, $option_3, $option_4]);
     $result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-    return $result2;
-    // if (count($result2) == 1) {
-    //     $response["status"] = true;
-    //     $response["message"] = "LoggedIn Successfully!";
-    //     $response["data"] = $result2[0];
-    //     echo json_encode($response);
-    //     exit;
-    // } else {
-    //     $response["status"] = false;
-    //     $response["message"] = "Username & Password shouldn't match";
-    //     echo json_encode($response);
-    //     exit;
-    // }
-    
-  
 
-//     $query2 = "INSERT INTO options (question_id,first_option,second_option,third_option,fouth_option
-//     )
-// VALUES (1, '1', '2', '3', '4');";
+    $query3 = "INSERT INTO answers (answer) VALUES (?);";
+    $statement3 = $pdo->prepare($query3);
+    $statement3->execute([$correctAnswer]);
+    $result3 = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
-//     $query = "SELECT id from questions where name=?";
-
-//     // $statment = $pdo->prepare($query);
-//     $statment1 = $pdo->prepare($query);
-//     $result = $statment->execute([$name, $mail, $userName, $password]);
-
-    // if (!$result2) {
-    //     $response["message"] = $statment->errorInfo();
-    //     echo json_encode($response);
-    // }
-
-    // $response["status"] = true;
-    // $response["message"] = "Successfully Registered!";
-    // echo json_encode($response);
+    $response["status"] = true;
+    $response["message"] = "Successfully Entered!";
+    echo json_encode($response);
     exit;
 }
 

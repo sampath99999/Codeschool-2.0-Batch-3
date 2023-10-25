@@ -51,7 +51,7 @@ DROP TABLE questions;
 CREATE TABLE
     options(
         id SERIAL NOT NULL PRIMARY KEY,
-        question_id int REFERENCES questions(id) NOT NULL UNIQUE,
+        question_id SERIAL REFERENCES questions(id) NOT NULL,
         first_option VARCHAR(100) NOT NULL UNIQUE,
         second_option VARCHAR(100) NOT NULL UNIQUE,
         third_option VARCHAR(100) NOT NULL UNIQUE,
@@ -93,7 +93,8 @@ DROP Table answers;
 
 INSERT INTO
     questions (subject_id, level_id, name)
-VALUES (1, 1, 'solve 1+1=___?');
+VALUES (1, 1, 'solve 1+1=___?'),
+(1, 1, 'solve 1+1=___?');
 
 INSERT INTO
     questions (subject_id, level_id, name)
@@ -101,13 +102,12 @@ VALUES (1, 1, 'a --');
 
 INSERT INTO
     options (
-        question_id,
         first_option,
         second_option,
         third_option,
         fouth_option
     )
-VALUES (1, '1', '2', '3', '4');
+VALUES ('1', '2', '3', '4');
 INSERT INTO
     options (
         question_id,

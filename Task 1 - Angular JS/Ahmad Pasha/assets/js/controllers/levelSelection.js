@@ -1,13 +1,19 @@
-app.controller("levelController", function ($scope, $http, $stateParams) {
+app.controller("levelController", function ($scope, $http, $stateParams,$rootScope,$state) {
   $scope.subject_id = $stateParams.subjectId;
   $scope.spinner = false;
+  $scope.logout = function () {
+    $rootScope.type = null;
+    $rootScope.id = null;
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_type");
+    $state.go("login");
+  };
   $http
     .get(`./api/levels.php`)
     .then(
       function success(response) {
         $scope.spinner = true;
         $scope.levels = response.data.data;
-        console.log($scope.levels);
         return true;
       },
       function error(error) {
