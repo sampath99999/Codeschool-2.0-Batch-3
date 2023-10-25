@@ -40,22 +40,28 @@ if($data['role'] == 1){
     echo json_encode($response);
     exit;
 }
+$id = $postData['id'];
 $query = $pdo->prepare("
-    DELETE FROM  users WHERE  user_id = ?
+    SELECT order_id FROM orders WHERE customer_id = ?
 ");
+$result = $query->execute([$id]);
+$orderIds = $query->fetchAll(PDO::FETCH_COLUMN);
 
-try{
-    $query->execute([$postData['id']]);
-}catch(PDOException $e){
-    $response["status"] = false;
-    $response["message"] = "Could Not Delete User";
-    header('HTTP/1.0 400 Bad Request');
-    echo json_encode($response);
-    exit;
-};
-
-$response['data'] = '';
-$response['status'] = true;
-$response['message'] = "Successfully Deleted User";
+foreach ($orderIds as $orderId) {
+    $query = $pdo->prepare("
+        DELETE FROM orderdetails WHERE order_id = ?
+    ");
+    $query->execute([$orderId]);
+    $query = $pdo->prepare("
+        DELETE FROM orders WHERE order_id = ?
+    ");
+    $query->execute([$orderId]);
+}
+$query = $pdo->prepare("
+    DELETE FROM users WHERE user_id = ?
+");
+$query->execute([$id]);
+$response["status"] = true;
+$response["message"] = "User and related data deleted successfully";
 echo json_encode($response);
 ?>

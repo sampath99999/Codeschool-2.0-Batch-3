@@ -56,7 +56,7 @@ app.controller("adminUsersController", [
     $scope.removeUser = function (id, index) {
       Swal.fire({
         title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        text: "All the current user orders will be deleted too! You won't be able to reverse this!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -75,12 +75,12 @@ app.controller("adminUsersController", [
                 $scope.users.splice(index, 1);
                 Swal.fire(
                   "Deleted!",
-                  "User has been successfully deleted.",
+                  response.data.message,
                   "success"
                 );
               } else {
                 Swal.fire(
-                  "Error While Removing User... Try Removing all the current user Orders first"
+                  "Error While Removing User"
                 );
               }
             })
@@ -88,7 +88,6 @@ app.controller("adminUsersController", [
               Swal.fire("Error", error.data.message, "error");
             });
         }
-        
       });
     };
     $scope.cancelEdit = function (user, index) {
