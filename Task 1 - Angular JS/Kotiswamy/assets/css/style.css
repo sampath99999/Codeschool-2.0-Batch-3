@@ -1,0 +1,281 @@
+/* Login Header */
+
+.loginHeader {
+  background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg");
+  height: 15vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.navBannerContainer {
+  background-color: #00498d;
+  height: 100%;
+}
+
+.navSmDeviceBg {
+  background-color: #00498d;
+}
+
+.loginHamBtn {
+  height: 4vh !important;
+  border: none;
+}
+
+.navbar-toggler:focus {
+  border: none;
+  transition: none;
+  outline: none;
+  box-shadow: none;
+}
+.navListItems li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 8px 20px;
+  text-align: center;
+}
+.navListItems li:hover {
+  background-color: #0063c0;
+}
+
+.navDropDownList {
+  position: absolute;
+  z-index: 1;
+  background-color: #f1f1f1;
+  padding: 0;
+  margin-top: 1vh;
+  color: black;
+  margin-left: -20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.navDropDownList li:hover {
+  width: 100%;
+  background-color: #2093ff;
+  color: white;
+}
+/* Login Body */
+
+.loginBodyCard {
+  height: 100%;
+  background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/login-bg.png");
+  width: 100%;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loginRightCard{
+  box-shadow: 2px 4px 9px rgba(0,0,0,.15);
+}
+
+.loginLeftCard{
+  box-shadow: 2px 4px 9px rgba(0,0,0,.15);
+}
+
+.loginBottomCard{
+  box-shadow: 2px 4px 9px rgba(0,0,0,.15);
+}
+
+.loginInputCard {
+  border: 1px solid #bdbdbd;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  height: 50px;
+}
+.loginInputCard input {
+  outline: none;
+  width: 100%;
+}
+
+.captchaCard {
+  background-color: #dedede;
+}
+
+.ForgotSignInCard h6 {
+  color: #b6b6b6;
+}
+
+.ForgotSignInCard button {
+  background-color: #00944d;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+}
+
+.impNotifyCard {
+  background-color: #fff3cd;
+}
+
+.impNotifyCard p {
+  color: #856439;
+}
+
+.infoBlinker {
+  color: red !important;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.loginRightCard {
+  background-color: #dedede;
+}
+
+.carousel-item p {
+  background-color: #08254f;
+  height: 80px;
+}
+
+.loginBottomCard {
+  background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/footer_bg.png");
+}
+
+.blogContent {
+  height: 300px;
+  overflow: auto;
+}
+
+.blogContent::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgb(43, 79, 109, 0.3);
+}
+
+.blogContent::-webkit-scrollbar-thumb {
+  background-color: #3e5a86;
+  border-radius: 20px;
+  width: 10px;
+}
+
+.blogVideoInfo p{
+  font-size: 12px;
+}
+
+.loginPageFooter{
+  background-color: #06162e;
+  color: #959595;
+  height: 6vh;
+}
+
+
+/* header */
+
+.headerBg{
+  height: 10vh;
+  border-bottom: 4px solid pink;
+  background-image: url('https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg');
+}
+
+.headerFontSize{
+  font-size: 12px;
+}
+
+/* Home */
+
+.homeBg{
+  background-image: url('https://watermark.lovepik.com/photo/20211121/large/lovepik-chengdu-financial-city-building-picture_500637917.jpg');
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.homeRoundedBg{
+  height: 130px;
+  width: 130px;
+  cursor: pointer;
+}
+
+.homeRoundedBg div{
+  height: 120px;
+  width: 120px;
+  border: 1px dashed orange;
+}
+
+.homeRoundedBg div p{
+  font-size: 14px;
+}
+
+.homeNotifyCard{
+  background-color:rgb(235, 232, 232);
+  height: 80vh;
+}
+
+.homeNotifyTitle{
+  height: 7vh;
+  background-color: rgba(184, 134, 10,.75);
+}
+
+.homeNotifyContent{
+  border-bottom: 1px dashed rgba(1, 1, 1, 0.15);
+  font-size: 12px;
+}
+
+.homeFooterBg{
+  background-color: #042640;
+  height: 10vh;
+}
+
+.footerTab{
+  border: 1px dashed white;
+}
+
+/* bro sidebar */
+
+.broSidebarBg{
+  height: 90vh;
+  background-color: rgb(3, 36, 58);
+  overflow: auto;
+}
+
+.broSidebarBg::-webkit-scrollbar{
+  display: none;
+}
+.broSidebarBg ul li{
+  border-bottom: 1px solid rgba(128, 128, 128,.25);
+  cursor: pointer;
+}
+
+.broSidebarBg ul li:hover{
+  border-left: 3px solid pink;
+  background-color:rgba(128, 128, 128,.25);
+}
+
+.sideBarActiveItem{
+  border-left: 3px solid pink;
+  background-color:rgba(128, 128, 128,.25);
+}
+
+/* bro Home */
+
+.broHomeBg{
+  height: 90vh;
+}
+.broHomeTop{
+  height: 95%;
+}
+.broHomeFooter{
+  height: 5%;
+  background-color: rgb(3, 36, 58);
+}
+
+/* bro add hoa */
+
+.broAddViewListBtn{
+  background-color:#08cb6d;
+  height: 30px;
+}
+
+.addHoadClearBtn{
+  background-color: #bdbdbd;
+  font-size: 14px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.addHoadSubmitBtn{
+  background-color:rgb(3, 36, 58);
+  font-size: 14px;
+  height: 30px;
+  cursor: pointer;
+}
