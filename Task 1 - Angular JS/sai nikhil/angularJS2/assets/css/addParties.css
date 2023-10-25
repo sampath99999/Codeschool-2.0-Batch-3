@@ -1,0 +1,10 @@
+.partyInputFields {
+     background-color: #1e1e2d;
+     color: white !important;
+  }
+.partyInputFields:focus{
+    background-color: #1e1e2d;
+}  
+.partyDetailsCard{
+    background-color:#1e1e2d;
+}

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg shadow-lg fixed-top" id="loginHeader">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" ui-sref="dashBoard"
+      >Inventory Management</a
+    >
+  </div>
+</nav>
+
+<div class="row mt-md-5">
+  <div class="col-12 col-md-4 p-5 p-md-0 m-md-auto mt-5">
+    <div class="card mt-md-5 mb-md-5 login-card">
+      <div class="card-body">
+        <h3 class="card-title">Login</h3>
+
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="enter your admin id"
+            ng-model="adminId"
+          />
+          <label for="floatingInput">Admin Id</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            ng-model="password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="d-flex justify-content-between">
+          <a href="" class="btn btn-info" id="loginBtn" ng-click="login()"
+            >Login</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

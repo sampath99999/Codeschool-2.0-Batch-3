@@ -1,0 +1,9 @@
+.dashBoardCard{
+    background-color: #1e1e2d;
+    border: dashed;
+    border-color:  #323248;
+    border-radius: 25px;
+}
+#invCard{
+    margin-top: 22px;
+}
