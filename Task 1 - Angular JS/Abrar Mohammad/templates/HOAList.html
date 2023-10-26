@@ -1,0 +1,398 @@
+<div>
+    <bro-header></bro-header>
+    <div class="hoaListContaners d-flex w-100">
+        <sidebar></sidebar>
+        <div class="hoaListContainer1 bg-secondary bg-opacity-50 p-3 w-100">
+            <div class="hoaListContainer2 p-3 bg-white">
+                <h1 class="m-0 hoaHead mb-2">Head Of Account</h1>
+                <div class="hoaInputs d-flex align-items-center justify-content-between mb-3">
+                    <div class="gap-3 d-flex align-items-center">
+                        <div class="allInput1 ps-2">All</div>
+                        <div class="allInput2 ps-2">All</div>
+                        <div class="headOfAccountInputs d-flex gap-1">
+                            <input class="form-control hoaInputEl" placeholder="XXXX" />
+                            <input class="form-control hoaInputEl" placeholder="XX" />
+                            <input class="form-control hoaInputEl" placeholder="XXX" />
+                            <input class="form-control hoaInputEl" placeholder="XX" />
+                            <input class="form-control hoaInputEl" placeholder="XX" />
+                            <input class="form-control hoaInputEl" placeholder="XXX" />
+                            <input class="form-control hoaInputEl" placeholder="XXX" />
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="hoaButton ps-2 pe-2 pb-1 pt-1 text-center">Search</button>
+                        <button class="hoaButton2 ps-2 pe-2 pb-1 pt-1 text-center">Clear</button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-responsive table-hover table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    HOA
+                                </th>
+                                <th>
+                                    Department(HOD)
+                                </th>
+                                <th>
+                                    Est/Scheme
+                                </th>
+                                <th>
+                                    Amount
+                                </th>
+                                <th>
+                                    Created At
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="eachHoa in hoaList">
+                                <td>{{$index + 1}}</td>
+                                <td>{{eachHoa.hoa_number}}</td>
+                                <td>{{eachHoa.head_of_dept|uppercase}}</td>
+                                <td>{{eachHoa.estb_scheme}}</td>
+                                <td>{{eachHoa.amount}}.00</td>
+                                <td>{{ eachHoa.created_at | date : 'dd-MM-yyyy h:mm a' }}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="tableBtn p-1" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal1" ng-click="getDetail(eachHoa.id)">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="tableBtn p-1" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal2" ng-click="getHao(eachHoa.id)">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="budgetFooter2"></div>
+</div>
+
+<!-- <moal1></moal1> -->
+<div class="modal fade" id="exampleModal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                    View HOA Details
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th class="table-secondary">Dept Desc</th>
+                            <td colspan="3">{{headOfAccount | uppercase}}</td>
+                        </tr>
+
+                        <tr>
+                            <th class="table-secondary">Est/Scheme</th>
+                            <td colspan="3">{{establishment}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary">MJH</th>
+                            <td>{{majorHeadNumber}}</td>
+                            <th class="table-secondary">MJH Desc</th>
+                            <td>{{majorHeadDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary">SMJH</th>
+                            <td>{{subMajorHeadNumber}}</td>
+                            <th class="table-secondary">SMJH Desc</th>
+                            <td>{{subMajorHeadDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary">MH</th>
+                            <td>{{minorHeadNumber}}</td>
+                            <th class="table-secondary">MH Desc</th>
+                            <td>{{minorHeadDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary">GSH</th>
+                            <td>{{groupSubHeadNumber}}</td>
+                            <th class="table-secondary">GSH Desc</th>
+                            <td>{{groupSubHeadDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary">SH</th>
+                            <td>{{subHeadNumber}}</td>
+                            <th class="table-secondary">SH Desc</th>
+                            <td>{{subHeadDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary">DH</th>
+                            <td>{{detailedHeadNumber}}</td>
+                            <th class="table-secondary">DH Desc</th>
+                            <td>{{detailedHeadDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary">SDH</th>
+                            <td>{{subDetailedHeadNumber}}</td>
+                            <th class="table-secondary">SDH Desc</th>
+                            <td>{{subDetailedHeadDescription}}</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3" class="table-secondary">V/C</th>
+                            <td colspan="1">{{charged}}</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3" class="table-secondary">
+                                BE {{budgetYear}}
+                            </th>
+                            <td colspan="1">{{amount | currency:'':2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <modal1></modal1> -->
+
+<!-- <modal2></modal2> -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit HOA</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="hoaCard2 bg-white p-3">
+                    <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-3">
+                            <p class="hodPara">Name Of HOD:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="col-6 col-lg-7 w-100">
+                            <select class="form-select" aria-label="Default select example"
+                                ng-class="{'is-invalid': hodErrMsg}" ng-change="validateHod()" ng-model="hod">
+                                <option value="">Select an Option</option>
+                                <option ng-repeat="hoa in hoaDetails" value="hoa.head_of_dept">{{hoa.head_of_dept |
+                                    uppercase}}
+                                </option>
+                                <option ng-repeat="eachHead in headOfAccount">
+                                    {{eachHead.name}}</option>
+                            </select>
+                            <p class="errMsg text-danger m-0" ng-show="hodErrMsg">{{hodErrMsg}}</p>
+                        </div>
+                    </div>
+                    <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Budget Year:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="col-lg-7 w-100">
+                            <select class="form-select" aria-label="Default select example" ng-model="budget"
+                                ng-class="{'is-invalid': budgetErrMsg}" ng-change="validateBudget()">
+                                <option value="">Select an Option</option>
+                                <option ng-repeat="hoa in hoaDetails" value="hoa.budget_year">{{hoa.budget_year}}
+                                </option>
+                            </select>
+                            <p class="errMsg m-0 text-danger" ng-show="budgetErrMsg">{{budgetErrMsg}}</p>
+                        </div>
+                    </div>
+                    <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Establishment/Scheme:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="col-lg-7 w-100">
+                            <select class="form-select" aria-label="Default select example" ng-model="scheme"
+                                ng-class="{'is-invalid': schemeErrMsg}" ng-change="validateScheme()">
+                                <option value="">Select an Option</option>
+                                <option ng-repeat="hoa in hoaDetails" value="hoa.estb_scheme">{{hoa.estb_scheme}}
+                                </option>
+                            </select>
+                            <p class="m-0 errMsg text-danger" ng-show="schemeErrMsg">{{schemeErrMsg}}</p>
+                        </div>
+                    </div>
+                    <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Major Head:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="d-flex align-items-center col-lg-7">
+                            <div>
+                                <input type="text" class="hoaNum2 rounded ps-2 rounded" maxlength="4"
+                                    ng-model="majorHead" ng-class="{'is-invalid': majorHeadErrMsg}"
+                                    ng-change="validateMajorHead()" />
+                                <p class="m-0 errMsg text-danger" ng-show="majorHeadErrMsg">{{majorHeadErrMsg}}</p>
+                            </div>
+                            <div>
+                                <input type="text" class="hoaDescription2 rounded ms-5 ps-2" placeholder="Description"
+                                    ng-model="majorHeadDescription" ng-class="{'is-invalid': majorDescriptionErrMsg}"
+                                    ng-change="validateMajorDesc()"></input>
+                                <p class="m-0 errMsg text-danger ms-5" ng-show="majorDescriptionErrMsg">
+                                    {{majorDescriptionErrMsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Sub-Major Head:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="d-flex align-items-center col-lg-7">
+                            <div>
+                                <input type="text" class="hoaNum2 rounded ps-2" placeholder="xx" maxlength="2"
+                                    ng-model="subMajorHead" ng-class="{'is-invalid': subMajorHeadErrMsg}"
+                                    ng-change="validateSubMajorHead()" />
+                                <p class="m-0 errMsg text-danger" ng-show="subMajorHeadErrMsg">{{subMajorHeadErrMsg}}
+                                </p>
+                            </div>
+                            <div>
+                                <input type="text" class="hoaDescription2 rounded ms-5 ps-2" placeholder="Description"
+                                    ng-model="subMajorHeadDescription" ng-class="{'is-invalid': subMajorHeadDescErrMsg}"
+                                    ng-change="validateSubMajorDesc()"></input>
+                                <p class="m-0 errMsg text-danger ms-5" ng-show="subMajorHeadDescErrMsg">
+                                    {{subMajorHeadDescErrMsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Minor Head:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="d-flex align-items-center col-lg-7">
+                            <div>
+                                <input type="text" class="hoaNum2 rounded ps-2" placeholder="xxx" maxlength="3"
+                                    ng-model="minorHead" ng-class="{'is-invalid': minorHeadErrMsg}"
+                                    ng-change="validateMinorHead()" />
+                                <p class="m-0 errMsg text-danger" ng-show="minorHeadErrMsg">{{minorHeadErrMsg}}</p>
+                            </div>
+                            <div>
+                                <input type="text" class="hoaDescription2 rounded ms-5 ps-2" placeholder="Description"
+                                    ng-model="minorHeadDescription" ng-class="{'is-invalid': minorHeadDescErrMsg}"
+                                    ng-change="validateMinorHeadDesc()"></input>
+                                <p class="m-0 errMsg text-danger ms-5" ng-show="minorHeadDescErrMsg">
+                                    {{minorHeadDescErrMsg}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Group Sub Head:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="d-flex align-items-center col-lg-7">
+                            <div>
+                                <input type="text" class="hoaNum2 rounded ps-2" placeholder="xx" maxlength="2"
+                                    ng-model="groupSubHead" ng-class="{'is-invalid': groupSubHeadErrMsg}"
+                                    ng-change="validateGroupSubHead()" />
+                                <p class="m-0 errMsg text-danger" ng-show="groupSubHeadErrMsg">{{groupSubHeadErrMsg}}
+                                </p>
+                            </div>
+                            <div>
+                                <input type="text" class="hoaDescription2 rounded ms-5 ps-2" placeholder="Description"
+                                    ng-model="groupSubHeadDesc" ng-class="{'is-invalid': groupSubHeadDescErrMsg}"
+                                    ng-change="validateGroupSubHeadDesc()"></input>
+                                <p class="m-0 errMsg text-danger ms-5" ng-show="groupSubHeadDescErrMsg">
+                                    {{groupSubHeadDescErrMsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Sub Head:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="d-flex align-items-center col-lg-7">
+                            <div>
+                                <input type="text" class="hoaNum2 rounded ps-2" placeholder="xx" maxlength="2"
+                                    ng-model="subHead" ng-class="{'is-invalid':subHeadErrMsg}"
+                                    ng-change="validateSubHead()" />
+                                <p class="m-0 errMsg text-danger" ng-show="subHeadErrMsg">{{subHeadErrMsg}}</p>
+                            </div>
+                            <div>
+                                <input type="text" class="hoaDescription2 rounded ms-5 ps-2" placeholder="Description"
+                                    ng-model="subHeadDesc" ng-class="{'is-invalid': subHeadDescErrMsg}"
+                                    ng-change="validateSubHeadDesc()"></input>
+                                <p class="m-0 ms-5 text-danger errMsg" ng-show="subHeadDescErrMsg">{{subHeadDescErrMsg}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Detailed Head:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="d-flex align-items-center col-lg-7">
+                            <div>
+                                <input type="text" class="hoaNum2 rounded ps-2" placeholder="xxx" maxlength="3"
+                                    ng-model="detailedHead" ng-class="{'is-invalid': detailedHeadErrMsg}"
+                                    ng-change="validateDetailedHead()" />
+                                <p class="m-0 errMsg text-danger" ng-show="detailedHeadErrMsg">{{detailedHeadErrMsg}}
+                                </p>
+                            </div>
+                            <div>
+                                <input type="text" class="hoaDescription2 rounded ms-5 ps-2" placeholder="Description"
+                                    ng-model="detailedHeadDesc" ng-class="{'is-invalid': detailedHeadDescErrMsg}"
+                                    ng-change="validateDetailedHeadDesc()"></input>
+                                <p class="m-0 ms-5 errMsg text-danger" ng-show="detailedHeadDescErrMsg">
+                                    {{detailedHeadDescErrMsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Sub Detailed Head:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="d-flex align-items-center col-lg-7">
+                            <div>
+                                <input type="text" class="hoaNum2 rounded ps-2" placeholder="xxx" maxlength="3"
+                                    ng-model="subDetailedHead" ng-class="{'is-invalid': subDetailedErrMsg}"
+                                    ng-change="validateSubDetailHead()" />
+                                <p class="m-0 errMsg text-danger" ng-show="subDetailedErrMsg">{{subDetailedErrMsg}}</p>
+                            </div>
+                            <div>
+                                <input type="text" class="hoaDescription2 rounded ms-5 ps-2" placeholder="Description"
+                                    ng-model="subDetailedHeadDesc" ng-class="{'is-invalid': subDetailedDescErrMsg}"
+                                    ng-change="validateSubDetailedDesc()"></input>
+                                <p class="m-0 errMsg text-danger ms-5" ng-show="subDetailedDescErrMsg">
+                                    {{subDetailedDescErrMsg}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                        <div class="col-lg-3">
+                            <p class="hodPara">Charged/Voted:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class=" col-lg-7">
+                            <select id="votingSelect" aria-label="Default select example" ng-model="voting"
+                                ng-class="{'is-invalid': votingErrMsg}" ng-change="validateVoting()">
+                                <option value="">Select an Option</option>
+                                <option ng-repeat="eachHoa in hoaDetails" value="{{eachHoa.charged_voted}}">
+                                    {{eachHoa.charged_voted}}</option>
+                            </select>
+                            <p class="m-0 errMsg text-danger" ng-show="votingErrMsg">{{votingErrMsg}}</p>
+                        </div>
+                    </div>
+                    <div class="inputCont d-flex align-items-center mb-1">
+                        <div class="col-3">
+                            <p class="hodPara">Estimated Amount:<span class="text-danger">*</span></p>
+                        </div>
+                        <div class="w-100">
+                            <input type="number" class="hoaNum3 rounded ps-2 bg-warning bg-opacity-25"
+                                placeholder="0" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" ng-click="updateHoa(hoaId)">Update</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <modal2></modal2> -->
