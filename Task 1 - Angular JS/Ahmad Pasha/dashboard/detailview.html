@@ -1,0 +1,53 @@
+<div>
+  <div header></div>
+  <div loader ng-hide="{{'spinner'}}"></div>
+
+  <div
+    class="col-11 col-lg-10 m-auto bg-white shadow-lg mb-5 mt-2 pt-3 pb-1 border rounded-2 border-3 d-flex flex-column justify-content-center aligin-items-center">
+
+    <div class="d-flex text-center">
+
+      <div class="m-auto card rounded-circle p-3 text-dark fs-4 fw-bold" style="background-color: aquamarine; border: 6px dotted wheat;">
+        {{time}}</div>
+
+    </div>
+  
+
+    <div class="row">
+      <p class="me-5 px-5 text-end">
+        <a ui-sref="result({subjectId: subjectId,levelId: levelId,score: score})"><button
+            class="btn btn-danger px-3 fw-bold">Quit</button></a>
+        <br>
+        <span class="fw-bold"><span class="fs-4">Score: {{score}}</span><br>Questions
+          Attempted:{{i}}/{{questions.length}}<span></span>
+      </p>
+    </div>
+
+    <div class="row col-10 m-auto options_style mb-4 fs-3 fw-medium"><span>{{questions[i].name}}</span></div>
+
+
+    <div class="row gap-2 my-5 px-2">
+
+      <button class="btn btn-success col-5 text-center m-auto  fs-4 fw-medium"
+        ng-click="getValue(questions[i].first_option)" 
+        ng-class="selectedBtn==questions[i].first_option?'bg-primary':'options_style'">{{questions[i].first_option}}</button>
+      <button class="btn btn-success col-5 text-center m-auto  fs-4 fw-medium"
+        ng-click="getValue(questions[i].second_option)" 
+        ng-class="selectedBtn==questions[i].second_option?'bg-primary':'options_style'"><span>{{questions[i].second_option}}</span></button>
+      <button class="btn btn-success col-5 text-center m-auto  fs-4 fw-medium"
+        ng-click="getValue(questions[i].third_option)" 
+        ng-class="selectedBtn==questions[i].third_option?'bg-primary':'options_style'"><span>{{questions[i].third_option}}</span></button>
+      <button class="btn btn-success col-5 text-center m-auto fs-4 fw-medium"
+        ng-click="getValue(questions[i].fouth_option)"
+        ng-class="selectedBtn==questions[i].fouth_option?'bg-primary':'options_style'"><span>{{questions[i].fouth_option}}</span></button>
+    </div>
+    <p class="text-center fw-medium {{txt_color}} fst-italic fs-3">{{message}}</p>
+    <!-- <div class="row m-auto card bg-primary-subtle text-primary-emphasis fs-3 rounded-circle"><span ng-class="false?'text-warning':'text-danger'">{{showScore}}</span></div> -->
+    <div class="justify-content-center m-2 row gap-3">
+      <button class="btn options_style bg-body-tertiary border-2 border-primary text-primary col-2 fs-5 fw-bold shadow-lg"
+        ng-click="validate()" ng-hide="quationStatus">Submit</button>
+        <button class="btn options_style bg-body-tertiary text-primary col-2 fs-5 fw-bold shadow-lg" ng-show="quationStatus"
+        ng-click="next()">Next</button>
+    </div>
+  </div>
+</div>

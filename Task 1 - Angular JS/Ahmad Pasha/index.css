@@ -1,0 +1,43 @@
+.delete_button {
+  background-color: #44d1f833;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.historyBtn {
+  background-color: #ae0f9c;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.register {
+  border-radius: 1px 50px 1px 50px !important;
+}
+
+.historyCard{
+  min-height: 300px;
+}
+
+.qrCode{
+  height: 100px;
+  width: 100px;
+}
+
+.text_effect{
+text-shadow: 2px 2px 5px rgb(96, 89, 85);
+}
+
+.options_style{
+  border:  3px solid saddlebrown;
+  border-radius: 39px;
+  background-color: blueviolet;
+  text-shadow: #a853a5;
+  color: wheat;
+}
+
+.selected_btn{
+  background-color: beige;
+}
+
