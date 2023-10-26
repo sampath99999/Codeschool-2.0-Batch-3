@@ -166,6 +166,9 @@ app.controller("adminProductsController", [
       }).then(function (file) {
         if (file.isConfirmed) {
           $scope.editingProductImage[index] = file.value;
+          $scope.$apply(function () {
+            $scope.products[index].image = file.value.name;
+          });
           Swal.fire("Please Save the changes");
         } else {
           Swal.fire("You did not Choose any file");
