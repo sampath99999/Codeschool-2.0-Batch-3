@@ -1,0 +1,18 @@
+.cart-product-image-container{
+    max-width: 103px;
+max-height: 174px;
+text-align: center;
+
+}
+.cart-product-image-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.cart-product-item p{
+    margin-bottom: 8px;
+}
+.modal-body input{
+    border: 1px solid !important;
+}

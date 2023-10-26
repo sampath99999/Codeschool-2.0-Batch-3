@@ -1,0 +1,106 @@
+<div class="signup-container d-flex flex-column align-items-center" style="background-color: aliceblue;">
+    <h3 class="text-center">Create your account</h3>
+    <form class="col-lg-4 col-10" ng-submit="registerFormSubmission($event)">
+        <div>
+            <label for="register-name-id">Name*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="22"
+                    aria-describedby="inputGroup-sizing-default" id="register-name-id" ng-model="registerUserName"
+                    ng-blur="userNameValidation()" ng-class="{'is-invalid':registerUserNameError}">
+            </div>
+            <p ng-show="registerUserNameError" class="text-danger">{{registerUserNameError}}</p>
+        </div>
+        <div>
+            <label for="register-phone-id">Phone Number*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="10"
+                    aria-describedby="inputGroup-sizing-default" id="register-phone-id" ng-model="registerPhoneNumber"
+                    maxlength="10" ng-class="{'is-invalid':registerPhoneNumberError}" ng-blur="phoneNumberValidation()">
+            </div>
+            <p id="register-phone-error" ng-show="registerPhoneNumberError" class="text-danger">
+                {{registerPhoneNumberError}}</p>
+        </div>
+        <div>
+            <label>Email*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="22"
+                    aria-describedby="inputGroup-sizing-default" ng-model="registerUserEmail"
+                    ng-blur="userEmailValidation()" ng-class="{'is-invalid':registerUserEmailError}">
+            </div>
+            <p ng-show="registerUserEmailError" class="text-danger">{{registerUserEmailError}}</p>
+        </div>
+        <div class="d-flex justify-content-between gap-4 flex-column flex-lg-row">
+            <div class="flex-grow-1">
+                <label for="register-password-id">Password*</label>
+                <div class="input-group mb-1">
+                    <input type="password" class="form-control" aria-label="Sizing example input" maxlength="25"
+                        aria-describedby="inputGroup-sizing-default" id="register-password-id"
+                        ng-model="registerUserPassword" ng-class="{'is-invalid':registerUserPasswordError}"
+                        ng-blur="userPasswordValidation()">
+                </div>
+                <p id="register-password-error" ng-show="registerUserPasswordError" class="text-danger text-wrap">
+                    {{registerUserPasswordError}}</p>
+            </div>
+            <div class="flex-grow-1">
+                <label for="register-confirm-password-id">Confirm Password*</label>
+                <div class="input-group mb-1 ">
+                    <input type="password" class="form-control" aria-label="Sizing example input"
+                        id="register-confirm-password-id" maxlength="25" aria-describedby="inputGroup-sizing-default"
+                        ng-model="registerUserConfirmPassword"
+                        ng-class="{'is-invalid':registerUserConfirmPasswordError}"
+                        ng-blur="userPasswordConfirmValidation()">
+                </div>
+                <p id="register-password-error" ng-show="registerUserConfirmPasswordError" class="text-danger">
+                    {{registerUserConfirmPasswordError}}</p>
+            </div>
+        </div>
+        <div>
+            <label>Pincode*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="6"
+                    aria-describedby="inputGroup-sizing-default" ng-model="registerUserPincode"
+                    ng-blur="userPincodeValidation()" ng-class="{'is-invalid':registerUserPincodeError}">
+            </div>
+            <p ng-show="registerUserPincodeError" class="text-danger">{{registerUserPincodeError}}</p>
+        </div>
+        <div>
+            <label>Street*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="22"
+                    aria-describedby="inputGroup-sizing-default" ng-model="registerUserStreet"
+                    ng-blur="userStreetValidation()" ng-class="{'is-invalid':registerUserStreetError}">
+            </div>
+            <p ng-show="registerUserStreetError" class="text-danger">{{registerUserStreetError}}</p>
+        </div>
+        <div>
+            <label>Door Number*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="12"
+                    aria-describedby="inputGroup-sizing-default" ng-model="registerUserDno"
+                    ng-blur="userDnoValidation()" ng-class="{'is-invalid':registerUserDnoError}">
+            </div>
+            <p ng-show="registerUserDnoError" class="text-danger">{{registerUserDnoError}}</p>
+        </div>
+        <div>
+            <label>District*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="22"
+                    aria-describedby="inputGroup-sizing-default" ng-model="registerUserDistrict"
+                    ng-blur="userDistrictValidation()" ng-class="{'is-invalid':registerUserDistrictError}">
+            </div>
+            <p ng-show="registerUserDistrictError" class="text-danger">{{registerUserDistrictError}}</p>
+        </div>
+        <div>
+            <label>State*</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" aria-label="Sizing example input" maxlength="22"
+                    aria-describedby="inputGroup-sizing-default" ng-model="registerUserState"
+                    ng-blur="userStateValidation()" ng-class="{'is-invalid':registerUserStateError}">
+            </div>
+            <p ng-show="registerUserStateError" class="text-danger">{{registerUserStateError}}</p>
+        </div>
+        <button type="submit" class="w-100 btn btn-primary col-12 col-md-6 mt-2">Register</button>
+        <p id="register-form-error" class="text-danger fw-bold text-center">{{registerFormError}}</p>
+        <p class="text-center mt-2">Already have an account?<a class="login-link" href="#" ui-sref="login">Login</a></p>
+    </form>
+</div>

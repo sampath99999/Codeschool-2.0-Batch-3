@@ -1,0 +1,36 @@
+<div class="admin-container">
+    <h1 class="text-center">Welcome Admin</h1>
+    <div></div>
+    <h1 class="fw-bold text-center" style="font-size: 22px;">Edit Product</h1>
+    <div class="d-flex justify-content-center">
+        <div class="p-2">
+            <input type="number" class="border" placeholder="Enter product Id" ng-model="productId" />
+        </div>
+        <div>
+            <button class="btn btn-primary" ng-click="search()">search</button>
+        </div>
+    </div>
+    <div class="d-flex col-12 align-items-center justify-content-around">
+        <div class="col-3 text-center">
+            <h1 style="font-size: 19px;">Name</h1>
+            <p ng-show="!editMode">{{productData.name}}</p>
+            <input ng-show="editMode" ng-model="name" class="border" />
+        </div>
+        <div class="col-3 text-center">
+            <h1 style="font-size: 19px;">Price</h1>
+            <p ng-show="!editMode">{{productData.price}}</p>
+            <input ng-show="editMode" ng-model="price" class="border" />
+        </div>
+        <div class="col-3 text-center">
+            <h1 style="font-size: 19px;">Offer</h1>
+            <p ng-show="!editMode">{{productData.offer}}</p>
+            <input ng-show="editMode" ng-model="offer" class="border" />
+        </div>
+        <div class="col-3 text-center">
+            <button ng-show="!editMode" class="btn btn-primary" ng-click="edit()">Edit</button>
+            <button ng-show="editMode" class="btn btn-primary" ng-click="update()">Update</button>
+            <button ng-show="editMode" class="btn btn-primary" ng-click="close()">close</button>
+        </div>
+    </div>
+
+</div>

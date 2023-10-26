@@ -1,0 +1,28 @@
+<div class="d-flex min-vh-100 justify-content-center align-items-lg-center col-12" style="background-color: aliceblue;">
+    <div class="d-flex border border-1 col-6" style="margin-bottom: 10%;">
+        <div class="left-container col-6 p-2">
+            <h4>Login</h4>
+            <p>Get Access to your Orders Whislist and Recommendations</p>
+            <div>
+                <img src="./images/flipkart_login_image.png" />
+            </div>
+        </div>
+        <div class="right-container p-3 col-6 bg-white">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" ng-model="email" id="floatingInput1"
+                    placeholder="name@example.com" name="userEmail">
+                <label for="floatingInput1">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" ng-model="password" id="floatingInput2"
+                    placeholder="name@example.com" name="userPassword">
+                <label for="floatingInput2">Password</label>
+            </div>
+            <button type="button" ng-click="login()" class="btn text-white"
+                style="width: 100%;background-color: #fb641b;">Login</button>
+            <p class="text-danger" ng-show="userLoginError">*error</p>
+            <p>New to Flipkart ? <span class="fw-bold text-primary"><a style="cursor: pointer;"
+                        ui-sref="register">Create your account</a></span></p>
+        </div>
+    </div>
+</div>

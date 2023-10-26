@@ -1,0 +1,9 @@
+.left-container{
+    background-color:#2874f0;
+    color: white;
+}
+
+.form-floating{
+    border: 1px solid black !important;
+    border-radius: 5px;
+}

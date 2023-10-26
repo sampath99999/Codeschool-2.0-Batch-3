@@ -1,0 +1,78 @@
+<loader ng-show="showLoader"></loader>
+<div style="background-color: #F0F5FF;">
+    <div class="col-12 bg-white filters-container d-flex" style="min-height: 89vh;">
+        <div class="bg-white col-2 d-flex flex-column justify-content-around p-2" style="min-height:inherit">
+            <div class="d-flex justify-content-between">
+                <h4>Filters</h4>
+                <button class="btn text-primary fw-semibold" ng-click="clearFilters()">CLEAR ALL</button>
+            </div>
+            <div>
+                <h4>PRICE</h4>
+                <select ng-model="minPrice">
+                    <option value=''>Min</option>
+                    <option value=300>300</option>
+                    <option value=500>500</option>
+                    <option value=700>700</option>
+                </select>
+                <select ng-model="maxPrice">
+                    <option value=''>Max</option>
+                    <option value=500>500</option>
+                    <option value=700>700</option>
+                    <option value=1000>1000+</option>
+                </select>
+            </div>
+            <div>
+                <h4>Companies</h4>
+                <div>
+                    <div class="form-check" ng-repeat="item in companies">
+                        <!-- <input class="form-check-input" type="checkbox" ng-value="item.rating" id="flexCheckDefault{{item.id}}">
+                        <label class="form-check-label" for="flexCheckDefault{{item.id}}">
+                            {{item.name}}
+                        </label> -->
+                        <input type="checkbox" class="form-check-input" ng-model="selectedItems[item.id]"
+                            ng-checked="selectedItems[item.id]" ng-true-value="'{{item.id}}'" ng-false-value="''"
+                            id="item{{item.id}}">
+                        <label for="item{{item.id}}">{{item.name}}</label>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div>
+                <h4>Ratings</h4>
+                <div>
+                    <div class="form-check" ng-repeat="item in ratings">
+                        <input class="form-check-input" type="radio" ng-model="$parent.selectedRating"
+                            value={{item.rating}} name="ratings" value="" id="flexCheckRating{{item.id}}">
+                        <label class="form-check-label" for="flexCheckRating{{item.id}}">
+                            {{item.rating}} <span><i class="bi bi-star-fill"></i> &above</span>
+                        </label>
+                    </div>
+                </div>
+
+
+            </div>
+            <button class="btn btn-primary text-white" ng-click="applyFilters()">Apply</button>
+        </div>
+        <div class="col-10 d-flex p-3 flex-wrap">
+            <div class="card-container" ng-repeat="item in products" ng-click="productDetails(item.id)">
+                <div style="height: 60%;overflow: hidden;text-align: center;">
+                    <img style="height: 100%; object-fit: contain;" src={{item.product_link}} />
+                </div>
+                <div class="p-2">
+                    <p>{{item.name | truncateProductTitle}}</p>
+                    <p class="text-white rating" style="background-color:#388E3C;">{{item.rating}}<span
+                            style="font-size: 13px;margin-left: 4px;"><i class="bi bi-star-fill"></i></span></p>
+                    <div class="d-flex gap-3">
+                        <p ng-if="item.offer>0"><span>$</span>{{item.current_price}}<span></p>
+                        <div class="d-flex">
+                            <p class="text-decoration-line-through"><span>$</span>{{item.price}}</p>
+                            <span ng-if="item.offer>0" class="text-success fw-semibold ms-2">{{item.offer}}% off</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

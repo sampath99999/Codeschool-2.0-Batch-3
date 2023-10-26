@@ -1,0 +1,20 @@
+<loader ng-show="showLoader"></loader>
+<div class="col-12 d-flex p-3 flex-wrap">
+    <div class="card-container" ng-repeat="item in product track by $index" ng-click="goToProductDescription(item.id)">
+        <div style="height: 60%;overflow: hidden;text-align: center;">
+            <img style="height: 100%; object-fit: contain;" src={{item.product_link}} />
+        </div>
+        <div class="p-2">
+            <p>{{item.name | truncateProductTitle}}</p>
+            <p class="text-white rating" style="background-color:#388E3C;">{{item.rating}}<span
+                    style="font-size: 13px;margin-left: 4px;"><i class="bi bi-star-fill"></i></span></p>
+            <div class="d-flex gap-3">
+                <p ng-if="item.offer>0"><span>$</span>{{item.current_price}}<span></p>
+                <div class="d-flex">
+                    <p class="text-decoration-line-through"><span>$</span>{{item.price}}</p>
+                    <span ng-if="item.offer>0" class="text-success fw-semibold ms-2">{{item.offer}}% off</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+.filters-container input{
+    border: 1px solid black !important;
+  
+}
+
+.card-container{
+    height: 320px;
+    width: 277px;
+    padding: 9px;
+}
+
+.card-container p{
+    margin-bottom: 6px;
+}
+
+.card-container .rating{
+    background-color: #388E3C;
+    display: inline;
+    padding: 3px;
+    border-radius: 5px;
+}
+.card-container:hover{
+    box-shadow: 5px 5px 10px 2px #888888;
+}

@@ -1,0 +1,51 @@
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">ORDER DETAILS</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex col-12 justify-content-around" ng-repeat="item in orderDetails">
+          <div class="col-4">
+            <p class="fw-bold">Product ID: <span>{{item.id}}</span></p>
+          </div>
+          <div class="col-4">
+            <p class="fw-bold">Name: <span>{{item.name}}</span></p>
+          </div>
+          <div class="col-2 ms-2">
+            <p class="fw-bold">Price: <span>{{item.product_price}}</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ORDER ID</th>
+      <th>SHIPPER NAME</th>
+      <th>ORDER DATE</th>
+      <th>ORDER AMOUNT</th>
+      <th>SHIPPER PHONE NUMBER</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="order in orders">
+      <td>{{order.id}}</td>
+      <td>{{order.name}}</td>
+      <td>{{order.order_date | date: 'dd-MM-yyyy'}}</td>
+      <td>${{order.order_amount}}</td>
+      <td>{{order.phone}}</td>
+      <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+          ng-click="viewMore(order.id)">view Details</button></td>
+    </tr>
+  </tbody>
+</table>
