@@ -1,28 +1,30 @@
-app.controller("homeController", function ($scope, $http, $state, $rootScope) {
+app.controller("homeController", function ($scope, $http, $state,$location) {
   $scope.userId = localStorage.getItem("user_id");
   $scope.userType = localStorage.getItem("user_type");
 
-  if ($scope.userId==undefined || $scope.userId==null) {
-    $state.go("login");
+  if (!$scope.userId) {
+    $location.path("/login");
+    return
   }
 
   $scope.spinner = false;
-  if ($scope.userType == "null" || $scope.userType == null) {
+  if (!$scope.userType) {
     $state.go("home");
+    return;
   }
 
   if ($scope.userType == "admin") {
     $state.go("admin");
+    return
   }
 
 
 
   $scope.logout = function () {
-    $rootScope.type = null;
-    $rootScope.id = null;
     localStorage.removeItem("user_id");
     localStorage.removeItem("user_type");
     $state.go("login");
+    return
   };
 
   $http

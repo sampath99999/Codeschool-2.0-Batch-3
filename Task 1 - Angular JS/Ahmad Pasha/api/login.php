@@ -40,6 +40,8 @@ $user = $statment->fetchAll(PDO::FETCH_ASSOC);
 
 if (count($user) == 1) {
     $response["message"] = "LoggedIn Successfully!";
+
+    
     $response["data"] = $user[0];
     echo json_encode($response);
     exit;
@@ -50,4 +52,3 @@ if (count($user) == 1) {
     exit;
 }
 
-echo "Only POST request is accepted!";

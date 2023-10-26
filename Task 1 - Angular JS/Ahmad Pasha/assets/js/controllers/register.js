@@ -4,6 +4,7 @@ app.controller(
     let userId = window.localStorage.getItem("user_id");
     if (userId) {
       $state.go("home");
+      return
     }
 
     $scope.register = () => {

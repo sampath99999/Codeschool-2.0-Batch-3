@@ -53,7 +53,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: "/result/:subjectId/:levelId/:score",
             templateUrl: "./dashboard/result.html",
             controller: "resultController"
+        }).state({
+            name: "pageNotFound",
+            url: "/pageNotFound",
+            templateUrl: "./dashboard/pageNotFound.html"
         })
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/pageNotFound");
 })

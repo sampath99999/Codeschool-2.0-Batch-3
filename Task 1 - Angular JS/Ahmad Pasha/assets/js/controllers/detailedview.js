@@ -6,8 +6,7 @@ app.controller(
     $stateParams,
     $state,
     $interval,
-    $httpParamSerializerJQLike,
-    $rootScope
+    $httpParamSerializerJQLike
   ) {
     $scope.subjectId = $stateParams.subjectId;
     $scope.userId = localStorage.getItem("user_id");
@@ -25,8 +24,6 @@ app.controller(
 
     $scope.check = true;
     $scope.logout = function () {
-      $rootScope.type = null;
-      $rootScope.id = null;
       localStorage.removeItem("user_id");
       localStorage.removeItem("user_type");
       $state.go("login");
@@ -113,6 +110,8 @@ app.controller(
         $scope.txt_color = "text-success";
         $scope.score = $scope.score + 10;
         $scope.quationStatus = true;
+        $scope.selectedBtn="";
+        return
       }
       if ($scope.answer !== $scope.selectedBtn) {
         $scope.showScore = "-1";
@@ -120,6 +119,8 @@ app.controller(
         $scope.message = `Correct Answer is ${$scope.answer}`;
         $scope.txt_color = "text-danger";
         $scope.quationStatus = true;
+        $scope.selectedBtn="";
+        return
       }
     };
 

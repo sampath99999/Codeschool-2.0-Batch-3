@@ -12,11 +12,13 @@
 
         <div class="d-flex me-0 gap-2 justify-content-end align-items-center">
           <button ng-click="logout()" class="delete_button">LogOut</button>
-          <button ng-click="ticketHistory()" class="historyBtn">
+          <a ui-sref="history">
+          <button  class="historyBtn">
             History
           </button>
+        </a>
           <a ui-sref="leaderBoard">
-            <button class="btn btn-info">
+            <button class="btn btn-info text-white py-2">
               Leader Board
             </button>
           </a>

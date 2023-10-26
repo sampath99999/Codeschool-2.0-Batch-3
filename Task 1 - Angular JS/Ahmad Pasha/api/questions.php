@@ -2,6 +2,7 @@
 require_once "dbConfig.php";
 
 
+
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $response = ["status" => false, "message" => "", "data" => null];
 

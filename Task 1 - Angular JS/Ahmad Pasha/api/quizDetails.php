@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
     $subjectId = $_GET["subject_id"];
     $levelId = $_GET['level_id'];
-    // $pdo = getPDO();
+  
     $query = "
     SELECT questions.name,options.first_option,OPTIONS.second_option,OPTIONs.third_option,OPTIONS.fouth_option,answers.answer
 FROM questions

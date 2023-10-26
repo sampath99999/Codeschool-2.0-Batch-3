@@ -1,6 +1,6 @@
 app.controller(
   "loginController",
-  function ($scope, $http, $state, $rootScope, $httpParamSerializerJQLike) {
+  function ($scope, $http, $state, $httpParamSerializerJQLike,$rootScope) {
     $scope.userId = localStorage.getItem("user_id");
     $scope.userType = localStorage.getItem("user_type");
     if ($scope.userType == "admin") {
@@ -51,26 +51,30 @@ app.controller(
           .then(
             function success(response) {
               if (response.data.status) {
-                $rootScope.type = response.data.data.type;
-                $rootScope.id = response.data.data.id;
-                localStorage.setItem("user_id", $rootScope.id);
-                localStorage.setItem("user_type", $rootScope.type);
+                $scope.type = response.data.data.type;
+                $scope.id = response.data.data.id;
+                localStorage.setItem("user_id", $scope.id);
+                localStorage.setItem("user_type", $scope.type);
                 if ($rootScope.type == "admin") {
                   $state.go("admin");
+                  return
                 } else {
                   $state.go("home");
+                  return
                 }
               } else {
                 $scope.userNotFoundErr = data.data.message;
+                return
               }
               return true;
             },
             function error(error) {
+              $scope.userNotFoundErr = "Please Provide Vaild Details";
               console.log(error);
             }
           )
           .catch(function (error) {
-            console.log(error);
+            $scope.userNotFoundErr = "Please Provide Vaild Details";
             console.log("error in api .....");
           });
       }

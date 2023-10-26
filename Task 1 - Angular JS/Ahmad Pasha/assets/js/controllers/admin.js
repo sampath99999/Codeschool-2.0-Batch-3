@@ -6,14 +6,14 @@ app.controller(
 
     if (!$scope.userId) {
       $state.go("login");
+      return
     }
     if ($scope.userType == "null" || $scope.userType == null) {
       $state.go("home");
+      return
     }
 
     $scope.logout = function () {
-      $rootScope.type = null;
-      $rootScope.id = null;
       localStorage.removeItem("user_id");
       localStorage.removeItem("user_type");
       $state.go("login");
