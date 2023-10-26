@@ -1,0 +1,42 @@
+<navbar></navbar>
+<div ng-show="loader" id="preloader">
+  <div id="loader"></div>
+</div>
+<div ng-hide="loader" class="container mt-5 checkout-bg">
+  <div class="row">
+    <div class="col-12" ng-show="total">
+      <h1>Checkout Page</h1>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Preview</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in cart track by $index">
+            <td>{{product.title}}</td>
+            <td>
+              <img ng-src="{{product.image}}" class="checkout-img" alt="" />
+            </td>
+            <td>{{product.price | currency}}</td>
+            <td>{{product.quantity}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-end">
+        <h5>Total Price: {{total | currency}}</h5>
+      </div>
+      <div class="text-center mt-3 mb-2">
+        <button class="btn btn-success" ng-click="checkout()">
+          Place Order
+        </button>
+      </div>
+    </div>
+  </div>
+  <div ng-hide="total" class="text-center mt-3">
+    <h1>PLEASE ADD ITEMS TO YOUR CART</h1>
+  </div>
+</div>

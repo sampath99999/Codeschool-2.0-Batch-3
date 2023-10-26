@@ -1,0 +1,110 @@
+<admin-navbar></admin-navbar>
+<div ng-init="width = 'me-3 side-half'">
+  <div ng-show="loader" id="preloader">
+    <div id="loader"></div>
+  </div>
+  <div class=" {{width}} ms-auto px-5">
+    <input
+      type="text"
+      ng-model="searchItem"
+      class="form-control"
+      placeholder="Search User"
+    />
+  </div>
+
+  <div class="container my-5 checkout-bg {{width}}">
+    <div class="row">
+      <div class="col-12">
+        <h1>ALL CURRENT USERS</h1>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Registration Date</th>
+                <th>Is Active</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in users | filter:searchItem track by $index">
+                <td>{{user.user_id}}</td>
+                <td>
+                  <span ng-hide="user.editing">{{user.first_name}}</span>
+                  <input
+                    ng-show="user.editing"
+                    ng-model="user.first_name"
+                    class="form-control"
+                  />
+                </td>
+                <td>
+                  <span ng-hide="user.editing">{{user.last_name}}</span>
+                  <input
+                    ng-show="user.editing"
+                    ng-model="user.last_name"
+                    class="form-control"
+                  />
+                </td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.password}}</td>
+                <td>
+                  <span ng-hide="user.editing">{{user.address}}</span>
+                  <input
+                    ng-show="user.editing"
+                    ng-model="user.address"
+                    class="form-control"
+                  />
+                </td>
+                <td>{{user.phone_number}}</td>
+                <td>{{user.registration_date}}</td>
+                <td>
+                  <span ng-hide="user.editing">
+                    {{user.is_active ? 'True' : 'False'}}
+                  </span>
+                  <select
+                    ng-show="user.editing"
+                    ng-model="user.is_active"
+                    class="form-control"
+                  >
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </td>
+                <td>
+                  <div
+                    class="btn btn-danger"
+                    ng-click="removeUser(user.user_id, $index)"
+                    ng-hide="user.editing"
+                  >
+                    Delete User
+                  </div>
+                  <div
+                    class="btn btn-danger"
+                    ng-click="cancelEdit(user,$index)"
+                    ng-show="user.editing"
+                  >
+                    Cancel
+                  </div>
+                  <div
+                    class="btn btn-primary"
+                    ng-click="toggleEdit(user,$index)"
+                  >
+                    {{user.editing ? 'Save' : 'Edit User'}}
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

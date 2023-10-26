@@ -1,0 +1,69 @@
+<admin-navbar></admin-navbar>
+<div ng-init="width = 'me-3 side-half'">
+  <div ng-show="loader" id="preloader">
+    <div id="loader"></div>
+  </div>
+  <div class=" {{width}} ms-auto px-5">
+    <form name="searchUserForm" ng-submit="findUser()">
+      <div class="mb-3">
+        <label for="searchUser" class="form-label">Search User</label>
+        <input
+          type="email"
+          class="form-control"
+          ng-model="searchUser"
+          name="searchUser"
+          placeholder="Search User with Email"
+          required
+          ng-minlength="1"
+          ng-maxlength="255"
+        />
+        <div
+          ng-show="searchUserForm.name.$invalid && !searchUserForm.name.$pristine"
+        >
+          <span class="text-danger">User Email is Required!</span>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        ng-disabled="searchUserForm.$invalid"
+      >
+        Find
+      </button>
+    </form>
+    <div class="card mt-4 mb-4" ng-show="changeRole">
+      <div class="card-body">
+        <h5 class="card-title">CHANGE USER ROLE</h5>
+        <div>
+          <div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Current Role</label>
+              <input type="text" value="{{curRole}}" disabled />
+            </div>
+            <div class="mb-3">
+              <label for="newRole" class="form-label">New Role</label>
+              <select
+                ng-model="newRole"
+                class="form-control"
+                ng-disabled="curRole === 'admin'"
+              >
+                <option value="" disabled>Select</option>
+                <option
+                  ng-repeat="role in roles"
+                  value="{{role.id}}"
+                  ng-disabled="curRole === role.role"
+                >
+                  {{role.role}}
+                </option>
+              </select>
+            </div>
+
+            <div class="btn btn-primary" ng-click="updateRole()">
+              Change Role
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

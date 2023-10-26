@@ -1,0 +1,65 @@
+<navbar></navbar>
+<div ng-show="loader" id="preloader">
+  <div id="loader"></div>
+</div>
+<div>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mb-5">
+          <div class="card-header fw-bold">Login</div>
+          <div class="card-body">
+            <form ng-submit="login()" name="userForm">
+              <div class="mb-3">
+                <label for="email" class="form-label"
+                  >Email<span class="text-danger">*</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  ng-model="email"
+                  name="email"
+                  ng-required="true"
+                />
+                <div
+                  ng-messages="userForm.email.$error"
+                  ng-if="userForm.email.$touched"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Email is required.
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label"
+                  >Password<span class="text-danger">*</span></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  ng-model="password"
+                  name="password"
+                  ng-required="true"
+                />
+                <div
+                  ng-if="userForm.password.$touched"
+                  ng-messages="userForm.password.$error"
+                >
+                  <div class="text-danger" ng-message="required">
+                    Password is required.
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <div class="text-danger" ng-show="valid">
+              Enter Valid Email or Password
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

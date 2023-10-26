@@ -1,0 +1,42 @@
+<admin-navbar></admin-navbar>
+<div ng-init="width = 'me-3 side-half'">
+  <div ng-show="loader" id="preloader">
+    <div id="loader"></div>
+  </div>
+
+  <div class="container my-5 checkout-bg {{width}}">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-between mb-3">
+          <h1>ALL USERS ROLES</h1>
+          <button class="btn btn-primary mt-2" ng-click="showRoleModal()">
+            Add Roles
+          </button>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Role ID</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="role in roles">
+              <td>{{role.id}}</td>
+              <td>{{role.role}}</td>
+              <td>
+                <div
+                  class="btn btn-danger"
+                  ng-click="removeRole(role.id, $index)"
+                >
+                  Remove Role
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

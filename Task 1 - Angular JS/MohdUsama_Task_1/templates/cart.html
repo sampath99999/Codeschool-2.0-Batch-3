@@ -1,0 +1,72 @@
+<navbar></navbar>
+<div ng-show="loader" id="preloader">
+  <div id="loader"></div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12" ng-show="total">
+      <h2 class="">Your Cart</h2>
+      <div class="card mb-3" ng-repeat="product in cart track by $index">
+        <div class="row no-gutters">
+          <div
+            class="col-md-4 d-flex justify-content-center align-items-center my-2"
+          >
+            <img
+              ng-src="{{product.image}}"
+              alt="{{product.title}}"
+              class="card-img product-img"
+            />
+          </div>
+          <div class="col-md-8 cart-card-color ">
+            <div class="card-body">
+              <h5 class="card-title">{{product.title}}</h5>
+              <p class="card-text">{{product.description}}<span>...</span></p>
+              <p class="card-text">
+                <small class="text-muted">{{product.price | currency}}</small>
+              </p>
+              <p class="card-text">
+                <small class="fw-bold">Quantity:</small>
+              </p>
+
+              <div class="border border-2 d-inline-block rounded">
+                <div
+                  class="btn btn-danger btn-sm"
+                  ng-click="decrementQuantity($index)"
+                >
+                  -
+                </div>
+                {{product.quantity}}
+                <div
+                  class="btn btn-success btn-sm"
+                  ng-click="incrementQuantity($index)"
+                >
+                  +
+                </div>
+              </div>
+              <a ui-sref="product({id: product.id})" class="btn btn-primary"
+                >View Product</a
+              >
+              <button
+                class="btn btn-danger float-end"
+                ng-click="removeFromCart($index)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-3 mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Cart Total</h5>
+          <p class="card-text">Items in Cart: {{cart.length}}</p>
+          <p class="card-text">Total Price: {{total | currency}}</p>
+          <a ui-sref="checkout" class="btn btn-success">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-hide="total" class="text-center mt-3 checkout-bg">
+    <h1>PLEASE ADD ITEMS TO YOUR CART</h1>
+  </div>
+</div>

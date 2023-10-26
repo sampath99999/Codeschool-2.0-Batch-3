@@ -1,0 +1,40 @@
+
+<div class="container-fluid" style="height: 70px">
+  <div class="header">
+    <div>
+      <ul
+        class="navbar-nav ms-auto ps-4 align-items-center d-flex flex-row gap-4"
+      >
+        <li class="nav-item">
+          <a class="nav-link" ui-sref="categories">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" ui-sref="products">Products</a>
+        </li>
+        <li ng-hide="isLoggedIn" class="nav-item">
+          <a class="nav-link" ui-sref="login">Login</a>
+        </li>
+        <li ng-hide="isLoggedIn" class="nav-item">
+          <a class="nav-link" ui-sref="register">Register</a>
+        </li>
+        <li ng-show="isLoggedIn" class="nav-item">
+          <a class="nav-link" ui-sref="login" ng-click="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div class="search-and-icons d-flex align-items-center me-4">
+      <div class="user-icons d-flex">
+        <div ui-sref="orders" class="account me-2 cart">
+          <i class="bi bi-person"></i>
+        </div>
+        <div ui-sref="cart" ng-show="isLoggedIn" class="cart position-relative">
+          <i class="bi bi-cart3"></i>
+          <span
+            class="badge bg-primary position-absolute top-0 start-100 translate-middle"
+            >{{items}}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

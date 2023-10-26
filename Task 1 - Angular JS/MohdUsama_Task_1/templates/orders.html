@@ -1,0 +1,27 @@
+<navbar></navbar>
+<div ng-show="loader" id="preloader">
+  <div id="loader"></div>
+</div>
+<div class="container my-5 checkout-bg">
+  <div class="row">
+    <div class="col-12">
+      <h1>Your Orders</h1>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="order in orders track by $index">
+            <td>{{order.product_name}}</td>
+            <td>{{order.unit_price | currency}}</td>
+            <td>{{order.quantity}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
