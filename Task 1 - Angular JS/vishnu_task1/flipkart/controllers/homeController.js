@@ -1,14 +1,17 @@
 app.controller(
   "homeCtrl",
-  function ($scope, $rootScope, $cookies, $state, $http) {
+  function ($scope, $rootScope, $cookies, $state, $http, $location) {
     const token = $cookies.get("token");
-    if (token) {
-      $rootScope.loginStatus = true;
-    }
-
+    $rootScope.adminPortalVisible = false;
+    console.log($rootScope.loginStatus);
     $scope.categories = [];
     $scope.groceryAndFashion = [];
     $scope.mobilesAndFashion = [];
+    $rootScope.cartVisible = true;
+
+    if (token) {
+      $rootScope.loginStatus = true;
+    }
 
     $http
       .get("./api/getHomePageDetails.php", {

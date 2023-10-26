@@ -11,8 +11,8 @@
     </div>
     <div class="col-5 d-flex justify-content-center">
         <div class="d-flex align-items-center gap-4">
-            <div ng-show="!loginStatus">
-                <a>
+            <div>
+                <a ui-sref="admin" ng-show="adminPortalVisible" class="text-black text-decoration-none">
                     <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/Store-9eeae2.svg"
                         alt="Become a Seller">
                     <span>Admin Portal</span>
@@ -36,7 +36,7 @@
                     </button>
                     <div class="dropdown-content rounded">
                         <ul class="list-unstyled">
-                            <li ng-show="!loginStatus"><a href="#" class="border">New Customer ?<span
+                            <li ng-show="!loginStatus"><a href="#" ui-sref="register" class="border">New Customer ?<span
                                         class="ms-3 fw-bold text-primary">Sign up</span></a></li>
                             <li>
                                 <a>
@@ -53,7 +53,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a>
+                                <a ui-sref="orders">
                                     <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/orders-bfe8c4.svg"
                                         alt="Orders" width="24" height="24">
                                     <span class="ms-2">Orders</span>
@@ -65,7 +65,7 @@
             </div>
             <div>
                 <div style="cursor: pointer;">
-                    <a ui-sref="cart" title="Cart" class="text-decoration-none">
+                    <a ui-sref="cart" title="Cart"  class="text-decoration-none">
                         <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart-eed150.svg"
                             alt="Cart" width="24" height="24">
                         <span class="text-decoration-none text-black">Cart</span>

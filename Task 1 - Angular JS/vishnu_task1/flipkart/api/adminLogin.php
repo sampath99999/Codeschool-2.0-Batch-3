@@ -4,6 +4,7 @@ require_once "./dbConfig.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = ["status" => false, "message" => "", "data" => null];
+
     if (empty($_POST["userEmail"])) {
         http_response_code(400);
         echo "*User email is not configured in your call";
@@ -32,11 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $pdo = getPDO();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "select * from customers where email=? and (role=? or role=?) ";
+        $query = "select * from customers where email=? and password=? and role=?";
         $statement = $pdo->prepare($query);
-        $statement->execute([$userEmail, 1,2]);
+        $statement->execute([$userEmail, $userPassword, 2]);
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-        if ($user && password_verify($userPassword, $user["password"])) {
+        if ($user) {
             $response["message"] = "Logged In Successfully";
             $response["status"] = true;
             $data = ["id" => $user['id'], "role" => $user['role']];

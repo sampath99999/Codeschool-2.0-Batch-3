@@ -1,0 +1,11 @@
+.sign-up-link,.login-link{
+    text-decoration: none;
+}
+.sign-up-link:hover,.login-link:hover{
+    text-decoration: underline;
+}
+
+.signup-container{
+    background-size: cover;
+    min-height: 100vh;
+}

@@ -64,6 +64,24 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     templateUrl: "./components/Products/searchProduct.html",
     controller: "searchCtrl",
   });
+  $stateProvider.state({
+    name: "admin",
+    url: "/admin",
+    templateUrl: "./components/Admin/admin.html",
+    controller: "adminCtrl",
+  });
+  $stateProvider.state({
+    name: "orders",
+    url: "/orders",
+    templateUrl: "./components/viewOrders/viewOrders.html",
+    controller: "orderCtrl",
+  });
+  $stateProvider.state({
+    name: "adminHomepage",
+    url: "/admin/home",
+    templateUrl: "./components/admin/adminHome.html",
+    controller: "adminHomeCtrl",
+  });
 
   $urlRouterProvider.otherwise("/login");
 });

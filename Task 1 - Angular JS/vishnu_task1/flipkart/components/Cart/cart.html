@@ -9,8 +9,8 @@
                 <div class="modal-body p-0">
                     <div class="border p-3" ng-repeat="mode in paymentModes">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{mode.id}}"
-                                 ng-click="changePaymentMode(mode.id)">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                id="flexRadioDefault{{mode.id}}" ng-click="changePaymentMode(mode.id)">
                             <label class="form-check-label" for="flexRadioDefault{{mode.id}}">
                                 {{mode.name}}
                             </label>
@@ -35,7 +35,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="confirmPayment(cardNumber,cvv)">Confirm</button>
+                    <button type="button" class="btn btn-primary"
+                        ng-click="confirmPayment(cardNumber,cvv)">Confirm</button>
                 </div>
             </div>
         </div>
@@ -61,13 +62,15 @@
                             <div class="d-flex gap-3 mt-2">
                                 <button class="border" style="border-radius: 50%;" fdprocessedid="zrwnil"><i
                                         class="bi bi-dash" ng-click="decreaseQuantity(item.id)"></i></button>
-                                <span style="border: 1px solid;padding: 0px 13px;font-weight: bold;">{{item.quantity}}</span>
+                                <span
+                                    style="border: 1px solid;padding: 0px 13px;font-weight: bold;">{{item.quantity}}</span>
                                 <button class="border" style="border-radius: 50%;" fdprocessedid="hk3vv9"><i
                                         class="bi bi-plus-lg" ng-click="increaseQuantity(item.id)"></i></button>
                             </div>
                         </div>
                         <div class="col-6 pe-3">
-                            <h6 class="text-nowrap overflow-hidden" style="text-align: justify;text-overflow: ellipsis !important;">{{item.name}}</h6>
+                            <h6 class="text-nowrap overflow-hidden"
+                                style="text-align: justify;text-overflow: ellipsis !important;">{{item.name}}</h6>
                             <p>Seller:<span>Unilever company</span></p>
                             <p>Price:<span>{{item.price}}/-</span></p>
                             <button type="button" ng-click="removeItem(item.id)" class="btn btn-danger">Remove</button>
@@ -115,10 +118,11 @@
                     </div>
                 </div>
                 <div class="text-center">
-                     <button class="btn btn-primary" ng-if="cartLength>0" data-bs-toggle="modal" data-bs-target="#exampleModal" fdprocessedid="zi8qzp">
-                      Checkout</button>
+                    <button class="btn btn-primary" ng-if="cartLength>0" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" fdprocessedid="zi8qzp">
+                        Checkout</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>ā

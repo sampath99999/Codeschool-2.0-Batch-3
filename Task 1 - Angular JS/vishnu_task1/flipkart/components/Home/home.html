@@ -1,13 +1,12 @@
 <loader ng-show="showLoader"></loader>
-<div style="background-color: #f1f2f4;padding:23px;" ng-show="!showLoader">   
+<div style="background-color: #f1f2f4;padding:23px;" ng-show="!showLoader">
     <div style="background-color: white;padding: 6px;">
         <ul class="list-unstyled d-flex justify-content-around">
             <li ng-repeat="item in categories track by $index" ng-click="categoryRelatedProducts(item.id)">
                 <a>
                     <div class="text-center">
                         <div>
-                            <img alt="Fashion"
-                                src={{item.image}}>
+                            <img alt="Fashion" src={{item.image}}>
                         </div>
                         <span class="fw-bold">{{item.name}}</span>
                     </div>
@@ -57,11 +56,12 @@
                 <h4>Mobiles And Fashion</h4>
             </div>
             <div class="d-flex justify-content-between">
-                <div class="text-center border bg-white d-flex flex-column justify-content-around" ng-repeat="item in mobilesAndFashion" style="height: 258px;
+                <div class="text-center border bg-white d-flex flex-column justify-content-around"
+                    ng-repeat="item in mobilesAndFashion" style="height: 258px;
             width: 202px;" ng-click="goToProductDescription(item.id)">
                     <div style="height: 57%;">
-                        <img class="h-100 image-container" style="width:90%;object-fit:contain;" src={{item.product_link}}
-                            alt="Image">
+                        <img class="h-100 image-container" style="width:90%;object-fit:contain;"
+                            src={{item.product_link}} alt="Image">
                     </div>
                     <div class="p-2">
                         <p class="mb-0 text-nowrap" style="text-overflow: ellipsis;overflow: hidden;">{{item.name}}</p>
@@ -76,11 +76,12 @@
                 <h4>Grocery And Fashion</h4>
             </div>
             <div class="d-flex justify-content-between">
-                <div class="text-center border bg-white d-flex flex-column justify-content-around" ng-repeat="item in groceryAndFashion" style="height: 258px;
+                <div class="text-center border bg-white d-flex flex-column justify-content-around"
+                    ng-repeat="item in groceryAndFashion" style="height: 258px;
             width: 202px;" ng-click="goToProductDescription(item.id)">
                     <div style="height: 57%;">
-                        <img class="h-100 image-container" style="width:90%;object-fit:contain;" src={{item.product_link}}
-                            alt="Image">
+                        <img class="h-100 image-container" style="width:90%;object-fit:contain;"
+                            src={{item.product_link}} alt="Image">
                     </div>
                     <div class="p-2">
                         <p class="mb-0 text-nowrap" style="text-overflow: ellipsis;overflow: hidden;">{{item.name}}</p>

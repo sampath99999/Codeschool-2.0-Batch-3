@@ -1,13 +1,12 @@
 app.controller(
-  "loginCtrl",
+  "adminCtrl",
   function ($scope, $http, $rootScope, $location, $cookies, $location) {
     const token = $cookies.get("token");
-    $scope.loginStatus = false;
     $rootScope.adminPortalVisible = true;
     if (token) {
-      $location.path("/").replace();
+      $rootScope.loginStatus = true;
     }
-    $scope.email = "rahul@gmail.com";
+    $scope.email = "raj@gmail.com";
     $scope.password = "asdW#3";
     $rootScope.loginStatus = false;
     $scope.login = function () {
@@ -17,19 +16,17 @@ app.controller(
       };
       const ulrEncodedUserData = jQuery.param(userCredentials);
       $http
-        .post("./api/userAuthentication.php", ulrEncodedUserData, {
+        .post("./api/adminLogin.php", ulrEncodedUserData, {
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
         })
         .then(
           (response) => {
             if (response.data.status === true) {
               const userId = response.data.data;
-              console.log(userId);
               $cookies.put("token", userId, {
                 expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
               });
-              $rootScope.loginStatus = true;
-              $location.path("/").replace();
+              $location.path("/admin/home").replace();
             } else {
               console.log(response);
             }

@@ -16,6 +16,7 @@ app.controller(
   "appCtrl",
   function ($scope, $location, $cookies, $rootScope, $state) {
     $rootScope.showLoader = true;
+    $rootScope.adminPortalVisible=true;
     $scope.logout = function () {
       $cookies.remove("token");
       $location.path("login").replace();

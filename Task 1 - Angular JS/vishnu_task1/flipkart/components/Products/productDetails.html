@@ -7,24 +7,27 @@
             </div>
             <div class="col-8 p-4 bg-white">
                 <h3 style="font-size: 20px;">
-                   {{productDetails.name}}</h3>
-                <p class="text-white rating d-inline rounded p-1" style="background-color:#388E3C;">{{productDetails.rating}}<span style="font-size: 13px;margin-left: 4px;"><i class="bi bi-star-fill"></i></span></p>
+                    {{productDetails.name}}</h3>
+                <p class="text-white rating d-inline rounded p-1" style="background-color:#388E3C;">
+                    {{productDetails.rating}}<span style="font-size: 13px;margin-left: 4px;"><i
+                            class="bi bi-star-fill"></i></span></p>
                 <div class="d-flex gap-3 mt-2">
-                    <button class="border rounded" ng-click="setQuantity('-')" ><i class="bi bi-dash"></i></button>
+                    <button class="border rounded" ng-click="setQuantity('-')"><i class="bi bi-dash"></i></button>
                     <span>{{quantity}}</span>
-                    <button class="border rounded" ng-click="setQuantity('+')" ><i class="bi bi-plus-lg"></i></button>
+                    <button class="border rounded" ng-click="setQuantity('+')"><i class="bi bi-plus-lg"></i></button>
                 </div>
                 <div class="d-flex gap-3 mt-2">
                     <p style="font-size: 26px;"><span>$</span>{{productDetails.current_price}}<span></p>
-                        <div class="d-flex" style="font-size: 21px;">
-                            <p class="text-decoration-line-through"><span>$</span>{{productDetails.price}}</p>
-                            <span class="text-success fw-semibold ms-2">{{productDetails.offer}}% off</span>
-                       </div>
+                    <div class="d-flex" style="font-size: 21px;">
+                        <p class="text-decoration-line-through"><span>$</span>{{productDetails.price}}</p>
+                        <span class="text-success fw-semibold ms-2">{{productDetails.offer}}% off</span>
+                    </div>
                 </div>
-                <P class="fw-bold text-primary">Seller:<span style="font-weight: 600;color: black;">Unilever private Limited</span></P>
+                <P class="fw-bold text-primary">Seller:<span style="font-weight: 600;color: black;">Unilever private
+                        Limited</span></P>
                 <h4>Delivery Address</h4>
                 <p>{{address}}</p>
-                <button class="btn btn-primary" ng-click="cart(productDetails)">Add to cart</button>   
+                <button class="btn btn-primary" ng-click="cart(productDetails)">Add to cart</button>
             </div>
         </div>
     </div>

@@ -1,14 +1,6 @@
 app.controller(
   "cartCtrl",
-  function (
-    $scope,
-    $http,
-    $rootScope,
-    swalService,
-    $cookies,
-    $state,
-    $cookies
-  ) {
+  function ($scope, $http, $rootScope, swalService, $cookies, $state) {
     const token = $cookies.get("token");
     if (token) {
       $rootScope.loginStatus = true;

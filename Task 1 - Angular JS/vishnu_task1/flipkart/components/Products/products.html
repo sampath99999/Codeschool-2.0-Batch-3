@@ -29,9 +29,11 @@
                         <label class="form-check-label" for="flexCheckDefault{{item.id}}">
                             {{item.name}}
                         </label> -->
-                        <input type="checkbox" class="form-check-input" ng-model="selectedItems[item.id]" ng-checked="selectedItems[item.id]" ng-true-value="'{{item.id}}'" ng-false-value="''" id="item{{item.id}}">
+                        <input type="checkbox" class="form-check-input" ng-model="selectedItems[item.id]"
+                            ng-checked="selectedItems[item.id]" ng-true-value="'{{item.id}}'" ng-false-value="''"
+                            id="item{{item.id}}">
                         <label for="item{{item.id}}">{{item.name}}</label>
-                        
+
                     </div>
                 </div>
 
@@ -41,7 +43,8 @@
                 <h4>Ratings</h4>
                 <div>
                     <div class="form-check" ng-repeat="item in ratings">
-                        <input class="form-check-input" type="radio" ng-model="$parent.selectedRating" value={{item.rating}} name="ratings" value="" id="flexCheckRating{{item.id}}">
+                        <input class="form-check-input" type="radio" ng-model="$parent.selectedRating"
+                            value={{item.rating}} name="ratings" value="" id="flexCheckRating{{item.id}}">
                         <label class="form-check-label" for="flexCheckRating{{item.id}}">
                             {{item.rating}} <span><i class="bi bi-star-fill"></i> &above</span>
                         </label>
