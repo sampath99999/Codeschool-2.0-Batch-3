@@ -1,4 +1,4 @@
-<div class="budgetPageHeader  d-flex align-items-center justify-content-between">
+<div class="budgetPageHeader  d-flex align-items-center justify-content-between" ng-controller="homeHeaderController">
     <div class="d-flex align-items-center">
         <div class="homeLogoContainer me-5">
             <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"
@@ -18,7 +18,8 @@
                 <i class="fa-solid fa-user me-2"></i>
                 <p class="m-0">Profile</p>
             </div>
-            <div class="module1 ps-1 me-4 bg-secondary bg-opacity-50 text-light rounded d-flex align-items-center">
+            <div class="module1 ps-1 me-4 bg-secondary bg-opacity-50 text-light rounded d-flex align-items-center logout"
+                ng-click="logout()">
                 <i class="fa-solid fa-right-from-bracket me-2"></i>
                 <p class="m-0 text-light">Logout</p>
             </div>

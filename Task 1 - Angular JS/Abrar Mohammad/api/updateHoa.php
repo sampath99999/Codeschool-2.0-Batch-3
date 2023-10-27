@@ -106,6 +106,11 @@ if (!isset($input['hoaId'])) {
     echo json_encode($response);
     exit;
 }
+if (!isset($input['amount'])) {
+    $response['message'] = 'amount is required';
+    echo json_encode($response);
+    exit;
+}
 
 try {
     $hoaNumber = $input['hoaNumber'];
@@ -127,10 +132,11 @@ try {
     $subDetailedHeadNum = $input['subDetailedHeadNum'];
     $subDetailedHead = $input['subDetailedHead'];
     $charVoted = $input['charged'];
+    $amount = $input['amount'];
     $hoaId = $input['hoaId'];
-    $addHoa = 'UPDATE hoa_list SET hoa_number = ?,head_of_dept = ?,budget_year = ?,estb_scheme = ?,major_head_num = ?,major_head = ?,sub_major_head_num = ?,sub_major_head = ?,minor_head_num = ?,minor_head = ?,group_sub_head_num = ?,group_sub_head = ?,sub_head_num = ?,sub_head = ?,detailed_head_num = ?,detailed_head = ?,sub_detailed_head_num = ?,sub_detailed_head = ?,charged_voted = ? WHERE id = ?';
+    $addHoa = 'UPDATE hoa_list SET hoa_number = ?,head_of_dept = ?,budget_year = ?,estb_scheme = ?,major_head_num = ?,major_head = ?,sub_major_head_num = ?,sub_major_head = ?,minor_head_num = ?,minor_head = ?,group_sub_head_num = ?,group_sub_head = ?,sub_head_num = ?,sub_head = ?,detailed_head_num = ?,detailed_head = ?,sub_detailed_head_num = ?,sub_detailed_head = ?,charged_voted = ?,amount = ? WHERE id = ?';
     $stmt = $pdo->prepare($addHoa);
-    $stmt->execute([$hoaNumber, $headOfDept, $budgetYear, $estbScheme, $majorHeadNum, $majorHead, $subMajorHeadNum, $subMajorHead, $minorHeadNum, $minorHead, $groupSubHeadNum, $groupSubHead, $subHeadNum, $subHead, $detailedHeadNum, $detailedHead, $subDetailedHeadNum, $subDetailedHead, $charVoted, $hoaId]);
+    $stmt->execute([$hoaNumber, $headOfDept, $budgetYear, $estbScheme, $majorHeadNum, $majorHead, $subMajorHeadNum, $subMajorHead, $minorHeadNum, $minorHead, $groupSubHeadNum, $groupSubHead, $subHeadNum, $subHead, $detailedHeadNum, $detailedHead, $subDetailedHeadNum, $subDetailedHead, $charVoted, $amount, $hoaId]);
     $response['status'] = true;
     $response['message'] = 'HOA List Updated Successfully.';
     echo json_encode($response);

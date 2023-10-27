@@ -22,6 +22,12 @@
 </head>
 
 <body ng-app="financeApp" ng-controller="MainController">
+    <div class="position-absolute d-flex justify-content-center align-items-center bg-secondary bg-opacity-10 h-100 w-100"
+        ng-show="showLoader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <div ui-view></div>
 
     <script src="./assets/js/app.js"></script>
@@ -35,11 +41,14 @@
     <script src="./assets/js/controllers/AddHoa.js"></script>
     <script src="./assets/js/controllers/sideBar.js"></script>
     <script src="./assets/js/controllers/HOAList.js"></script>
+    <script src="./assets/js/controllers/HeaderController.js"></script>
     <!-- <directives> -->
     <script src="./assets/js/directives/loginHeader.js"></script>
     <script src="./assets/js/directives/homeHeader.js"></script>
     <script src="./assets/js/directives/budgetReleaseHeader.js"></script>
     <script src="./assets/js/directives/sidebar.js"></script>
+    <!-- <filters></filters> -->
+    <script src="./assets/js/filters/currency.js"></script>
 </body>
 
 </html>

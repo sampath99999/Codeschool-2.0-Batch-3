@@ -1,5 +1,6 @@
 financeApp.directive("homeHeader", function () {
     return {
-        templateUrl: "templates/homePageHeader.html"
+        templateUrl: "templates/homePageHeader.html",
+        controller: "homeHeaderController"
     }
 })

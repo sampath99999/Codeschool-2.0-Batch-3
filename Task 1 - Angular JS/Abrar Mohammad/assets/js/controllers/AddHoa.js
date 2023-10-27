@@ -1,4 +1,4 @@
-financeApp.controller("AddHOAController", ['$scope', '$location', '$http', function ($scope, $location, $http) {
+financeApp.controller("AddHOAController", ['$scope', '$location', '$http', '$rootScope', function ($scope, $location, $http, $rootScope) {
     $scope.newDate = new Date()
     var access_token = localStorage.getItem("access_token");
     if (!access_token) {
@@ -240,6 +240,16 @@ financeApp.controller("AddHOAController", ['$scope', '$location', '$http', funct
         }
     }
 
+    $rootScope.showLoader = false
+
+    $scope.getLoader = function (res) {
+        if (res) {
+            $rootScope.showLoader = false
+        } else {
+            $rootScope.showLoader = true
+        }
+    }
+
     $scope.clearData = function () {
         $scope.hod = '';
         $scope.hodErrMsg = ''
@@ -300,6 +310,7 @@ financeApp.controller("AddHOAController", ['$scope', '$location', '$http', funct
         $scope.validateSubMajorHead()
         $scope.validateVoting()
         if ($scope.hodErrMsg === '' && $scope.budgetErrMsg === '' && $scope.schemeErrMsg === '' && $scope.majorHeadErrMsg === '' && $scope.majorDescriptionErrMsg === '' && $scope.subMajorHeadErrMsg === '' && $scope.subMajorHeadDescErrMsg === '' && $scope.minorHeadErrMsg === '' && $scope.minorHeadDescErrMsg === '' && $scope.groupSubHeadErrMsg === '' && $scope.groupSubHeadDescErrMsg === '' && $scope.subHeadErrMsg === '' && $scope.subHeadDescErrMsg === '' && $scope.detailedHeadErrMsg === '' && $scope.detailedHeadDescErrMsg === '' && $scope.subDetailedErrMsg === '' && $scope.subDetailedDescErrMsg === '' && $scope.votingErrMsg === '') {
+
             $http({
                 url: "./api/addHoa.php",
                 method: "POST",
@@ -328,6 +339,7 @@ financeApp.controller("AddHOAController", ['$scope', '$location', '$http', funct
                     $scope.subDetailedHead = ''
                     $scope.subDetailedHeadDesc = ''
                     $scope.voting = ''
+                    $scope.getLoader(response.data['status'])
                 } else {
                     Swal.fire({
                         icon: 'error',

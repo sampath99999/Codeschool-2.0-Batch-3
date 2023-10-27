@@ -1,4 +1,4 @@
-financeApp.controller("LoginController", ["$scope", "$state", "$http", "$location", function ($scope, $state, $http, $location) {
+financeApp.controller("LoginController", ["$scope", "$state", "$http", "$location", '$rootScope', function ($scope, $state, $http, $location, $rootScope) {
 
     var access_token = localStorage.getItem("access_token");
     if (access_token) {
@@ -96,6 +96,19 @@ financeApp.controller("LoginController", ["$scope", "$state", "$http", "$locatio
         }
     }
 
+    $rootScope.showLoader = false
+
+    $scope.getLoader = function (res) {
+        if (res) {
+            $rootScope.showLoader = false
+        } else {
+            $rootScope.showLoader = true
+        }
+    }
+
+    $scope.showMessage = ''
+
+
     $scope.signIn = function () {
         $scope.validateEmail();
         $scope.validatePassword();
@@ -106,12 +119,10 @@ financeApp.controller("LoginController", ["$scope", "$state", "$http", "$locatio
                 data: { email: $scope.email, password: $scope.password }
             }).then(function (response) {
                 if (response.data['status']) {
-                    Swal.fire({
-                        icon: 'success',
-                        text: `${response.data['message']}`
-                    })
+                    $scope.showMessage = response.data['message']
                     localStorage.setItem("access_token", response.data['data'])
                     $location.path("/")
+                    $scope.getLoader(response.data['status'])
                 } else {
                     Swal.fire({
                         icon: 'error',

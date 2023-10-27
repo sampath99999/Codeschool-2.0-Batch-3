@@ -1,17 +1,29 @@
-financeApp.controller("HOAListController", ['$scope', '$location', "$http", function ($scope, $location, $http) {
+financeApp.controller("HOAListController", ['$scope', '$location', "$http", '$rootScope', function ($scope, $location, $http, $rootScope) {
     var access_token = localStorage.getItem("access_token");
     if (!access_token) {
         $location.path("/login")
         return
     }
-    $scope.hoaList = []
+
+    $rootScope.showLoader = true
+
+    $scope.getLoader = function (res) {
+        if (res) {
+            $rootScope.showLoader = false
+        } else {
+            $rootScope.showLoader = true
+        }
+    }
+
+    $rootScope.hoaList = []
     function getAllHoa() {
         $http({
             url: "./api/HOAList.php",
             method: "GET"
         }).then(function (response) {
             if (response.data['status']) {
-                $scope.hoaList = response.data['data']
+                $rootScope.hoaList = response.data['data']
+                $scope.getLoader(response.data['status'])
             } else {
                 alert(`${response.data['message']}`)
             }
@@ -20,6 +32,7 @@ financeApp.controller("HOAListController", ['$scope', '$location', "$http", func
         })
     }
     getAllHoa()
+
 
     $scope.headOfAccount = [
         { id: 1, name: "higher education, secretariat department" },
@@ -232,6 +245,10 @@ financeApp.controller("HOAListController", ['$scope', '$location', "$http", func
         }
     }
 
+    $scope.convertDate = function (date) {
+        return new Date(date)
+    }
+
     $scope.votingErrMsg = ''
     $scope.validateVoting = function () {
         if ($scope.voting == "" || $scope.voting == null) {
@@ -243,6 +260,8 @@ financeApp.controller("HOAListController", ['$scope', '$location', "$http", func
         }
     }
 
+    $scope.hoaId = ''
+
     $scope.hoaDetails = []
     $scope.getHao = function (id) {
         $http.get("./api/getHaoById.php", { params: { haoId: parseInt(id) } })
@@ -251,6 +270,10 @@ financeApp.controller("HOAListController", ['$scope', '$location', "$http", func
                     $scope.hoaDetails = response.data['data']
                     for (let each of response.data['data']) {
                         $scope.hoaId = each.id
+                        $scope.hod = each.head_of_dept
+                        $scope.budget = each.budget_year
+                        $scope.scheme = each.estb_scheme
+                        $scope.voting = each.charged_voted
                         $scope.majorHead = each.major_head_num
                         $scope.majorHeadDescription = each.major_head
                         $scope.subMajorHead = each.sub_major_head_num
@@ -272,10 +295,11 @@ financeApp.controller("HOAListController", ['$scope', '$location', "$http", func
             })
     }
 
+    $scope.amount = ''
+
     $scope.getDetail = function (id) {
         $http.get("./api/getHaoById.php", { params: { haoId: parseInt(id) } })
             .then(function (response) {
-                console.log(response)
                 if (response.data['status']) {
                     for (let each of response.data['data']) {
                         $scope.headOfAccount = each.head_of_dept
@@ -328,13 +352,21 @@ financeApp.controller("HOAListController", ['$scope', '$location', "$http", func
             $http({
                 url: "./api/updateHoa.php",
                 method: "POST",
-                data: { hoaNumber: hoa, headOfDept: $scope.hod, budgetYear: $scope.budget, estbScheme: $scope.scheme, majorHeadNum: $scope.majorHead, majorHead: $scope.majorHeadDescription, subMajorHeadNum: $scope.subMajorHead, subMajorHead: $scope.subMajorHeadDescription, minorHeadNum: $scope.minorHead, minorHead: $scope.minorHeadDescription, groupSubHeadNum: $scope.groupSubHead, groupSubHead: $scope.groupSubHeadDesc, subHeadNum: $scope.subHead, subHead: $scope.subHeadDesc, detailedHeadNum: $scope.detailedHead, detailedHead: $scope.detailedHeadDesc, subDetailedHeadNum: $scope.subDetailedHead, subDetailedHead: $scope.subDetailedHeadDesc, charged: $scope.voting, hoaId: parseInt(hoaId) }
+                data: { hoaNumber: hoa, headOfDept: $scope.hod, budgetYear: $scope.budget, estbScheme: $scope.scheme, majorHeadNum: $scope.majorHead, majorHead: $scope.majorHeadDescription, subMajorHeadNum: $scope.subMajorHead, subMajorHead: $scope.subMajorHeadDescription, minorHeadNum: $scope.minorHead, minorHead: $scope.minorHeadDescription, groupSubHeadNum: $scope.groupSubHead, groupSubHead: $scope.groupSubHeadDesc, subHeadNum: $scope.subHead, subHead: $scope.subHeadDesc, detailedHeadNum: $scope.detailedHead, detailedHead: $scope.detailedHeadDesc, subDetailedHeadNum: $scope.subDetailedHead, subDetailedHead: $scope.subDetailedHeadDesc, charged: $scope.voting, amount: parseInt($scope.amount), hoaId: hoaId }
             }).then(function (response) {
                 if (response.data['status']) {
                     Swal.fire({
                         icon: 'success',
                         text: `${response.data['message']}`
                     })
+                    for (let each in $rootScope.hoaList) {
+                        if ($rootScope.hoaList[each].id == hoaId) {
+                            $rootScope.hoaList[each].hoa_number = hoa
+                            $rootScope.hoaList[each].head_of_dept = $scope.hod
+                            $rootScope.hoaList[each].estb_scheme = $scope.scheme
+                            $rootScope.hoaList[each].amount = $scope.amount
+                        }
+                    }
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -352,6 +384,7 @@ financeApp.controller("HOAListController", ['$scope', '$location', "$http", func
                     text: `${error}`
                 })
             })
+            $("#exit").click()
         } else {
             alert("failed")
         }

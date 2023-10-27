@@ -24,6 +24,10 @@
     max-width: 100vw;
 }
 
+.logout {
+    cursor: pointer;
+}
+
 .homePageHeader {
     background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg");
     height: 8vh;
