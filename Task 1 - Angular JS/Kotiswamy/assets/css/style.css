@@ -62,16 +62,16 @@
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.loginRightCard{
-  box-shadow: 2px 4px 9px rgba(0,0,0,.15);
+.loginRightCard {
+  box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.15);
 }
 
-.loginLeftCard{
-  box-shadow: 2px 4px 9px rgba(0,0,0,.15);
+.loginLeftCard {
+  box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.15);
 }
 
-.loginBottomCard{
-  box-shadow: 2px 4px 9px rgba(0,0,0,.15);
+.loginBottomCard {
+  box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.15);
 }
 
 .loginInputCard {
@@ -102,6 +102,7 @@
 
 .impNotifyCard {
   background-color: #fff3cd;
+  height: 100%;
 }
 
 .impNotifyCard p {
@@ -148,134 +149,156 @@
   width: 10px;
 }
 
-.blogVideoInfo p{
+.blogVideoInfo p {
   font-size: 12px;
 }
 
-.loginPageFooter{
+.loginPageFooter {
   background-color: #06162e;
   color: #959595;
   height: 6vh;
 }
 
-
 /* header */
 
-.headerBg{
+.headerBg {
   height: 10vh;
   border-bottom: 4px solid pink;
-  background-image: url('https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg');
+  background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg");
 }
 
-.headerFontSize{
+.headerFontSize {
   font-size: 12px;
 }
 
 /* Home */
 
-.homeBg{
-  background-image: url('https://watermark.lovepik.com/photo/20211121/large/lovepik-chengdu-financial-city-building-picture_500637917.jpg');
+.homeBg {
+  background-image: url("https://watermark.lovepik.com/photo/20211121/large/lovepik-chengdu-financial-city-building-picture_500637917.jpg");
   height: 80vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.homeRoundedBg{
+.homeRoundedBg {
   height: 130px;
   width: 130px;
   cursor: pointer;
 }
 
-.homeRoundedBg div{
+.homeRoundedBg div {
   height: 120px;
   width: 120px;
   border: 1px dashed orange;
 }
 
-.homeRoundedBg div p{
+.homeRoundedBg div p {
   font-size: 14px;
 }
 
-.homeNotifyCard{
-  background-color:rgb(235, 232, 232);
+.homeNotifyCard {
+  background-color: rgb(235, 232, 232);
   height: 80vh;
 }
 
-.homeNotifyTitle{
+.homeNotifyTitle {
   height: 7vh;
-  background-color: rgba(184, 134, 10,.75);
+  background-color: rgba(184, 134, 10, 0.75);
 }
 
-.homeNotifyContent{
+.homeNotifyContent {
   border-bottom: 1px dashed rgba(1, 1, 1, 0.15);
   font-size: 12px;
 }
 
-.homeFooterBg{
+.homeFooterBg {
   background-color: #042640;
   height: 10vh;
 }
 
-.footerTab{
+.footerTab {
   border: 1px dashed white;
 }
 
 /* bro sidebar */
 
-.broSidebarBg{
+.broSidebarBg {
   height: 90vh;
   background-color: rgb(3, 36, 58);
   overflow: auto;
 }
 
-.broSidebarBg::-webkit-scrollbar{
+.broSidebarBg::-webkit-scrollbar {
   display: none;
 }
-.broSidebarBg ul li{
-  border-bottom: 1px solid rgba(128, 128, 128,.25);
+.broSidebarBg ul li {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
   cursor: pointer;
 }
 
-.broSidebarBg ul li:hover{
+.broSidebarBg ul li:hover {
   border-left: 3px solid pink;
-  background-color:rgba(128, 128, 128,.25);
+  background-color: rgba(128, 128, 128, 0.25);
 }
 
-.sideBarActiveItem{
+.sideBarActiveItem {
   border-left: 3px solid pink;
-  background-color:rgba(128, 128, 128,.25);
+  background-color: rgba(128, 128, 128, 0.25);
 }
 
 /* bro Home */
 
-.broHomeBg{
+.broHomeBg {
   height: 90vh;
+  overflow: auto;
 }
-.broHomeTop{
+
+.broHomeBg::-webkit-scrollbar {
+  display: none;
+}
+
+.broHomeTop {
   height: 95%;
 }
-.broHomeFooter{
+.broHomeFooter {
   height: 5%;
   background-color: rgb(3, 36, 58);
 }
 
 /* bro add hoa */
 
-.broAddViewListBtn{
-  background-color:#08cb6d;
+.broAddViewListBtn {
+  background-color: #08cb6d;
   height: 30px;
 }
 
-.addHoadClearBtn{
+.addHoadClearBtn {
   background-color: #bdbdbd;
   font-size: 14px;
   height: 30px;
   cursor: pointer;
 }
 
-.addHoadSubmitBtn{
-  background-color:rgb(3, 36, 58);
+.addHoadSubmitBtn {
+  background-color: rgb(3, 36, 58);
   font-size: 14px;
   height: 30px;
   cursor: pointer;
+}
+
+/* HOA List */
+
+.greenBtn {
+  background-color: #08cb6d;
+}
+
+.greenBtn {
+  background-color: #08cb6d !important;
+}
+
+/* spinner */
+
+.spinner-border {
+  width: 50px;
+  height: 50px;
 }

@@ -7,13 +7,29 @@
       <img
         src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"
         class="h-75"
+        ui-sref="home"
       />
     </div>
-    <div class="headerDetailCard d-flex align-items-center h-100  gap-3">
-      <p class=" bg-secondary bg-opacity-50 rounded-1  h-75  d-flex gap-2 align-items-center text-white px-2 m-0"><i class="fa-solid fa-house"></i> Module</p>
-      <p class=" bg-secondary bg-opacity-50 rounded-1  h-75 d-flex  gap-2 align-items-center text-white px-2 m-0"><i class="fa-solid fa-user"></i> Profile</p>
-      <p class=" bg-secondary bg-opacity-50 rounded-1  h-75 d-flex  gap-2 align-items-center text-white px-2 m-0"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</p>
-      <p class="m-0 text-white h-75 d-flex flex-column  justify-content-center headerFontSize">
+    <div class="headerDetailCard d-flex align-items-center h-100 gap-3">
+      <p
+        class="bg-secondary bg-opacity-50 rounded-1 h-75 d-flex gap-2 align-items-center text-white px-2 m-0"
+      >
+        <i class="fa-solid fa-house"></i> Module
+      </p>
+      <p
+        class="bg-secondary bg-opacity-50 rounded-1 h-75 d-flex gap-2 align-items-center text-white px-2 m-0"
+      >
+        <i class="fa-solid fa-user"></i> Profile
+      </p>
+      <p
+        class="bg-secondary bg-opacity-50 rounded-1 h-75 d-flex gap-2 align-items-center text-white px-2 m-0"
+        ng-click="logoutBtn()"
+      >
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+      </p>
+      <p
+        class="m-0 text-white h-75 d-flex flex-column justify-content-center headerFontSize"
+      >
         Last Login <br />
         {{currentDate | date:'dd-MMM-yyyy'}}<br />
         {{currentDate | date:'h:mm a'}}
@@ -32,7 +48,9 @@
           <i class="fa-regular fa-user"></i>
           <div>
             <p class="m-0">WELCOME PIXELVIDE SOLUTIONS</p>
-            <p class="m-0 text-light text-opacity-75 fw-semibold">(BRO-PIXELVIDE)</p>
+            <p class="m-0 text-light text-opacity-75 fw-semibold">
+              (BRO-PIXELVIDE)
+            </p>
           </div>
         </button>
         <ul class="dropdown-menu">

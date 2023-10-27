@@ -27,23 +27,39 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Document</title>
   </head>
-  <body ng-app="IfmisApp">
+  <body ng-app="IfmisApp" ng-controller="AppCtrl">
+    <div
+      class="h-100 w-100 d-flex justify-content-center align-items-center bg-secondary bg-opacity-50 position-absolute"
+      ng-show="showLoader"
+    >
+      <div class="spinner-border text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     <ui-view></ui-view>
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/routes/route.js"></script>
     <!-- controllers -->
+    <script src="./assets/js/controllers/appCtrl.js"></script>
     <script src="./assets/js/controllers/home.js"></script>
     <script src="./assets/js/controllers/login.js"></script>
     <script src="./assets/js/controllers/loginHeader.js"></script>
     <script src="./assets/js/controllers/header.js"></script>
     <script src="./assets/js/controllers/broSidebar.js"></script>
+    <script src="./assets/js/controllers/broHome.js"></script>
     <script src="./assets/js/controllers/broAddHoa.js"></script>
+    <script src="./assets/js/controllers/broHoaList.js"></script>
     <!-- directives -->
     <script src="./assets/js/directives/loginHeader.js"></script>
     <script src="./assets/js/directives/header.js"></script>
     <script src="./assets/js/directives/broSidebar.js"></script>
+    <!-- filters -->
+    <script src="./assets/js/filters/convertNumberToWords.js"></script>
+    <!-- interceptors -->
+    <script src="./assets/js/interceptors/tokenInterceptor.js"></script>
   </body>
 </html>

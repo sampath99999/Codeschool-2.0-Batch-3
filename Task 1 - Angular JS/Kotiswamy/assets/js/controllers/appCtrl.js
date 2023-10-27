@@ -1,12 +1,13 @@
-app.controller("HomeCtrl", [
-  "$scope",
+app.controller("AppCtrl", [
   "$window",
   "$state",
+  "$rootScope",
   '$http',
-  function ($scope, $window, $state,$http) {
+  function ($window, $state, $rootScope,$http) {
     var token = $window.localStorage.getItem("access_token");
     if (!token) {
       $state.go("login");
+      return;
     }
     if (token) {
       $http.get("api/tokenValidation.php").then(function (response) {
@@ -23,5 +24,8 @@ app.controller("HomeCtrl", [
       });
       
     }
+    $.noConflict();
+    $rootScope.showLoader = false;
   },
+  
 ]);

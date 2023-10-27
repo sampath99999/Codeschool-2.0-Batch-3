@@ -1,0 +1,698 @@
+<div class="row m-0">
+  <div class="col-12 p-0">
+    <app-header></app-header>
+  </div>
+  <div class="col-12 p-0">
+    <div class="row m-0">
+      <div class="col-2 p-0">
+        <bro-sidebar></bro-sidebar>
+      </div>
+      <div class="col-10 p-0 bg-secondary bg-opacity-10 broHomeBg p-3">
+        <div
+          class="d-flex flex-column bg-white h-100 px-3 pt-3"
+          ng-controller="BroAddHoaCtrl"
+        >
+          <h3>Head Of Account</h3>
+          <div class="d-flex gap-3 m-0">
+            <div class="col-3 p-0">
+              <input type="text" class="form-control" placeholder="All" />
+            </div>
+            <div class="col-2 p-0">
+              <input type="text" class="form-control" placeholder="All" />
+            </div>
+
+            <div class="d-flex gap-2">
+              <input type="text" class="form-control" placeholder="xxxx" />
+              <input type="text" class="form-control" placeholder="xx" />
+              <input type="text" class="form-control" placeholder="xxx" />
+              <input type="text" class="form-control" placeholder="xx" />
+              <input type="text" class="form-control" placeholder="xx" />
+              <input type="text" class="form-control" placeholder="xxx" />
+              <input type="text" class="form-control" placeholder="xxx" />
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="greenBtn border-0 rounded-1 text-white">
+                Search
+              </button>
+              <button class="hoaListClearBtn rounded-1 border-0 text-black">
+                Clear
+              </button>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-2">
+            <p>Rs in lakhs</p>
+          </div>
+          <div class="col-12">
+            <table class="table table-striped">
+              <thead class="table-secondary">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">HOA</th>
+                  <th scope="col">Department(HOD)</th>
+                  <th scope="col">Est/Scheme</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Created At</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="list in hoaList">
+                  <th scope="row">{{$index+1}}</th>
+                  <td>{{list.hoa_tier}}</td>
+                  <td>{{list.dep_hod | uppercase}}</td>
+                  <td>{{list.e_s}}</td>
+                  <td>{{list.est_amount | currency:'':2}}</td>
+                  <td>
+                    {{convertToDate(list.created_at) | date: 'dd-MM-yyyy h:mm
+                    a'}}
+                  </td>
+                  <td class="d-flex align-items-center h-100 gap-1">
+                    <p class="m-0 bg-secondary rounded-1 bg-opacity-25">
+                      <button
+                        type="button"
+                        class="bg-transparent border-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdropView"
+                        ng-click="getHoaDetails(list.id)"
+                      >
+                        <i class="fa-solid fa-eye"></i>
+                      </button>
+                    </p>
+                    <p class="m-0 bg-secondary rounded-1 bg-opacity-25">
+                      <button
+                        type="button"
+                        class="bg-transparent border-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdropEdit"
+                        ng-click="getHoaDetails(list.id)"
+                      >
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                    </p>
+                   
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--HOA View Modal -->
+            <div
+              class="modal fade"
+              id="staticBackdropView"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      View HOA Details
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th class="table-secondary">Dept Desc</th>
+                          <td colspan="3">{{headOfAccount | uppercase}}</td>
+                        </tr>
+
+                        <tr>
+                          <th class="table-secondary">Est/Scheme</th>
+                          <td colspan="3">{{establishment}}</td>
+                        </tr>
+                        <tr>
+                          <th class="table-secondary">MJH</th>
+                          <td>{{majorHeadNum}}</td>
+                          <th class="table-secondary">MJH Desc</th>
+                          <td>{{majorHeadDesc}}</td>
+                        </tr>
+                        <tr>
+                          <th class="table-secondary">SMJH</th>
+                          <td>{{subMajorHeadNum}}</td>
+                          <th class="table-secondary">SMJH Desc</th>
+                          <td>{{subMajorHeadDesc}}</td>
+                        </tr>
+                        <tr>
+                          <th class="table-secondary">MH</th>
+                          <td>{{minorHeadNum}}</td>
+                          <th class="table-secondary">MH Desc</th>
+                          <td>{{minorHeadDesc}}</td>
+                        </tr>
+                        <tr>
+                          <th class="table-secondary">GSH</th>
+                          <td>{{groupSubHeadNum}}</td>
+                          <th class="table-secondary">GSH Desc</th>
+                          <td>{{groupSubHeadDesc}}</td>
+                        </tr>
+                        <tr>
+                          <th class="table-secondary">SH</th>
+                          <td>{{subHeadNum}}</td>
+                          <th class="table-secondary">SH Desc</th>
+                          <td>{{subHeadDesc}}</td>
+                        </tr>
+                        <tr>
+                          <th class="table-secondary">DH</th>
+                          <td>{{detailedHeadNum}}</td>
+                          <th class="table-secondary">DH Desc</th>
+                          <td>{{detailedHeadDesc}}</td>
+                        </tr>
+                        <tr>
+                          <th class="table-secondary">SDH</th>
+                          <td>{{subDetailedHeadNum}}</td>
+                          <th class="table-secondary">SDH Desc</th>
+                          <td>{{subDetailedHeadDesc}}</td>
+                        </tr>
+                        <tr>
+                          <th colspan="3" class="table-secondary">V/C</th>
+                          <td colspan="1">{{charged}}</td>
+                        </tr>
+                        <tr>
+                          <th colspan="3" class="table-secondary">
+                            BE {{budgetYear}}
+                          </th>
+                          <td colspan="1">{{estAmount | currency:'':2}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HOA Edit Modal -->
+            <div
+              class="modal fade"
+              id="staticBackdropEdit"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Edit HOA
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="m-0">
+                        <div class="col-12 d-flex flex-column gap-2">
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Name of HOD:<span class="text-danger">*</span>
+                              </p>
+                            </div>
+                            <div class="col-8">
+                              <select
+                                class="form-select form-select-sm"
+                                aria-label="Small select example"
+                                ng-model="headOfAccountId"
+                                ng-change="validateDropDown('headOfAccountId','headOfAccountErrMsg')"
+                                ng-class="{'is-invalid':headOfAccountErrMsg}"
+                              >
+                                <option selected value="">
+                                  Select an Option
+                                </option>
+                                <option
+                                  ng-repeat="(x,y) in headOfAccountList"
+                                  value="{{y.id}}"
+                                >
+                                  {{y.name | uppercase}}
+                                </option>
+                              </select>
+                              <p
+                                class="text-danger m-0"
+                                ng-show="headOfAccountErrMsg"
+                              >
+                                *{{headOfAccountErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Budget Year:<span class="text-danger">*</span>
+                              </p>
+                            </div>
+                            <div class="col-8">
+                              <select
+                                class="form-select form-select-sm"
+                                aria-label="Small select example"
+                                ng-model="budgetYearId"
+                                ng-class="{'is-invalid':budgetYearErrMsg}"
+                                ng-change="validateDropDown('budgetYearId','budgetYearErrMsg')"
+                              >
+                                <option selected value="">
+                                  Select an Option
+                                </option>
+                                <option
+                                  ng-repeat="(x,y) in budgetYearList"
+                                  value="{{y.id}}"
+                                >
+                                  {{y.year}}
+                                </option>
+                              </select>
+                              <p
+                                class="text-danger m-0"
+                                ng-show="budgetYearErrMsg"
+                              >
+                                *{{budgetYearErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Establishment/Scheme:<span class="text-danger"
+                                  >*</span
+                                >
+                              </p>
+                            </div>
+                            <div class="col-8">
+                              <select
+                                class="form-select form-select-sm"
+                                aria-label="Small select example"
+                                ng-model="establishmentId"
+                                ng-class="{'is-invalid':establishmentErrMsg}"
+                                ng-change="validateDropDown('establishmentId','establishmentErrMsg')"
+                              >
+                                <option selected value="">
+                                  Select an Option
+                                </option>
+                                <option
+                                  ng-repeat="(x,y) in establishmentList"
+                                  value="{{y.id}}"
+                                >
+                                  {{y.name}}
+                                </option>
+                              </select>
+                              <p
+                                class="text-danger m-0"
+                                ng-show="establishmentErrMsg"
+                              >
+                                *{{establishmentErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Major Head:<span class="text-danger">*</span>
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="xxxx"
+                                maxlength="4"
+                                ng-class="{'is-invalid':majorHeadNumErrMsg}"
+                                ng-change="validateNum('majorHeadNum','majorHeadNumErrMsg','Major head',4)"
+                                ng-model="majorHeadNum"
+                              />
+                              <p
+                                class="text-danger m-0"
+                                ng-show="majorHeadNumErrMsg"
+                              >
+                                *{{majorHeadNumErrMsg}}
+                              </p>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                maxlength="500"
+                                ng-class="{'is-invalid':majorHeadDescErrMsg}"
+                                ng-model="majorHeadDesc"
+                                ng-change="validateDesc('majorHeadDesc','majorHeadDescErrMsg','Major head description')"
+                              />
+                              <p
+                                class="text-danger m-0"
+                                ng-show="majorHeadDescErrMsg"
+                              >
+                                {{majorHeadDescErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Sub-Major Head:<span class="text-danger"
+                                  >*</span
+                                >
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="xx"
+                                maxlength="2"
+                                ng-model="subMajorHeadNum"
+                                ng-class="{'is-invalid':subMajorHeadNumErrMsg}"
+                                ng-change="validateNum('subMajorHeadNum','subMajorHeadNumErrMsg','Sub major head',2)"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="subMajorHeadNumErrMsg"
+                              >
+                                {{subMajorHeadNumErrMsg}}
+                              </p>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                ng-model="subMajorHeadDesc"
+                                ng-class="{'is-invalid':subMajorHeadDescErrMsg}"
+                                ng-change="validateDesc('subMajorHeadDesc','subMajorHeadDescErrMsg', 'Sub major head description')"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="subMajorHeadDescErrMsg"
+                              >
+                                {{subMajorHeadDescErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Minor Head:<span class="text-danger">*</span>
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <input
+                                type="text"
+                                maxlength="3"
+                                class="form-control"
+                                placeholder="xxx"
+                                ng-model="minorHeadNum"
+                                ng-class="{'is-invalid':minorHeadNumErrMsg}"
+                                ng-change="validateNum('minorHeadNum','minorHeadNumErrMsg','Minor head',3)"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="minorHeadNumErrMsg"
+                              >
+                                *{{minorHeadNumErrMsg}}
+                              </p>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                ng-model="minorHeadDesc"
+                                ng-class="{'is-invalid':minorHeadDescErrMsg}"
+                                ng-change="validateDesc('minorHeadDesc','minorHeadDescErrMsg', 'Minor head description')"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="minorHeadDescErrMsg"
+                              >
+                                *{{minorHeadDescErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Group Sub Head:<span class="text-danger"
+                                  >*</span
+                                >
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <input
+                                type="text"
+                                class="form-control"
+                                maxlength="2"
+                                placeholder="xx"
+                                ng-model="groupSubHeadNum"
+                                ng-class="{'is-invalid':groupSubHeadNumErrMsg}"
+                                ng-change="validateNum('groupSubHeadNum','groupSubHeadNumErrMsg','Group sub head',2)"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="groupSubHeadNumErrMsg"
+                              >
+                                *{{groupSubHeadNumErrMsg}}
+                              </p>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                ng-model="groupSubHeadDesc"
+                                ng-class="{'is-invalid':groupSubHeadDescErrMsg}"
+                                ng-change="validateDesc('groupSubHeadDesc','groupSubHeadDescErrMsg', 'Group sub head description')"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="groupSubHeadDescErrMsg"
+                              >
+                                *{{groupSubHeadDescErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Sub Head:<span class="text-danger">*</span>
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="xx"
+                                maxlength="2"
+                                ng-model="subHeadNum"
+                                ng-class="{'is-invalid':subHeadNumErrMsg}"
+                                ng-change="validateNum('subHeadNum','subHeadNumErrMsg','Sub head',2)"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="subHeadNumErrMsg"
+                              >
+                                *{{subHeadNumErrMsg}}
+                              </p>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                ng-model="subHeadDesc"
+                                ng-class="{'is-invalid':subHeadDescErrMsg}"
+                                ng-change="validateDesc('subHeadDesc','subHeadDescErrMsg', 'Sub head description')"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="subHeadDescErrMsg"
+                              >
+                                *{{subHeadDescErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Detailed Head:<span class="text-danger">*</span>
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="xxx"
+                                maxlength="3"
+                                ng-model="detailedHeadNum"
+                                ng-class="{'is-invalid':detailedHeadNumErrMsg}"
+                                ng-change="validateNum('detailedHeadNum','detailedHeadNumErrMsg','Detailed head',3)"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="detailedHeadNumErrMsg"
+                              >
+                                *{{detailedHeadNumErrMsg}}
+                              </p>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                ng-model="detailedHeadDesc"
+                                ng-class="{'is-invalid':detailedHeadDescErrMsg}"
+                                ng-change="validateDesc('detailedHeadDesc','detailedHeadDescErrMsg', 'Detailed head description')"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="detailedHeadDescErrMsg"
+                              >
+                                *{{detailedHeadDescErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Sub Detailed Head:<span class="text-danger"
+                                  >*</span
+                                >
+                              </p>
+                            </div>
+                            <div class="col-3">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="xxx"
+                                maxlength="3"
+                                ng-model="subDetailedHeadNum"
+                                ng-class="{'is-invalid':subDetailedHeadNumErrMsg}"
+                                ng-change="validateNum('subDetailedHeadNum','subDetailedHeadNumErrMsg','Sub detailed head',3)"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="subDetailedHeadNumErrMsg"
+                              >
+                                *{{subDetailedHeadNumErrMsg}}
+                              </p>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Description"
+                                ng-model="subDetailedHeadDesc"
+                                ng-class="{'is-invalid':subDetailedHeadDescErrMsg}"
+                                ng-change="validateDesc('subDetailedHeadDesc','subDetailedHeadDescErrMsg', 'Sub detailed head description')"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="subDetailedHeadDescErrMsg"
+                              >
+                                *{{subDetailedHeadDescErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Charged/Voted:<span class="text-danger">*</span>
+                              </p>
+                            </div>
+                            <div class="col-6">
+                              <select
+                                class="form-select form-select-sm"
+                                aria-label="Small select example"
+                                ng-model="chargedId"
+                                ng-class="{'is-invalid':chargedErrMsg}"
+                                ng-change="validateDropDown('chargedId','chargedErrMsg')"
+                              >
+                                <option selected value="">
+                                  Select an Option
+                                </option>
+                                <option
+                                  ng-repeat="(x,y) in chargedList"
+                                  value="{{y.id}}"
+                                >
+                                  {{y.name}}
+                                </option>
+                              </select>
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="chargedErrMsg"
+                              >
+                                {{chargedErrMsg}}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row m-0">
+                            <div class="col-4">
+                              <p class="m-0">
+                                Estimated Amount:<span class="text-danger"
+                                  >*</span
+                                >
+                              </p>
+                            </div>
+                            <div class="col-8">
+                              <input
+                                type="text"
+                                ng-model="estAmount"
+                                ng-class="{'is-invalid':estAmountErrMsg}"
+                                ng-change="estAmountValidation()"
+                                class="bg-warning bg-opacity-10 form-control"
+                              />
+                              <p
+                                class="m-0 text-danger"
+                                ng-show="estAmountErrMsg"
+                              >
+                                {{estAmountErrMsg}}
+                              </p>
+                              <p class="m-0">{{estAmount | numbersToWord}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div
+                      class="row m-0 align-items-center justify-content-end mb-3"
+                    >
+                      <div class="col-6 h-100">
+                        <button
+                          class="btn greenBtn rounded-1 text-white border-0 px-2 fw-semibold"
+                          ng-click="updateHoaBtn()"
+                        >
+                          Update
+                        </button>
+                      </div>
+                      <div class="col-6">
+                        <button
+                          type="button"
+                          class="btn bg-transparent border border-1"
+                          ng-click="clearDataBtn()"
+                          id="cancelBtn"
+                          data-bs-dismiss="modal"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

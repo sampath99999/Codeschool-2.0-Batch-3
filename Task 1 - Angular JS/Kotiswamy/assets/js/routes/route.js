@@ -13,11 +13,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state("broHome", {
       url: "/bro/home",
       templateUrl: "templates/broHome.html",
+      controller:"BroHomeCtrl"
     })
-    .state("Add HOA",{
-      url:"/bro/Add-HOA",
-      templateUrl:"templates/broAddHoa.html",
-      controller:"BroAddHoaCtrl"
+    .state("Add HOA", {
+      url: "/bro/Add-HOA",
+      templateUrl: "templates/broAddHoa.html",
+      controller: "BroAddHoaCtrl",
     })
+    .state("HOA List", {
+      url: "/bro/HOA-List",
+      templateUrl: "templates/broHoaList.html",
+      controller: "BroHoaListCtrl",
+    });
   $urlRouterProvider.otherwise("/");
 });

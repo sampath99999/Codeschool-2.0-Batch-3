@@ -6,22 +6,47 @@
         <div class="loginLeftCard col-12 col-lg-3 p-0">
           <div class="userLoginCard bg-white d-flex flex-column gap-3 p-4">
             <h5 class="m-0">User Login</h5>
-            <div
-              class="d-flex loginInputCard align-items-center rounded-1 gap-2 ps-2"
-            >
-              <img
-                src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/user.png"
-              />
-              <input type="text" class="border border-0 bg-transparent" />
+            <div>
+              <div
+                class="d-flex loginInputCard align-items-center rounded-1 gap-2 ps-2"
+              >
+                <img
+                  src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/user.png"
+                />
+                <input
+                  type="text"
+                  class="border border-0 bg-transparent"
+                  ng-model="email"
+                  ng-change="emailValidation()"
+                  ng-class="{'is-invalid':emailErrMsg}"
+                  placeholder="Email"
+                />
+              </div>
+              <p class="m-0 text-danger" ng-show="emailErrMsg">
+                *{{emailErrMsg}}
+              </p>
             </div>
-            <div
-              class="d-flex loginInputCard align-items-center rounded-1 gap-2 ps-2"
-            >
-              <img
-                src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/pwd.png"
-              />
-              <input type="password" class="border border-0 bg-transparent" />
+            <div>
+              <div
+                class="d-flex loginInputCard align-items-center rounded-1 gap-2 ps-2"
+              >
+                <img
+                  src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/pwd.png"
+                />
+                <input
+                  type="password"
+                  class="border border-0 bg-transparent"
+                  ng-model="password"
+                  ng-change="passwordValidation()"
+                  ng-class="{'is-invalid':passwordErrMsg}"
+                  placeholder="Password"
+                />
+              </div>
+              <p class="m-0 text-danger" ng-show="passwordErrMsg">
+                *{{passwordErrMsg}}
+              </p>
             </div>
+
             <div class="captchCard d-flex flex-column gap-3">
               <div
                 class="loginInputCard captchaCard d-flex rounded-1 align-items-center"
@@ -39,7 +64,12 @@
               class="ForgotSignInCard d-flex justify-content-between align-items-center"
             >
               <h6 class="m-0">Forgot Password ?</h6>
-              <button class="text-white rounded-1 fw-semibold" ui-sref="home">SIGN IN</button>
+              <button
+                class="text-white rounded-1 fw-semibold"
+                ng-click="signInBtn()"
+              >
+                SIGN IN
+              </button>
             </div>
           </div>
           <div class="impNotifyCard p-3">
@@ -203,7 +233,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="#" >View More</a>
+                <a href="#">View More</a>
               </div>
             </div>
             <div
@@ -231,11 +261,11 @@
       </div>
     </div>
     <div class="loginPageFooter">
-      <div class="row m-0 h-100 ">
-        <div class="col-4 col-lg-3  ms-auto h-100 ">
-          <div class="d-flex align-items-center h-100  gap-2  ">
-            <p class="m-0 ">Privacy</p>
-            <p class="m-0 ">Policy</p>
+      <div class="row m-0 h-100">
+        <div class="col-4 col-lg-3 ms-auto h-100">
+          <div class="d-flex align-items-center h-100 gap-2">
+            <p class="m-0">Privacy</p>
+            <p class="m-0">Policy</p>
           </div>
         </div>
       </div>

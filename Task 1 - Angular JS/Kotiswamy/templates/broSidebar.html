@@ -1,6 +1,15 @@
 <div class="broSidebarBg text-white" ng-controller="BroSidebarCtrl">
   <ul class="text-white p-0" type="none">
-    <li class="ps-2 py-2" ui-sref="broHome" ui-sref-active="sideBarActiveItem" ><i class="fa-solid fa-house me-2" ></i>Home</li>
-    <li ng-repeat="list in broSidebarList track by $index" class="ps-4 py-2" ui-sref="{{list}}" ui-sref-active="sideBarActiveItem" >{{list}}</li>
+    <li class="ps-2 py-2" ui-sref="broHome" ui-sref-active="sideBarActiveItem">
+      <i class="fa-solid fa-house me-2"></i>Home
+    </li>
+    <li
+      ng-repeat="list in broSidebarList"
+      class="ps-4 py-2"
+      ui-sref="{{list['name']}}"
+      ui-sref-active="sideBarActiveItem"
+    >
+      {{list['name']}}
+    </li>
   </ul>
 </div>
