@@ -1,0 +1,140 @@
+[24-Oct-2023 08:17:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\ifmisapp\api\login.php on line 34
+[24-Oct-2023 08:17:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\ifmisapp\api\login.php on line 34
+[24-Oct-2023 08:17:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\ifmisapp\api\login.php on line 34
+[24-Oct-2023 08:17:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\ifmisapp\api\login.php on line 34
+[24-Oct-2023 08:18:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\ifmisapp\api\login.php on line 34
+[24-Oct-2023 08:18:28 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\ifmisapp\api\login.php on line 34
+[24-Oct-2023 15:30:36 Europe/Berlin] PHP Warning:  Undefined variable $e in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 120
+[24-Oct-2023 15:30:36 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getMessage() on null in C:\xampp\htdocs\ifmisapp\api\insertHoa.php:120
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 120
+[24-Oct-2023 15:46:06 Europe/Berlin] PHP Warning:  Undefined variable $e in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 120
+[24-Oct-2023 15:46:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getMessage() on null in C:\xampp\htdocs\ifmisapp\api\insertHoa.php:120
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 120
+[24-Oct-2023 15:49:44 Europe/Berlin] PHP Warning:  Undefined variable $e in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 120
+[24-Oct-2023 15:49:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getMessage() on null in C:\xampp\htdocs\ifmisapp\api\insertHoa.php:120
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 120
+[24-Oct-2023 15:54:51 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :subhead
+[24-Oct-2023 15:56:00 Europe/Berlin] SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "hoalist" does not exist
+LINE 1: INSERT INTO hoaList(hoa, dep_hoa, est_sch, major_head, sub_m...
+                    ^
+[24-Oct-2023 17:01:56 Europe/Berlin] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "dept_hod" does not exist
+LINE 1: SELECT id,hoa,dept_hod,est_sch,est_amount,created_at FROM he...
+                      ^
+HINT:  Perhaps you meant to reference the column "head_of_accounts.dep_hod".
+[25-Oct-2023 09:45:31 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 09:48:06 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 09:48:06 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 09:50:26 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 09:53:27 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 09:53:27 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\xampp\htdocs\ifmisapp\api\updateHoa.php:129
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\updateHoa.php on line 129
+[25-Oct-2023 09:54:07 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 09:54:07 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\xampp\htdocs\ifmisapp\api\updateHoa.php:129
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\updateHoa.php on line 129
+[25-Oct-2023 09:54:46 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 09:56:16 Europe/Berlin] SQLSTATE[HY093]: Invalid parameter number: :estAmount
+[25-Oct-2023 10:05:25 Europe/Berlin] SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type integer: "2.2"
+CONTEXT:  unnamed portal parameter $13 = '...'
+[25-Oct-2023 10:05:25 Europe/Berlin] SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type integer: "2.2"
+CONTEXT:  unnamed portal parameter $13 = '...'
+[25-Oct-2023 11:19:19 Europe/Berlin] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "access_token" of relation "users" does not exist
+LINE 1: UPDATE users SET status='logout',access_token='' WHERE token...
+                                         ^
+[25-Oct-2023 11:19:19 Europe/Berlin] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "access_token" of relation "users" does not exist
+LINE 1: UPDATE users SET status='logout',access_token='' WHERE token...
+                                         ^
+[25-Oct-2023 11:19:54 Europe/Berlin] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "access_token" of relation "users" does not exist
+LINE 1: UPDATE users SET status='logout',access_token='' WHERE token...
+                                         ^
+[25-Oct-2023 11:19:54 Europe/Berlin] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "access_token" of relation "users" does not exist
+LINE 1: UPDATE users SET status='logout',access_token='' WHERE token...
+                                         ^
+[26-Oct-2023 12:57:07 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "head_of_accounts" does not exist
+LINE 1: ...id,hoa,dep_hod,est_sch,est_amount,created_at FROM head_of_ac...
+                                                             ^ in C:\xampp\htdocs\ifmisapp\api\getHoaList.php:20
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\getHoaList.php(20): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\getHoaList.php on line 20
+[26-Oct-2023 13:02:35 Europe/Berlin] PHP Warning:  Undefined array key "subDetailedHead" in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 109
+[26-Oct-2023 13:02:35 Europe/Berlin] PHP Warning:  Undefined array key "subDetailedHead" in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 109
+[26-Oct-2023 13:06:05 Europe/Berlin] PHP Warning:  Undefined array key "subDetailedHead" in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 109
+[26-Oct-2023 13:06:05 Europe/Berlin] PHP Warning:  Undefined array key "subDetailedHead" in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 109
+[27-Oct-2023 07:26:50 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "user_id" of relation "users" does not exist
+LINE 1: INSERT INTO users (user_id,token) VALUES($1,$2)
+                           ^ in C:\xampp\htdocs\ifmisapp\api\login.php:40
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\login.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\login.php on line 40
+[27-Oct-2023 07:27:34 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "user_id" of relation "users" does not exist
+LINE 1: INSERT INTO users (user_id,token) VALUES($1,$2)
+                           ^ in C:\xampp\htdocs\ifmisapp\api\login.php:40
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\login.php(40): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\login.php on line 40
+[27-Oct-2023 07:29:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "head_of_accounts" does not exist
+LINE 1: ...id,hoa,dep_hod,est_sch,est_amount,created_at FROM head_of_ac...
+                                                             ^ in C:\xampp\htdocs\ifmisapp\api\getHoaList.php:20
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\getHoaList.php(20): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\getHoaList.php on line 20
+[27-Oct-2023 07:30:11 Europe/Berlin] PHP Warning:  Undefined array key "subDetailedHead" in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 109
+[27-Oct-2023 07:32:59 Europe/Berlin] PHP Warning:  Undefined array key "hoa" in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 134
+[27-Oct-2023 07:32:59 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "head_of_accounts" does not exist
+LINE 1: SELECT id FROM head_of_accounts WHERE hoa=$1
+                       ^ in C:\xampp\htdocs\ifmisapp\api\insertHoa.php:134
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\insertHoa.php(134): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 134
+[27-Oct-2023 07:37:38 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "head_of_accounts" does not exist
+LINE 1: SELECT id FROM head_of_accounts WHERE hoa=$1
+                       ^ in C:\xampp\htdocs\ifmisapp\api\insertHoa.php:135
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\insertHoa.php(135): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 135
+[27-Oct-2023 07:38:53 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "head_of_accounts" does not exist
+LINE 1: SELECT id FROM head_of_accounts WHERE hoa=$1
+                       ^ in C:\xampp\htdocs\ifmisapp\api\insertHoa.php:136
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\insertHoa.php(136): PDOStatement->execute(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 136
+[27-Oct-2023 07:40:28 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "budget_year" of relation "head_of_accounts" does not exist
+LINE 1: ...sh_desc, sh,sh_desc, dh,dh_desc, sdh,sdh_desc,c_v,budget_yea...
+                                                             ^ in C:\xampp\htdocs\ifmisapp\api\insertHoa.php:185
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\insertHoa.php(185): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\insertHoa.php on line 185
+[27-Oct-2023 07:42:43 Europe/Berlin] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "budget_year" of relation "head_of_accounts" does not exist
+LINE 1: ...sh_desc, sh,sh_desc, dh,dh_desc, sdh,sdh_desc,c_v,budget_yea...
+                                                             ^
+[27-Oct-2023 07:44:37 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "est_sch" does not exist
+LINE 1: SELECT id,hoa,dep_hod,est_sch,est_amount,created_at FROM hea...
+                              ^ in C:\xampp\htdocs\ifmisapp\api\getHoaList.php:20
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\getHoaList.php(20): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\getHoaList.php on line 20
+[27-Oct-2023 07:55:25 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "est_sch" does not exist
+LINE 1: SELECT id,hoa,dep_hod,est_sch,est_amount,created_at FROM hea...
+                              ^ in C:\xampp\htdocs\ifmisapp\api\getHoaList.php:20
+Stack trace:
+#0 C:\xampp\htdocs\ifmisapp\api\getHoaList.php(20): PDOStatement->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\ifmisapp\api\getHoaList.php on line 20
