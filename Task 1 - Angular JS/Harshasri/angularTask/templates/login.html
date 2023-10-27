@@ -1,0 +1,36 @@
+
+
+
+<header-directive></header-directive>
+
+
+    
+    <!-- Form -->
+    <div class="col-12 col-md-5 col-lg-3 mx-auto mt-5">
+        <h5>Login</h5>
+        <small class="text-secondary">Log In into IFMIS</small>
+        <hr>
+        <form ng-submit="login($event)" ng-controller="loginController">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="username" placeholder="Jhon Doe" ng-model="username" ng-change="validateUsername()">
+                <label for="username">Username</label>
+               
+            </div>
+            <p id="usernameError" class="text-danger"  ng-show="usernameError">
+                {{usernameError}}</p>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password" ng-change="validatePassword()">
+                <label for="password">Password</label>
+            </div>
+            <p id="passwordError" class="text-danger" ng-show="passwordError">
+                {{passwordError}}</p>
+            <button type="submit" class="btn btn-primary col-12 col-md-6 mt-3" type="submit">Login</button>
+        </form>
+        <div class="text-center pb-3">
+            
+            <p class="text-primary fs-6"><a ui-sref="register()" class="text-decoration-none">Sign up for IFMIS</a>
+            </p>
+        </a>
+          </div>
+    </div>
+

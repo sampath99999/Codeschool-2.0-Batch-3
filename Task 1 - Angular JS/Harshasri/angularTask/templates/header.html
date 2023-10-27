@@ -1,0 +1,109 @@
+<div id="navbar-wrapper">
+  <nav class=" navbar navbar-inverse m-0 p-1 sticky-top">
+    <div class="container-fluid header-container">
+      <div class="navbar-header d-flex align-items-center">
+        <img src="https://d1enwwncs1sgu4.cloudfront.net/fms-pre-prod/images/newUi/ifmis-logo.png" alt="logo"
+          class="logo-image d-none d-md-block me-2" />
+
+        <ul class="d-flex m-0 p-0 justify-content-center align-items-center gap-2 list-unstyled">
+
+          <img src="https://res.cloudinary.com/dn0woegat/image/upload/v1692033264/1_id2hni.png" alt="logo"
+            style="height:50px;width:50px;" class="logo-image d-block d-md-none">
+          <li>
+            <button class="menu-button">
+              <a ui-sref="home()">
+              <i class="fa fa-bars" style="font-size: 24px; color: white "></i>
+
+              <a href="#" class="navbar-brand" id="sidebar-toggle" ></a>
+
+            </button>
+          </a>
+          </li>
+
+          <li class="d-none d-md-block">
+            <button class="menu-button d-flex align-items-center gap-2">
+
+
+              <i class="bi bi-boxes" style="font-size: 24px; color: white"></i>
+              MODULES
+            </button>
+          </li>
+          <li class="d-none d-md-block">
+            <a ui-sref="profile()">
+            <button class="menu-button d-flex align-items-center gap-2" ng-click="onClickProfile()">
+              <i class="fa fa-user" style="font-size: 24px; color: white"></i>
+              Profile
+            </button>
+          </a>
+          </li>
+          <li>
+            <a ui-sref="logout()">
+            <button ng-click="onClickLogout()" class="menu-button d-flex align-items-center gap-2">
+              <i class="fa fa-sign-out" style="font-size: 24px; color: white"></i><span id="on"> Logout</span>
+            </button>
+          </a>
+          
+          </li>
+          <li class="login-time d-none d-md-block">
+            Last Login:<br />
+
+            <span id="date">{{cdate | date:'dd-MMM-yyyy'}}</span><br />
+            <span id="date">{{cdate | date:'hh:mm:ss a'}}</span><br />
+
+          </li>
+        </ul>
+      </div>
+
+      <ul class="d-flex d-md-none m-0 p-0 justify-content-center align-items-center gap-2 list-unstyled">
+        <li class="dropdown">
+          <ul class="menu-button1 dropbtn gap-2 d-flex justify-content-center align-items-center list-unstyled">
+            <li>
+              <i class="fa fa-user ps-1" style="font-size: 24px; color: white"></i>
+            </li>
+            <li>
+              <i class="fa fa-caret-down" style="font-size: 24px; color: white"></i>
+            </li>
+          </ul>
+          <div class="dropdown-options">
+            <div class="options">
+              <a class="drops" href="#"><i class="bi bi-person"></i> Profile</a>
+              <a class="drops" href="#"><i class="bi bi-gear"></i> Change Password</a>
+              <a class="drops" href="#"><i class="fa fa-sign-out"></i> Logout</a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+      <ul class="d-none d-md-flex m-0 p-0 justify-content-center align-items-center gap-2 list-unstyled">
+
+        <li class="dropdown">
+          <ul class="menu-button1 dropbtn gap-2 d-flex justify-content-center align-items-center list-unstyled">
+            <li>
+              <i class="fa fa-user ps-1" style="font-size: 24px; color: white"></i>
+            </li>
+            <li>
+              <p class="login-time profile text-start mt-3">
+                WELCOME HARSHASRI.Y <br />
+                <span class="span1">(25001002018)</span>
+              </p>
+            </li>
+            <li>
+              <i class="fa fa-caret-down" style="font-size: 24px; color: white"></i>
+            </li>
+          </ul>
+          <div class="dropdown-options">
+            <div class="options">
+              <a class="drops gap-2" style="font-size: 16px" href="#"><i class="bi bi-person text-success mr-2"></i>
+                Profile</a>
+              <a class="drops" style="font-size: 16px" href="#"><i class="bi bi-gear text-success mr-2"></i> Change
+                Password</a>
+              <a class="drops" style="font-size: 16px" href="#"><i class="fa fa-sign-out text-success mr-2"></i>
+                Logout</a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+</div>
