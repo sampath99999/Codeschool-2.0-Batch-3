@@ -1,0 +1,45 @@
+<div class="homePageHeader d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+        <div class="homeLogoContainer me-5">
+            <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"
+                class="homeLogo mt-1 ms-3" />
+        </div>
+        <div class="modulesContainer d-flex justify-content-around align-items-center">
+            <div class="module1 me-2 bg-secondary bg-opacity-50 text-light pe-2 ps-2 rounded d-flex align-items-center">
+                <i class="fa-solid fa-house me-2"></i>
+                <p class="m-0">Modules</p>
+            </div>
+
+            <div class="module1 me-2 bg-secondary bg-opacity-50 text-light pe-2 ps-2 rounded d-flex align-items-center">
+                <i class="fa-solid fa-user me-2"></i>
+                <p class="m-0">Profile</p>
+            </div>
+            <div class="module1 me-4 bg-secondary bg-opacity-50 text-light pe-2 ps-2 rounded d-flex align-items-center logout"
+                ng-click="logout()">
+                <i class="fa-solid fa-right-from-bracket me-2"></i>
+                <p class="m-0 text-light">Logout</p>
+            </div>
+            <div class="lastLogin text-light d-flex flex-column">
+                <p class="m-0 dateEl">Last Login:</p>
+                <p class="m-0 dateEl">{{newDate | date:"dd-MMM-yyyy"}}</p>
+                <p class="m-0 dateEl">{{newDate | date : "hh:mm:a"}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-light">
+        <div class="dropdown">
+            <button class="btn btn-secondary opacity-75 me-3  dropdown-toggle d-flex align-items-center" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user" id="icon"></i>
+                <div class="d-flex flex-column justify-content-center">
+                    <p class="m-0 dateEl">WELCOME PIXELVIDE SOLUTIONS</p>
+                    <p class="m-0 dateEl">(BRO-PIXELVIDE)</p>
+                </div>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item dateEl" href="#">BRO-PIXELVIDE</a></li>
+                <li><a class="dropdown-item dateEl" href="#">PIXELVIDE DESIGN SOLUTIONS</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

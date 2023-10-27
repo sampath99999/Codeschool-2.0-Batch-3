@@ -1,0 +1,175 @@
+<div class="container m-0 p-0">
+    <div class="row p-0 m-0">
+        <div class="m-0 p-0">
+            <login-header></header>
+        </div>
+        <div class="col-12 d-flex flex-column belowMainContainer">
+            <div class="d-flex justify-content-center">
+                <div class="col-12 col-lg-3 side1">
+                    <div class="signInContainer bg-white pe-3 ps-3">
+                        <p class="m-0 pt-3 pb-2 mainHeading">User Login</p>
+                        <div class="inputContainer d-flex align-items-center rounded shadow-sm">
+                            <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/user.png" alt="Men"
+                                class="me-3 ms-2">
+                            <input type="text" class="usernameEl" ng-model="email" ng-change="validateEmail()"
+                                placeholder="Email" ng-class="{'is-invalid': emailErrMsg}" />
+                        </div>
+                        <p class="m-0 text-danger errMsg" ng-show="emailErrMsg">{{emailErrMsg}}</p>
+                        <div class="inputContainer d-flex align-items-center rounded shadow-sm mt-3">
+                            <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/pwd.png" alt="Key"
+                                class="me-3 ms-2">
+                            <input type="password" class="usernameEl" ng-model="password" ng-change="validatePassword()"
+                                placeholder="Password" ng-class="{'is-invalid': passwordErrMsg}" />
+                        </div>
+                        <p class="m-0 text-danger errMsg" ng-show="passwordErrMsg">{{passwordErrMsg}}</p>
+                        <div class="captchaContainer d-flex align-items-center mt-3">
+                            <img id="captchaHolder"
+                                src="data:image/png;base64,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"
+                                class="captchaImg" />
+                            <button class="captchaBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                    <path
+                                        d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="inputContainer mt-3 d-flex align-items-center rounded mb-3">
+                            <input type="text" class="usernameEl ms-2" placeholder="Enter Captcha" />
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pb-4">
+                            <a class="m-0 password fw-medium">Forgot Password?</a>
+                            <button id="signInBtn" ng-click="signIn()">SIGN IN</button>
+                        </div>
+                        <p class="m-0 text-bg-success">{{showMessage}}</p>
+                    </div>
+                    <div class="importantNoticeContainer ps-3 d-flex flex-column">
+                        <p class="m-0 impPara fw-medium">Important Notification to all PAO Branches!</p>
+                        <p class="redNote">
+                            All cheques numbers will now be same<br />
+                            as token numbers in PAO.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 side-2">
+                    <div class="carouselCont me-3 ms-3 mt-3 mb-1">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/banners/29.jpg"
+                                        class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="carouselNameCont me-3 ms-3 mb-1">
+                        <p class="m-0 text-light pb-5 ps-2 pt-2">Telangana Secretariat - Dr. B.R. Ambedkar
+                            Telangana
+                            Secretariat
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="downSidedContainers col-12 col-lg-8 d-flex justify-content-around m-0 p-0 mb-5 pe-3 ps-3">
+                    <div class="downContainer1 col-12 col-lg-3 mt-3 mb-2">
+                        <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/news_icon.png" alt="News">
+                        <h5 class="newsHead">Latest News/Note</h5>
+                        <div class="spannedElements">
+                            <p class="newsPara m-0">All the HODs and DDO are hereby informed that the remuneration
+                                pertains
+                                to
+                                Contract/Honorarium based services will be paid through IFMIS-DBT mode only from the
+                                month
+                                of November, 2022. All the departments hereby are requested to strictly adhered to
+                                update
+                                the information of the persons engaged on contract/honorarium basis in 27 column
+                                proforma in
+                                Finance (HRM.VII) Department with relevant information immediately. Updating of bills in
+                                regular pattern will not be entertained further.</p>
+                            <p class="hoverEl"><span class="spanned">New Districts & Mandals Details -03-09-2021</span>
+                            </p>
+                            <p class="hoverEl">Circular Memo for PRC 2020:<br /><span>Pay Fixation Circular Memo
+                                    Dt.17.6.2021</span></p>
+                            <p class="hoverEl">Following are the GOs for PRC 2020:<br /><span>GO Ms NO.51 Dt.11.06.2021
+                                    PRC
+                                    Main GO</span></p>
+                            <p class="hoverEl"><span>GO Ms NO.52 Dt.11.06.2021 DA</span></p>
+                            <p class="hoverEl"><span>GO Ms NO.53 Dt.11.06.2021 HRA</span></p>
+                            <p class="hoverEl"><span>GO Ms NO.54 Dt.11.06.2021 CCA</span></p>
+                            <p class="hoverEl"><span>GO Ms NO.55 Dt.11.06.2021 CDA</span></p>
+                            <p class="hoverEl"><span>GO Ms NO.56 Dt.11.06.2021 HDA</span></p>
+                            <p class="hoverEl"><span>GO Ms NO.57 Dt.11.06.2021 RCA</span></p>
+                            <p class="hoverEl"><span>GO Ms NO.58 Dt.11.06.2021 CAA</span></p>
+                        </div>
+                    </div>
+                    <div class="downContainer2 col-12 col-lg-4 mb-2 mt-3">
+                        <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/video_icon.png" alt="youtube">
+                        <h5 class="newsHead">View Demo</h5>
+                        <p class="newsPara m-0">Demo :<br />
+                            Watch the demo to know more about how to different products and services on IFMIS</p>
+                        <div class="d-flex mt-3">
+                            <div class="video">
+                                <img src="https://img.youtube.com/vi/swAbl9NY_u8/0.jpg" alt="video1"
+                                    class="video-image-1" />
+                            </div>
+                            <div>
+                                <h6 class="fw-bold m-0">How to Check Employee Details - IFMIS/DDO Tutorial</h6>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="m-0">Employee Details</p>
+                                    <p class="m-0">12 jan 2020</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div class="video">
+                                <img src="https://img.youtube.com/vi/swAbl9NY_u8/0.jpg" alt="video2"
+                                    class="video-image-1" />
+                            </div>
+                            <div class="video-detail">
+                                <h6 class="fw-bold">How to Check Employee Details - IFMIS/DDO Tutorial</h6>
+                                <div class="dateContainer">
+                                    <p class="m-0">Employee Details</p>
+                                    <p class="m-0">12 jan 2020</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="viewLink m-0">View More</p>
+                    </div>
+                    <div class="downContainer3 col-12 col-lg-2 mt-3">
+                        <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/vison_icon.png" alt="vision">
+                        <h5 class="newsHead">Our Vision</h5>
+                        <p class="visionPara m-0">We have developed IFMIS with the vision that Financial Technology
+                            shall be
+                            able
+                            to function using cutting-edge technology that ensures data security, efficiency and
+                            transparency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer d-flex justify-content-end align-items-center">
+            <p class="m-0 policy">Privacy Policy</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,213 @@
+<div>
+    <bro-header></bro-header>
+    <div class="hoaSideContainer d-flex">
+        <sidebar></sidebar>
+        <div class="hoaCard1 bg-secondary bg-opacity-50 w-100">
+            <div class="hoaCard2 bg-white p-3">
+                <div class="newHoa d-flex justify-content-between align-items-center mb-3">
+                    <h3 class="m-0 newHoaHeading fw-bold">Add New Head Of Account</h3>
+                    <button class="btn btn-success" ui-sref="HOAList">
+                        View List
+                    </button>
+                </div>
+                <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-3">
+                        <p class="hodPara">Name Of HOD:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="col-6 col-lg-7">
+                        <select class="form-select" aria-label="Default select example"
+                            ng-class="{'is-invalid': hodErrMsg}" ng-change="validateHod()" ng-model="hod">
+                            <option value="">Select an Option</option>
+                            <option ng-repeat="(x,y) in headOfAccount" value="{{y.name}}">{{y.name |
+                                uppercase}}</option>
+                        </select>
+                        <p class="errMsg text-danger m-0" ng-show="hodErrMsg">{{hodErrMsg}}</p>
+                    </div>
+                </div>
+                <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Budget Year:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="col-lg-7">
+                        <select class="form-select" aria-label="Default select example" ng-model="budget"
+                            ng-class="{'is-invalid': budgetErrMsg}" ng-change="validateBudget()">
+                            <option value="">Select an Option</option>
+                            <option ng-repeat="(x,y) in budgetYear" value="{{y.year}}">{{y.year}}
+                            </option>
+                        </select>
+                        <p class="errMsg m-0 text-danger" ng-show="budgetErrMsg">{{budgetErrMsg}}</p>
+                    </div>
+                </div>
+                <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Establishment/Scheme:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="col-lg-7">
+                        <select class="form-select" aria-label="Default select example" ng-model="scheme"
+                            ng-class="{'is-invalid': schemeErrMsg}" ng-change="validateScheme()">
+                            <option value="">Select an Option</option>
+                            <option ng-repeat="(x,y) in establishment" value="{{y.name}}">{{y.name}}</option>
+                        </select>
+                        <p class="m-0 errMsg text-danger" ng-show="schemeErrMsg">{{schemeErrMsg}}</p>
+                    </div>
+                </div>
+                <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Major Head:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="d-flex align-items-center col-lg-7">
+                        <div>
+                            <input type="text" class="hoaNum ps-2" placeholder="xxxx" maxlength="4" ng-model="majorHead"
+                                ng-class="{'is-invalid': majorHeadErrMsg}" ng-change="validateMajorHead()" />
+                            <p class="m-0 errMsg text-danger" ng-show="majorHeadErrMsg">{{majorHeadErrMsg}}</p>
+                        </div>
+                        <div>
+                            <textarea class="hoaDescription ms-5 ps-2 pt-2" placeholder="Description"
+                                ng-model="majorHeadDescription" ng-class="{'is-invalid': majorDescriptionErrMsg}"
+                                ng-change="validateMajorDesc()"></textarea>
+                            <p class="m-0 errMsg text-danger ms-5" ng-show="majorDescriptionErrMsg">
+                                {{majorDescriptionErrMsg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Sub-Major Head:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="d-flex align-items-center col-lg-7">
+                        <div>
+                            <input type="text" class="hoaNum ps-2" placeholder="xx" maxlength="2"
+                                ng-model="subMajorHead" ng-class="{'is-invalid': subMajorHeadErrMsg}"
+                                ng-change="validateSubMajorHead()" />
+                            <p class="m-0 errMsg text-danger" ng-show="subMajorHeadErrMsg">{{subMajorHeadErrMsg}}</p>
+                        </div>
+                        <div>
+                            <textarea class="hoaDescription ms-5 ps-2 pt-2" placeholder="Description"
+                                ng-model="subMajorHeadDescription" ng-class="{'is-invalid': subMajorHeadDescErrMsg}"
+                                ng-change="validateSubMajorDesc()"></textarea>
+                            <p class="m-0 errMsg text-danger ms-5" ng-show="subMajorHeadDescErrMsg">
+                                {{subMajorHeadDescErrMsg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Minor Head:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="d-flex align-items-center col-lg-7">
+                        <div>
+                            <input type="text" class="hoaNum ps-2" placeholder="xxx" maxlength="3" ng-model="minorHead"
+                                ng-class="{'is-invalid': minorHeadErrMsg}" ng-change="validateMinorHead()" />
+                            <p class="m-0 errMsg text-danger" ng-show="minorHeadErrMsg">{{minorHeadErrMsg}}</p>
+                        </div>
+                        <div>
+                            <textarea class="hoaDescription ms-5 ps-2 pt-2" placeholder="Description"
+                                ng-model="minorHeadDescription" ng-class="{'is-invalid': minorHeadDescErrMsg}"
+                                ng-change="validateMinorHeadDesc()"></textarea>
+                            <p class="m-0 errMsg text-danger ms-5" ng-show="minorHeadDescErrMsg">{{minorHeadDescErrMsg}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Group Sub Head:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="d-flex align-items-center col-lg-7">
+                        <div>
+                            <input type="text" class="hoaNum ps-2" placeholder="xx" maxlength="2"
+                                ng-model="groupSubHead" ng-class="{'is-invalid': groupSubHeadErrMsg}"
+                                ng-change="validateGroupSubHead()" />
+                            <p class="m-0 errMsg text-danger" ng-show="groupSubHeadErrMsg">{{groupSubHeadErrMsg}}</p>
+                        </div>
+                        <div>
+                            <textarea class="hoaDescription ms-5 ps-2 pt-2" placeholder="Description"
+                                ng-model="groupSubHeadDesc" ng-class="{'is-invalid': groupSubHeadDescErrMsg}"
+                                ng-change="validateGroupSubHeadDesc()"></textarea>
+                            <p class="m-0 errMsg text-danger ms-5" ng-show="groupSubHeadDescErrMsg">
+                                {{groupSubHeadDescErrMsg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Sub Head:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="d-flex align-items-center col-lg-7">
+                        <div>
+                            <input type="text" class="hoaNum ps-2" placeholder="xx" maxlength="2" ng-model="subHead"
+                                ng-class="{'is-invalid':subHeadErrMsg}" ng-change="validateSubHead()" />
+                            <p class="m-0 errMsg text-danger" ng-show="subHeadErrMsg">{{subHeadErrMsg}}</p>
+                        </div>
+                        <div>
+                            <textarea class="hoaDescription ms-5 ps-2 pt-2" placeholder="Description"
+                                ng-model="subHeadDesc" ng-class="{'is-invalid': subHeadDescErrMsg}"
+                                ng-change="validateSubHeadDesc()"></textarea>
+                            <p class="m-0 ms-5 text-danger errMsg" ng-show="subHeadDescErrMsg">{{subHeadDescErrMsg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Detailed Head:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="d-flex align-items-center col-lg-7">
+                        <div>
+                            <input type="text" class="hoaNum ps-2" placeholder="xxx" maxlength="3"
+                                ng-model="detailedHead" ng-class="{'is-invalid': detailedHeadErrMsg}"
+                                ng-change="validateDetailedHead()" />
+                            <p class="m-0 errMsg text-danger" ng-show="detailedHeadErrMsg">{{detailedHeadErrMsg}}</p>
+                        </div>
+                        <div>
+                            <textarea class="hoaDescription ms-5 ps-2 pt-2" placeholder="Description"
+                                ng-model="detailedHeadDesc" ng-class="{'is-invalid': detailedHeadDescErrMsg}"
+                                ng-change="validateDetailedHeadDesc()"></textarea>
+                            <p class="m-0 ms-5 errMsg text-danger" ng-show="detailedHeadDescErrMsg">
+                                {{detailedHeadDescErrMsg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="majorHeadCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Sub Detailed Head:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class="d-flex align-items-center col-lg-7">
+                        <div>
+                            <input type="text" class="hoaNum ps-2" placeholder="xxx" maxlength="3"
+                                ng-model="subDetailedHead" ng-class="{'is-invalid': subDetailedErrMsg}"
+                                ng-change="validateSubDetailHead()" />
+                            <p class="m-0 errMsg text-danger" ng-show="subDetailedErrMsg">{{subDetailedErrMsg}}</p>
+                        </div>
+                        <div>
+                            <textarea class="hoaDescription ms-5 ps-2 pt-2" placeholder="Description"
+                                ng-model="subDetailedHeadDesc" ng-class="{'is-invalid': subDetailedDescErrMsg}"
+                                ng-change="validateSubDetailedDesc()"></textarea>
+                            <p class="m-0 errMsg text-danger ms-5" ng-show="subDetailedDescErrMsg">
+                                {{subDetailedDescErrMsg}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputCont d-flex align-items-center mb-1 col-12 col-lg-9">
+                    <div class="col-lg-3">
+                        <p class="hodPara">Charged/Voted:<span class="text-danger">*</span></p>
+                    </div>
+                    <div class=" col-lg-7">
+                        <select id="votingSelect" aria-label="Default select example" ng-model="voting"
+                            ng-class="{'is-invalid': votingErrMsg}" ng-change="validateVoting()">
+                            <option value="">Select an Option</option>
+                            <option value="Charged">Charged</option>
+                            <option value="Voted">Voted</option>
+                        </select>
+                        <p class="m-0 errMsg text-danger" ng-show="votingErrMsg">{{votingErrMsg}}</p>
+                    </div>
+                </div>
+                <div class="buttonsContainer d-flex justify-content-center align-items-center">
+                    <button class="clearDataBtn me-3" ng-click="clearData()">Clear Filled Data</button>
+                    <button class="submitDataBtn" ng-click="submitHoa()">Submit HOA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" text-light budgetFooter">
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="name">
+    <div class="loginHeader m-0 p-0 col-12">
+        <div class="headerLogo pt-3 pb-3">
+            <img src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png" class="mainLogo" />
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-block d-md-none">
+        <div class="container-fluid m-0 p-0">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse belowHeader m-0 p-0" id="navbarNavDropdown">
+                <ul class="navbar-nav text-light">
+                    <li class="nav-item">
+                        HOME
+                    </li>
+                    <li class="nav-item">
+                        PAYSLIP
+                    </li>
+                    <li class="nav-item">
+                        UTR REPORT
+                    </li>
+                    <li class="nav-item">
+                        BUDGET VOLUMES
+                    </li>
+                    <li class="fs-6 loginItems challanCard nav-item" ng-mouseenter="showHover()"
+                        ng-mouseleave="hideHover()">
+                        <div class="d-flex m-0 align-items-center p-0">
+                            <p class="m-0 me-2">CHALLANS</p>
+                            <i class="fa-solid fa-angle-down "></i>
+                        </div>
+                        <ul class="dropItemsList bg-light shadow-lg" ng-show="hoverValue">
+                            <li ng-repeat="item in hoverItems" class=" ps-1 pt-2 pb-2 m-0 fs-6">{{item.name |
+                                uppercase}}
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        GPF LEDGER
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="belowHeader d-none d-md-flex d-flex justify-content-center col-12">
+        <ul class="d-flex align-items-center m-0 unorderedList p-0 col-12 col-lg-8">
+            <li class="loginItems text-light">
+                HOME
+            </li>
+            <li class="loginItems text-light">
+                PAYSLIP
+            </li>
+            <li class="text-light  loginItems ">
+                UTR REPORT
+            </li>
+            <li class="text-light loginItems">BUDGET VOLUMES</li>
+            <li class="text-light loginItems challanCard" ng-mouseenter="showHover()" ng-mouseleave="hideHover()">
+                <div class="d-flex m-0 align-items-center p-0">
+                    <p class="m-0 me-2">CHALLANS</p>
+                    <i class="fa-solid fa-angle-down "></i>
+                </div>
+                <ul class="dropItemsList bg-light shadow-lg" ng-show="hoverValue">
+                    <li ng-repeat="item in hoverItems" class=" ps-1 pt-2 pb-2 m-0 ">{{item.name |
+                        uppercase}}
+                    </li>
+                </ul>
+            </li>
+            <li class="text-light loginItems" ng-mouseenter="showTreasury()" ng-mouseleave="hideTreasury()">
+                <div class="d-flex m-0 align-items-center p-0">
+                    <p class="m-0 me-2">CYBER TREASURY</p>
+                    <i class="fa-solid fa-angle-down "></i>
+                </div>
+                <ul ng-show="treasuryValue" class="dropItemsList bg-light shadow-lg">
+                    <li ng-repeat="treasury in treasuries">{{treasury.value | uppercase}}</li>
+                </ul>
+            </li>
+            <li class="text-light loginItems">GPF LEDGER</li>
+        </ul>
+    </div>
+</div>

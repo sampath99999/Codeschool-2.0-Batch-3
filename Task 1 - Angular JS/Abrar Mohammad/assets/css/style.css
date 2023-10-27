@@ -1,0 +1,638 @@
+/* body {
+    max-width: 100vw !important;
+} */
+
+.container {
+    max-width: 100vw;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.loginHeader {
+    background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg");
+}
+
+.belowMainContainer {
+    background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/login-bg.png");
+}
+
+.homePage {
+    max-width: 100vw;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+.homePageHeader {
+    background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg");
+    height: 8vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+}
+
+.budgetPageHeader {
+    background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/header-bg.jpg");
+    height: 8vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    border-bottom: 4px solid palevioletred;
+}
+
+.homePageMainContainer {
+    background-image: url('https://watermark.lovepik.com/photo/20211121/large/lovepik-chengdu-financial-city-building-picture_500637917.jpg');
+    background-size: cover;
+    height: 84vh;
+}
+
+.budgetReleaseOrderContainer {
+    background-color: #08254f;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+
+
+.content {
+    border: 1px dotted yellow;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+}
+
+.notificationContainer {
+    width: 390px;
+    height: 100%;
+}
+
+.homePageFooter {
+    height: 8vh;
+    background-color: #08254f;
+    padding-left: 200px;
+}
+
+.blockchainContainer {
+    border: 1px dotted white;
+    width: 180px;
+    height: 40px;
+}
+
+.blockchainIcon {
+    height: 100px;
+}
+
+.budgetReleaseContainers {
+    height: 88vh;
+}
+
+.hoaSideContainer {
+    height: 100%;
+    width: 100vw;
+}
+
+.hoaListContaners {
+    height: 90vh;
+    width: 100%;
+}
+
+.hoaListContaner1 {
+    height: 100%;
+    width: 100%;
+}
+
+.hoaListContainer2 {
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+
+.hoaCard1 {
+    height: 100%;
+    width: 100%;
+}
+
+.hoaCard2 {
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.hoaHead {
+    font-size: 20px;
+}
+
+.allInput1 {
+    border: 1px solid rgba(128, 128, 128, .25);
+    border-radius: 5px;
+    width: 280px;
+    height: 25px;
+    background-color: transparent;
+}
+
+.allInput2 {
+    border: 1px solid rgba(128, 128, 128, .25);
+    border-radius: 5px;
+    width: 200px;
+    height: 25px;
+    background-color: transparent;
+}
+
+.hoaInputEl {
+    height: 25px;
+    width: 60px;
+    font-size: 15px;
+}
+
+.hoaButton {
+    border: 0;
+    border-radius: 5px;
+    background-color: green;
+    height: 30px;
+    color: white;
+}
+
+.hoaButton2 {
+    border: 0;
+    border-radius: 5px;
+    background-color: lightgrey;
+    height: 30px;
+    width: 70px;
+    color: white;
+}
+
+.tableBtn {
+    border: 0;
+    background-color: lightgray;
+    outline: none;
+    font-size: 10px;
+    border-radius: 3px;
+}
+
+.budgetFooter {
+    background-color: #1b364d;
+    height: 2vh;
+}
+
+.voteErr {
+    margin-left: 150px;
+}
+
+.budgetFooter2 {
+    background-color: #1b364d;
+    height: 2vh;
+}
+
+.budgetReleaseSidebar {
+    width: 230px;
+    height: 100%;
+    background-color: #1b364d;
+}
+
+.newHoaHeading {
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.hodPara {
+    font-size: 14px;
+}
+
+.errMsg {
+    font-size: 10px;
+}
+
+#inputElements {
+    width: 400px;
+}
+
+#votingSelect {
+    width: 500px;
+    border: 1px solid #dee2e6;
+    outline: none;
+}
+
+
+.clearDataBtn {
+    border: 0px;
+    background-color: lightgray;
+    color: white;
+    height: 40px;
+    width: 140px;
+}
+
+.submitDataBtn {
+    border: 0px;
+    background-color: navy;
+    color: white;
+    height: 40px;
+    width: 120px;
+}
+
+.sideBar {
+    width: 100%;
+}
+
+/* .majorHeadCont {
+    width: 55%;
+} */
+
+.activated {
+    border-bottom: 1px solid #000;
+    width: 100%;
+    cursor: pointer;
+    opacity: 1;
+    font-size: 13px;
+}
+
+.sideBar li {
+    border-bottom: 1px solid rgba(128, 128, 128, .25);
+    width: 100%;
+    cursor: pointer;
+    opacity: 1;
+    font-size: 13px;
+}
+
+.hoaNum {
+    height: 40px;
+    width: 180px;
+    border: 1px solid #dee2e6;
+    outline: none;
+}
+
+.hoaNum2 {
+    height: 30px;
+    width: 180px;
+    border: 1px solid #dee2e6;
+    outline: none;
+}
+
+.hoaNum3 {
+    height: 30px;
+    border: 1px solid #dee2e6;
+    outline: none;
+    width: 500px;
+}
+
+/* 
+.votedSelect {
+    width: 60%;
+} */
+
+.hoaDescription {
+    height: 40px;
+    width: 310px;
+    border: 1px solid #dee2e6;
+    outline: none;
+}
+
+.hoaDescription2 {
+    height: 30px;
+    width: 310px;
+    border: 1px solid #dee2e6;
+    outline: none;
+}
+
+.sideBarList {
+    border-left: 2px solid palevioletred;
+}
+
+.sideBar li:hover {
+    border-left: 2px solid palevioletred;
+}
+
+.contentCard {
+    width: 100%;
+    height: 100%;
+}
+
+.contentCard-2 {
+    width: 100%;
+    height: 100%;
+}
+
+.welcomeCard {
+    width: 100%;
+    height: 100%;
+}
+
+.notiPara {
+    font-size: 14px;
+}
+
+.broHeading {
+    color: navy;
+    font-family: Bree Serif;
+}
+
+.broPara {
+    color: gray;
+}
+
+.dateEl {
+    font-size: 10px;
+}
+
+#icon {
+    font-size: 20px;
+}
+
+.headerLogo {
+    padding-left: 270px;
+}
+
+.mainHeading {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mainLogo {
+    height: 50px;
+    width: 250px;
+}
+
+.module1 {
+    height: 40px;
+    width: 100px;
+}
+
+.lastLogin {
+    height: 40px;
+}
+
+.homeLogo {
+    height: 45px;
+    width: 200px;
+}
+
+.inputContainer {
+    border: 1px solid #dee2e6;
+    border-color: darkgray;
+    height: 40px;
+}
+
+.captchaContainer {
+    border: 1px solid;
+    border-color: black;
+    height: 40px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.usernameEl {
+    border: 0px;
+    outline: none;
+    width: 90%;
+}
+
+.captchaImg {
+    width: 90%;
+    height: 40px;
+}
+
+.password {
+    color: gray;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.password:hover {
+    color: blue;
+    opacity: 1;
+    text-decoration: underline;
+}
+
+li {
+    list-style-type: none;
+}
+
+.loginItems {
+    font-size: 15px;
+}
+
+.loginItems:hover {
+    background-color: #0063c0;
+}
+
+.belowHeader {
+    background-color: #00498d;
+}
+
+.unorderedList li {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.dropItemsList li {
+    color: black;
+}
+
+.dropItemsList {
+    position: absolute;
+    margin-top: 24px;
+    margin-left: -30px;
+    padding-left: 0px;
+    width: 350px;
+    z-index: 1;
+}
+
+.side-2 {
+    background-color: lightgray;
+}
+
+.secretariatImage {
+    height: 350px;
+    width: 95%;
+    object-fit: fill;
+}
+
+.carouselNameCont {
+    background-color: #08254f;
+}
+
+.importantNoticeContainer {
+    background-color: #fff3cd;
+}
+
+.impPara {
+    color: brown;
+
+}
+
+@keyframes ifmis {
+    50% {
+        opacity: 0.1;
+    }
+}
+
+.downContainers {
+    background-color: lightgray;
+}
+
+.redNote {
+    color: red;
+    margin-bottom: 10px;
+    font-weight: 600;
+    animation: ifmis 1s linear infinite alternate;
+}
+
+.dropItemsList li:hover {
+    color: white;
+    background-color: #338fff;
+}
+
+#signInBtn {
+    width: 100px;
+    height: 35px;
+    background-color: green;
+    border: 0px;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+}
+
+.captchaBtn {
+    background-color: lightgray;
+    border: 0px;
+    outline: none;
+    height: 40px;
+    width: 10%;
+}
+
+@media screen and (max-width:776px) {
+    .headerLogo {
+        padding-left: 10px;
+    }
+}
+
+.downSidedContainers {
+    background-image: url("https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/footer_bg.png");
+}
+
+.downContainer1 {
+    margin-right: 20px;
+}
+
+.footer {
+    background-color: #06162e;
+    height: 70px;
+}
+
+.spannedElements {
+    overflow-y: auto;
+    height: 350px;
+    margin-right: 10px;
+}
+
+.spannedElements::-webkit-scrollbar {
+    width: 3px;
+}
+
+.spannedElements::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.spannedElements::-webkit-scrollbar-thumb {
+    background-color: navy;
+    border-radius: 5px;
+}
+
+.newsHead {
+    color: #40464e;
+    font-family: Bree serif;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.newsPara {
+    color: #40464e;
+    font-family: Bree serif;
+    margin-bottom: 10px;
+}
+
+/* .visionPara {
+    font-size: 20px;
+} */
+
+.hoverEl {
+    margin-bottom: 10px;
+}
+
+.down-line {
+    height: 350px;
+    width: 1px;
+    margin-top: 10px;
+    background: gray;
+    border-style: solid;
+    border-width: 0px;
+    margin-bottom: 15px;
+}
+
+span:hover {
+    color: violet;
+    text-decoration: underline;
+}
+
+.viewLink {
+    color: black;
+    text-decoration: underline;
+}
+
+.viewLink:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.downContainer2 {
+    margin-right: 10px;
+}
+
+
+.video-image-1 {
+    height: 70px;
+    width: 120px;
+    margin-right: 10px;
+}
+
+.dateContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.downContainer3 {
+    padding: 20px;
+    width: 350px;
+    margin-right: 10px;
+}
+
+.bottom-container {
+    background-color: #06162e;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.policy {
+    color: #959595;
+    padding-right: 15%;
+    font-size: 15px;
+    font-weight: 600;
+}
