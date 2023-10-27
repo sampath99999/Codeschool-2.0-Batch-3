@@ -1,0 +1,18 @@
+#loginHeader{
+    background-color: #1e1e2d;
+    
+}
+.login-card{
+    background-color: #1e1e2d;
+    border: dashed;
+    border-color:  #323248;
+    border-radius: 25px;
+}
+.form-control{
+    background-color: #1e1e2d;
+    color: white !important;
+}
+.form-control:focus{
+    background-color: #1e1e2d;
+    
+}

@@ -1,0 +1,16 @@
+.transactionInputFields {
+    background-color: #1e1e2d;
+    color: white !important;
+ }
+.transactionInputFields:focus{
+   background-color: #1e1e2d;
+}  
+
+.transactionInputFields:disabled{
+    background-color: #d1d5db;
+    color: white !important;
+ } 
+.addProductBtn{
+    font-size: 14px;
+    
+}

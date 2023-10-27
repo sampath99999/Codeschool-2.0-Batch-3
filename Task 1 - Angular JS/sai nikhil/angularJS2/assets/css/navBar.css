@@ -1,0 +1,20 @@
+#navBar{
+    position: fixed;
+    background-color: #1e1e2d;
+    height: 100vh;
+    width: 17rem;
+  
+    
+}
+.pointer-cursor{
+    cursor: pointer;
+}
+.active{
+    background-color: aqua;
+    width: 100%;
+    color: black;
+    border-radius: 10px;
+}
+ul li{
+    padding: 10px;
+}

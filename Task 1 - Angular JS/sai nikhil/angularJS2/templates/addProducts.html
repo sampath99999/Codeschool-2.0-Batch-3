@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col-2">
+    <nav-bar></nav-bar>
+  </div>
+
+  <div class="col-12 col-md-10" id="dashBoardContent">
+    <div class="d-flex px-2 py-4 justify-content-between">
+      <div>
+        <h5>Add Products</h5>
+      </div>
+      <div>
+        <button class="btn btn-danger" ng-click="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div
+        class="spinner-border text-success mt-5 m-auto"
+        role="status"
+        ng-show="showSpinner"
+        id="spinner"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="row px-4" ng-show="!showSpinner">
+      <div class="row g-2 productInputSection">
+        <div class="col-md">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control productInputFields"
+              id="floatingInputGrid"
+              placeholder="Enter Product Name"
+              value="Product Name"
+              ng-class="{'is-invalid' : productNameErrMsg }"
+              ng-model="productName"
+              ng-change="validateProductName()"
+            />
+            <label for="floatingInputGrid">Product Name</label>
+          </div>
+          <p class="text-danger" ng-show="productNameErrMsg">
+            {{productNameErrMsg}}
+          </p>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control productInputFields"
+              id="floatingInputGrid"
+              placeholder="Enter Product Price"
+              value="Product Price"
+              ng-class="{'is-invalid' : productPriceErrMsg }"
+              ng-model="productPrice "
+              ng-change="validateProductPrice()"
+            />
+            <label for="floatingInputGrid">Product Price</label>
+          </div>
+          <p class="text-danger" ng-show="productPriceErrMsg">
+            {{productPriceErrMsg}}
+          </p>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <select
+              class="form-select productInputFields"
+              id="floatingSelectGrid"
+              ng-class="{'is-invalid' : categoryErrMsg }"
+              ng-model="selectedCategory"
+              ng-change="validateCategory()"
+            >
+              <option value="" selected>Category</option>
+              <option ng-repeat="category in categories" value="{{category}}">
+                {{category}}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">Select Category</label>
+            <p class="text-danger" ng-show="categoryErrMsg">
+              {{categoryErrMsg}}
+            </p>
+          </div>
+        </div>
+        <div class="col-1 ms-1">
+          <div class="form-floating pt-2">
+            <button
+              class="btn btn-info addProductBtn py-2"
+              ng-click="addProduct()"
+            >
+              Add Product
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-4" ng-repeat="product in productDetails">
+            <div class="card mb-3 partyDetailsCard">
+              <div class="card-body">
+                <h5 class="card-title">{{product.product_name}}</h5>
+                <p class="card-text">
+                  <span>Price : </span>{{product.product_price}}
+                </p>
+                <p class="card-text">
+                  <span>Category : </span>{{product.product_category}}
+                </p>
+                <p class="card-text">
+                  <span>Stock : </span>
+                  <td>{{ product.stock === null ? '0' : product.stock }}</td>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

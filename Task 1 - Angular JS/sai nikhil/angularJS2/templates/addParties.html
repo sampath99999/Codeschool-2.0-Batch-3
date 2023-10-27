@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-2">
+    <nav-bar></nav-bar>
+  </div>
+
+  <div class="col-12 col-md-10" id="dashBoardContent">
+    <div class="d-flex px-2 py-4 justify-content-between">
+      <div>
+        <h5>Add Parties</h5>
+      </div>
+      <div>
+        <button class="btn btn-danger" ng-click="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div
+        class="spinner-border text-success mt-5 text-center m-auto"
+        role="status"
+        ng-show="showSpinner"
+        id="spinner"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="row px-4" ng-show="!showSpinner">
+      <div class="row g-2 partyInputSection">
+        <div class="col-md">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control partyInputFields"
+              id="floatingInputGrid"
+              placeholder="Enter Party Name"
+              value="Party Name"
+              ng-class="{'is-invalid' : partyNameErrMsg }"
+              ng-model="partyName"
+              ng-change="validatePartyName()"
+            />
+            <label for="floatingInputGrid">Party Name</label>
+          </div>
+          <p class="text-danger" ng-show="partyNameErrMsg">
+            {{partyNameErrMsg}}
+          </p>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <select
+              class="form-select partyInputFields"
+              id="floatingSelectGrid"
+              ng-class="{'is-invalid' : partyTypeErrMsg }"
+              ng-model="selectedPartyType"
+              ng-change="validatePartyType()"
+            >
+              <option value="" selected>Party Type</option>
+              <option ng-repeat="type in partyType" value="{{type}}">
+                {{type}}
+              </option>
+            </select>
+            <label for="floatingSelectGrid">Select Party Type</label>
+            <p class="text-danger" ng-show="partyTypeErrMsg">
+              {{partyTypeErrMsg}}
+            </p>
+          </div>
+        </div>
+        <div class="col-1 ms-1">
+          <div class="form-floating pt-2">
+            <button class="btn btn-info" ng-click="addParty()">
+              Add Party
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-md-4" ng-repeat="partyDetail in partyDetails">
+            <div class="card mb-3 partyDetailsCard">
+              <div class="card-body">
+                <h5 class="card-title">{{partyDetail.party_name}}</h5>
+                <p class="card-text">{{partyDetail.party_type}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

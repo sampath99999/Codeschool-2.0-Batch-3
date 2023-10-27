@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-2">
+    <nav-bar></nav-bar>
+  </div>
+
+  <div class="col-12 col-md-10" id="dashBoardContent">
+    <div class="d-flex px-2 py-4 justify-content-between">
+      <div>
+        <h5>Dashboard</h5>
+      </div>
+      <div>
+        <button class="btn btn-danger" ng-click="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="text-center">
+      <div
+        class="spinner-border text-success mt-5"
+        role="status"
+        ng-show="showSpinner"
+        id="spinner"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="row px-4" ng-show="!showSpinner">
+      <div class="col-12 col-md-4">
+        <div class="card dashBoardCard py-3">
+          <div class="card-header">Categories</div>
+          <div class="card-body">
+            <canvas id="productCategoryPie"></canvas>
+          </div>
+        </div>
+        <div class="card dashBoardCard py-3" id="invCard">
+          <div class="card-header">Inventory</div>
+          <div class="card-body">
+            <canvas id="productDoughnut"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="card dashBoardCard">
+          <div class="card-header">Top Sellers</div>
+          <div class="card-body">
+            <canvas id="topTrendsBarSellers"></canvas>
+          </div>
+        </div>
+        <div class="card dashBoardCard mt-4">
+          <div class="card-header">Top Clients</div>
+          <div class="card-body">
+            <canvas id="topTrendsBarClients"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

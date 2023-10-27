@@ -1,0 +1,10 @@
+.productInputFields {
+    background-color: #1e1e2d;
+    color: white !important;
+ }
+.productInputFields:focus{
+   background-color: #1e1e2d;
+}  
+.productDetailsCard{
+   background-color:#1e1e2d;
+}
