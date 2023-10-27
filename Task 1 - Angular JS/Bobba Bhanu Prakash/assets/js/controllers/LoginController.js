@@ -9,7 +9,7 @@ app.controller("LoginController", [
       $state.go("budget");
     }
     $scope.menuItems = [
-      { state: "home", name: "HOME" },
+      { state: "navHome", name: "HOME" },
       { state: "payslip", name: "PAYSLIP" },
       { state: "utrReport", name: "UTR REPORT" },
       { state: "budgetVolumes", name: "BUDGET VOLUMES" },

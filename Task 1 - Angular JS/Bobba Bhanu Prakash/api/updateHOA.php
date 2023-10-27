@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 require_once 'dbConfig.php';
+require_once 'validateToken.php';
 $json_data = file_get_contents("php://input");
 $data = json_decode($json_data, true);
 $response = ["status" => false, "message" => "", "data" => ""];
