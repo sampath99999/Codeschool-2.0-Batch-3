@@ -1,0 +1,27 @@
+.homeFooter {
+  background-color: #06162e;
+  height: 10vh;
+}
+.navBorder {
+  border-bottom: 2px solid pink;
+}
+.homeTitle {
+  color: #06162e !important;
+}
+.homeBg {
+  height: 70vh !important;
+}
+.submitHOABtn {
+  background-color: #06162e !important;
+}
+.filterInput {
+  background-color: lightgray !important;
+  width: 18vh !important;
+}
+.searchInput {
+  background-color: lightgray !important;
+  width: 40vh !important;
+}
+.selectedBtn {
+  box-shadow: 1px 1px 1px #007bff;
+}
