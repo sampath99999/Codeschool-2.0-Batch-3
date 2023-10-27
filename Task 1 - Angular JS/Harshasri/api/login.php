@@ -6,13 +6,13 @@ $response = ["status" => false, "message" => "","data"=>null];
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
     $data = json_decode(file_get_contents('php://input',true));
-//    echo json_encode($data['username']);
-   $username = $data->username;
+
+   $email = $data->email;
    $password=$data->password;
    
 
-    if (!isset($username)) {
-        $response["message"] = "Username is required!";
+    if (!isset($email)) {
+        $response["message"] = "Email is required!";
         echo json_encode($response);
         exit;
     }
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     }
 
    
-    if ($username == '' || $password == '') {
+    if ($email == '' || $password == '') {
         $response["message"] = "Username & Password shouldn't be empty";
         echo json_encode($response);
         exit;
@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         exit;
     }
 
-    $query = "SELECT id FROM employee WHERE username = ? and password = ?";
+    $query = "SELECT id,user_type FROM users WHERE email = ? and password = ?";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$username,$password]);
+    $stmt->execute([$email,$password]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($result) == 1) {
         $response["message"] = "LoggedIn Successfully!";
@@ -49,10 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     }
     else{
         $response["status"] = false;
-        $response["message"] = "No user with this Username & Password";
+        $response["message"] = "No user with this Email & Password";
         echo json_encode($response);
         exit;
     }
+
+   
 
     
 }

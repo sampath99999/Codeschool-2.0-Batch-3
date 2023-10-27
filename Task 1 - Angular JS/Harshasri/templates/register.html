@@ -1,0 +1,56 @@
+<header-directive></header-directive>
+
+<loader ng-show="isLoading"></loader>
+
+<div class="col-12 col-md-5 col-lg-3 mx-auto mt-5" ng-controller="registerContoller">
+    <h5 class="fs-2 text-center">Register</h5>
+  
+    <hr>
+    <div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="John Doe" ng-model="name" >
+            <label for="name">Name</label>
+            <p class="text-danger">
+                {{nameError}}</p>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="Email" ng-model="email" >
+            <label for="email">Email</label>
+            <p  class="text-danger">
+                {{emailError}}</p>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="Phone Number" ng-model="phoneNumber" >
+            <label for="phoneNumber">phone Number</label>
+            <p class="text-danger">
+                {{phoneNumberError}}</p>
+        </div>
+       
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password" >
+            <label for="password">Password</label>
+            <p class="text-danger">
+                {{passwordError}}</p>
+
+        </div>
+        <div class="form-floating">
+            <input type="date" class="form-control" placeholder="DOB" ng-model="dob" >
+            <label for="dob">Date of Birth</label>
+            <p class="text-danger">
+                {{dobError}}</p>
+
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+      
+        <button class="btn btn-primary col-12 col-md-6 mt-3 " ng-click="register()">Register</button>
+    </div>
+    </div>
+    <div class="text-center pb-3 mt-2">
+            
+        <p class="text-primary fs-6"><a ui-sref="login()" class="text-decoration-none text-white fs-6">Login for Student Information System</a>
+        </p>
+    </a>
+      </div>
+</div>

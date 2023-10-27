@@ -1,0 +1,45 @@
+<header-directive></header-directive>
+
+<loader ng-show="isLoading"></loader>
+<div ng-controller="loginController">
+    <div class="col-12 col-md-5 col-lg-3 mx-auto mt-5" ng-controller="loginController">
+        <h5 class="fs-2 text-center">Login</h5>
+ 
+        <hr>
+        <div>
+
+
+
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" placeholder="Email" ng-model="email"
+                    ng-change="validateEmail()">
+                <label for="email">Email</label>
+                <p class="text-danger">
+                    {{emailError}}</p>
+            </div>
+
+
+
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password"
+                    ng-change="validatePassword()">
+                <label for="password">Password</label>
+                <p class="text-danger">
+                    {{passwordError}}</p>
+
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                <button class="btn btn-primary col-12 col-md-6 mt-3 " ng-click="login()">Login</button>
+            </div>
+        </div>
+        <div class="text-center pb-3 mt-2">
+
+            <p class="text-white fs-6"><a ui-sref="register()" class="text-decoration-none text-white fs-6">Sign Up for
+                    Student Information System</a>
+            </p>
+            </a>
+        </div>
+    </div>
+</div>

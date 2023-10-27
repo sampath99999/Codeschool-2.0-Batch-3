@@ -1,25 +1,23 @@
 <?php
 
-require_once "./dbConfig.php";
+require_once("./dbConfig.php");
+$response = ["status" => false, "message" => "","data"=>null];
 
-$response = ["status" => false, "message" => "", "data" => null];
+if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
+    $data = json_decode(file_get_contents('php://input',true));
 
-if (isset($_GET['pan_number'])) {
-    $panNumber = $_GET['pan_number'];
-
-$pdo = getPDO(); 
-if (!$pdo) {
-    $response["status"] = false;
-    $response["message"] = "Database Not Connected!";
-    echo json_encode($response);
-    exit;
-}
    
-    $sql = "SELECT * FROM agency WHERE pan_number = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$panNumber]);
 
+    $pdo = getPDO();
+    if (!$pdo) {
+        $response["message"] = "Database Not Connected!";
+        echo json_encode($response);
+        exit;
+    }
+    $query = "SELECT * FROM student_info";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if ($result) {
@@ -37,11 +35,13 @@ if (!$pdo) {
         exit;
        
     }
-} else {
-        $response["message"] = "PAN Number is missing.";
+}
+else {
+        $response["message"] = "Invalid Request method!.";
         $response["status"]=false;
         echo json_encode($response);
         exit;
    
 }
 ?>
+

@@ -4,17 +4,16 @@ require_once './dbConfig.php';
 
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $data = json_decode(file_get_contents('php://input',true));
-
-    // echo json_encode($data);
  
-    $username = $data->username;
+    $name = $data->name;
     $password = $data->password;
+    $email = $data->email;
+    $dob = $data->dob;
+    $phoneNumber = $data->phoneNumber;
     
-    // $username = $data['username'];
-    
-//    $password=$data['password'];
+   
 
-    if (!isset($username)) {
+    if (!isset($name)) {
         $response["message"] = "Username is required!";
         echo json_encode($response);
         exit;
@@ -24,10 +23,25 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         echo json_encode($response);
         exit;
     }
+    if (!isset($email)) {
+        $response["message"] = "email is required!";
+        echo json_encode($response);
+        exit;
+    }
+    if (!isset($dob)) {
+        $response["message"] = "dob is required!";
+        echo json_encode($response);
+        exit;
+    }
+    if (!isset($phoneNumber)) {
+        $response["message"] = "Phone Number is required!";
+        echo json_encode($response);
+        exit;
+    }
 
 
-    if ($username == '' || $password == '') {
-        $response["message"] = "Username & Password shouldn't be empty";
+    if ($name == '' || $password == '' || $email=='' || $dob=='' || $phoneNumber=='') {
+        $response["message"] = "Fields shouldn't be empty";
         echo json_encode($response);
         exit;
     }
@@ -39,20 +53,20 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         exit;
     }
 
-    $query = "SELECT id FROM employee WHERE username = ?";
+    $query = "SELECT id FROM users WHERE email = ?";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([$username]);
+    $stmt->execute([$email]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($result) == 1) {
-        $response["message"] = "Username already Taken!";
+        $response["message"] = "email already Taken!";
         echo json_encode($response);
         exit;
     }
 
-    $query = "INSERT INTO employee (username, password) VALUES (?, ?)";
+    $query = "INSERT INTO users (name, password,email,phone_no,dob) VALUES (?, ?,?,?,?)";
 
     $statment = $pdo->prepare($query);
-    $result = $statment->execute([$username, $password]);
+    $result = $statment->execute([$name, $password,$email,$phoneNumber,$dob]);
 
     if (!$result) {
         $response["message"] = $statment->errorInfo();
