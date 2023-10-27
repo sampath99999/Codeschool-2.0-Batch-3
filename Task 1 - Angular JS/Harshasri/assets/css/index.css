@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+    text-decoration: none;
+    /* font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; */
+  }
+  
+  
+  .error-message {
+    color: white;
+    /* color: #dc3545; */
+    font-family: "Roboto";
+    font-size: 14px;
+    /* margin-left: 230px; */
+  }
+  .table-header{
+    background-color:aqua;
+   
+  }
+  
+  @media screen and (min-width: 768px){
+    .std-table{
+      margin-left:20px;
+    }
+    .bg-container{
+      background-image: linear-gradient(to right,#ede798,#ccc675);
+    }
+}
+ 
+  

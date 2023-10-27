@@ -1,0 +1,186 @@
+<home-header-directive></home-header-directive>
+<loader ng-show="isLoading"></loader>
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+
+
+<h4 class="p-3" style="text-align: center; ">Student Details</h4>
+<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="fa fa-user-plus" aria-hidden="true"></i> Add Student
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Student Information</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+
+    
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="name" ng-model="name" >
+            <label for="email">Name</label>
+            <p class="text-danger">
+              {{nameError}}</p>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="class" ng-model="class" ng-change="validateClass()">
+            <label for="email">class</label>
+            <p class="text-danger">
+              {{classError}}</p>
+          </div>
+
+
+
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="section" ng-model="section"
+              ng-change="validateSection()">
+            <label for="section">Section</label>
+            <p class="text-danger">
+              {{sectionError}}</p>
+
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="address" ng-model="address"
+              ng-change="validateAddress()">
+            <label for="address">Address</label>
+            <p class="text-danger">
+              {{addressError}}</p>
+
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="city" ng-model="city" ng-change="validateCity()">
+            <label for="city">City</label>
+            <p class="text-danger">
+              {{cityError}}</p>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" ng-click="add()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="col-11 mt-3">
+  <div class="d-flex justify-content-center align-items-center ps-5 std-table table-responsive">
+    <table class="table table-striped col-12">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col-1">Id</th>
+          <th scope="col-2">Name</th>
+          <th scope="col-3">Class</th>
+          <th scope="col-1">Section</th>
+          <th scope="col-2">Address</th>
+          <th scope="col-2">City</th>
+          <th scope="col-3">Actions</th>
+
+        </tr>
+      </thead>
+      <tbody >
+        <tr ng-repeat="student in students | orderBy :'id'" >
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.class }}</td>
+          <td>{{ student.section }}</td>
+          <td>{{ student.address }}</td>
+          <td>{{ student.city }}</td>
+
+          <td>
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" ng-click="editStudent(student.id,student.name,student.class,student.section,student.address,student.city)" data-bs-target="#exampleModal1">
+              Edit
+            </button>
+
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel1">Update Student Information</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <div class="modal-body">
+
+                    <div>
+
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" placeholder="name" ng-model="updateName" 
+          >
+                
+                        <label for="email">Name</label>
+                       
+                        <p class="text-danger">
+                          {{nameError}}</p>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" placeholder="class" ng-model="updateClass"
+                         >
+                        <label for="email">class</label>
+                        <p class="text-danger">
+                          {{classError}}</p>
+                      </div>
+
+
+
+                      <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="section" ng-model="updateSection"
+                          >
+                        <label for="section">Section</label>
+                        <p class="text-danger">
+                          {{sectionError}}</p>
+
+                      </div>
+                      <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="address" ng-model="updateAddress"
+                          >
+                        <label for="address">Address</label>
+                        <p class="text-danger">
+                          {{addressError}}</p>
+
+                      </div>
+                      <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="city" ng-model="updateCity"
+                          >
+                        <label for="city">City</label>
+                        <p class="text-danger">
+                          {{cityError}}</p>
+
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                      ng-click="updateData(updateName,updateClass,updateSection,updateAddress,updateCity)">Update</button>
+                  </div>
+              </div>
+            </div>
+  </div>
+
+  <button class="btn btn-outline-danger" ng-click="deleteStudent($index)">Delete</button>
+  </td>
+
+
+  </tr>
+  </tbody>
+  </table>
+</div>
+</div>
