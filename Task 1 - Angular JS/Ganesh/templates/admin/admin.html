@@ -1,0 +1,141 @@
+<nav class="navbar navbar-expand-lg p-2 bg-dark ">
+    <div class="container-fluid d-flex">
+        <div>
+            <a class="navbar-brand text-white" href="#">
+                <img src="./assets/images/quizAppLogo.png" alt="Logo" width="30" height="30"
+                    class="d-inline-block align-text-top">
+                QuizApp
+            </a>
+        </div>
+        <div>
+            <li class="nav-item dropdown text-white list-unstyled px-2" id="showProfile">
+                <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button"
+                    id="userProfileView" aria-expanded="false">{{username}}</a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" href="#" id="removeCredentials">
+                            <i class="bi bi-box-arrow-right text-primary"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+    </div>
+</nav>
+<div class="bg-dark m-4 p-4 text-white rounded-4 shadow-effect">
+  <h3 class="text-primary">Add Questions</h3>
+  <hr class="mb-4">
+    <div class="row m-2">
+      <div class="col-12 col-md-3">
+        <label for="topicName">Select the Topic Name</label>
+      </div>
+      <div class="col-12 col-md-6">
+        <select class="form-select text-white bg-dark mb-3" id="topicName" ng-model="topic" ng-class="{'is-invalid': topicError }" ng-change="validateTopic()">
+          <option selected disabled>Select</option>
+          <option value="1">Maths</option>
+          <option value="2">Physics</option>
+          <option value="3">Chemistry</option>
+        </select>
+        <div class="invalid-feedback">{{topicFeedback}}</div>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="col-12 col-md-3">
+        <label for="topicName">Add Question</label>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group  mb-3">
+          <span class="input-group-text bg-dark text-white" id="question">?</span>
+          <input type="text" class="form-control bg-dark text-white" placeholder="Username" aria-label="question" aria-describedby="question" ng-class="{'is-invalid': questionError }" ng-model="question" ng-change="validateQuestion()">
+          <div class="invalid-feedback">{{questionFeedback}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="col-12 col-md-3">
+        <label for="topicName">Add Options</label>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group  mb-3">
+          <span class="input-group-text bg-dark text-white" id="optionA">A</span>
+          <input type="text" class="form-control bg-dark text-white" placeholder="Username" aria-label="Username" aria-describedby="optionA" ng-class="{'is-invalid': optionAError }" ng-model="optionA" ng-change="optionAValidate()">
+          <div class="invalid-feedback">{{optionAFeedback}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="col-12 col-md-3">
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group  mb-3">
+          <span class="input-group-text bg-dark text-white" id="optionB">B</span>
+          <input type="text" class="form-control bg-dark text-white" placeholder="Username" aria-label="Username" aria-describedby="optionB" ng-class="{'is-invalid': optionBError }" ng-model="optionB" ng-change="optionBValidate()">
+          <div class="invalid-feedback">{{optionBFeedback}}</div>  
+        </div>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="col-12 col-md-3">
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group  mb-3">
+          <span class="input-group-text bg-dark text-white" id="optionC">C</span>
+          <input type="text" class="form-control bg-dark text-white" placeholder="Username" aria-label="Username" aria-describedby="optionC" ng-class="{'is-invalid': optionCError }" ng-model="optionC" ng-change="optionCValidate()">
+        <div class="invalid-feedback">{{optionCFeedback}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="col-12 col-md-3">
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group  mb-3">
+          <span class="input-group-text bg-dark text-white" id="optionD">D</span>
+          <input type="text" class="form-control bg-dark text-white" placeholder="Username" aria-label="Username" aria-describedby="optionD" ng-class="{'is-invalid': optionDError }" ng-model="optionD" ng-change="optionDValidate()">
+        <div class="invalid-feedback">{{optionDFeedback}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="col-12 col-md-3">
+        <label>Correct Answer</label>
+      </div>
+      <div class="col-12 col-md-6 d-flex justify-content-around">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="correctAnswer" id="correctAnswerA" ng-class="{'is-invalid': answerFeedback }" value="A" ng-model="correct" ng-change="answerValidate()">
+          <label class="form-check-label" for="correctAnswerA">
+            A
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="correctAnswer" id="correctAnswerB" ng-class="{'is-invalid': answerFeedback }" value="B" ng-model="correct" ng-change="answerValidate()">
+          <label class="form-check-label" for="correctAnswerB">
+            B
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="correctAnswer" id="correctAnswerC" ng-class="{'is-invalid': answerFeedback }" value="C" ng-model="correct" ng-change="answerValidate()">
+          <label class="form-check-label" for="correctAnswerC">
+            C
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="correctAnswer" id="correctAnswerD" ng-class="{'is-invalid': answerFeedback }" value="D" ng-model="correct" ng-change="answerValidate()">
+          <label class="form-check-label" for="correctAnswerD">
+            D
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-3"></div>
+      <div class="col-12 col-md-6">
+        <p class="text-danger" ng-hide="!answerError">{{answerFeedback}}</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end my-4">
+      <button class="btn col-6 col-md-2 btn-primary" type="submit" ng-click="validateSubmit()">
+          Submit Question
+      </button>
+  </div>
+</div>

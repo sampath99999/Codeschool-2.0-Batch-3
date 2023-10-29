@@ -1,0 +1,26 @@
+<div class="web-loader" ng-if="displayLoader">
+
+</div>
+<div class="container-fluid d-flex justify-content-center my-5 ">
+    <div class="btn-group col-6 col-lg-4" role="group">
+        <input type="radio" class="btn-check" name="authType" id="loginUser" autocomplete="off" ng-click="loginControl()" checked="">
+        <label class="btn btn-outline-primary" for="loginUser">Login </label>
+
+        <input type="radio" class="btn-check" name="authType" id="registerUser" ng-click="registerControl()" autocomplete="off">
+        <label class="btn btn-outline-primary" for="registerUser">Register</label>
+    </div>
+</div>
+<div class="login-auth" ng-if="loginAuth" ng-controller="loginCtrl">
+
+</div>
+<div >
+    <div class="register-name" ng-controller="registerCtrl" ng-show="registerName">
+
+    </div>
+    <div class="register-choice" ng-controller="registerCtrl" ng-show="registerChoice">
+    
+    </div>
+    <div class="register-user" ng-controller="registerCtrl" ng-show="registerUser">
+    
+    </div>    
+</div>
