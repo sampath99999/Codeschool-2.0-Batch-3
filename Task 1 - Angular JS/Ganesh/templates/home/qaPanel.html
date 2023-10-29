@@ -1,0 +1,25 @@
+<div class="bg-dark m-4 p-4 rounded-4 shadow-effect">
+  <!-- QA time remaining -->
+    <label class="text-white p-2" for="">Time Remaining: 100 sec</label>
+    <div class="progress m-2" role="progressbar" aria-label="Basic example" aria-valuemin="0" aria-valuemax="100" style="height:10px;">
+      <div class="progress-bar" style="width: 97%; "></div>
+    </div>
+    <div class="row p-2 m-2">
+      <!-- QUESTIONS -->
+      <div class="col-12 bg-body-tertiary rounded-3 p-2 m-2"><span>{{questions['id']}}. </span>{{questions['question']}}</div>
+      <!-- OPTIONS.... -->
+      <div class="col-12 col-md-6 bg-body-tertiary rounded-3 p-2 m-2" ng-repeat="ans in answers">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="quizOptions" id="option{{(ans['option']).slice(0,2)}}" value="{{ans['answer']}}" ng-click="userAnswer(ans['question_id'], ans['answer'])">
+          <label class="form-check-label" for="option{{(ans['option']).slice(0,2)}}">
+            {{ans['option']}}
+          </label>
+        </div>
+      </div>
+    <!-- Next Question -->
+    <div class="d-flex justify-content-end my-4">
+      <button class="btn col-4 col-md-2 btn-primary" id="nextQuestion" type="submit" disabled ng-click="next(true)">
+          Next <i class="bi bi-caret-right-fill"></i> 
+      </button>
+    </div>
+</div>

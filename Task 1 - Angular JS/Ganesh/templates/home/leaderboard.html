@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center align-items-center vh-100 vw-100">
+    <div class="container bg-dark text-white p-3 m-4 w-75 shadow-effect rounded-3">
+      <h2>LeaderBoard</h2>
+      <hr>
+      <div class="my-3">
+        <table class="table table-bordered text-center table-dark border-primary">
+          <thead>
+            <tr>
+              <th scope="col">RANK</th>
+              <th scope="col">FIRST NAME</th>
+              <th scope="col">LAST NAME</th>
+              <th scope="col">SCORE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="score in scoreBoard">
+              <th scope="row">{{score['user_rank']}}</th>
+              <td>{{score['first_name']}}</td>
+              <td>{{score['last_name']}}</td>
+              <td>{{score['score']}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

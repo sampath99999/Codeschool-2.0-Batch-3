@@ -1,0 +1,24 @@
+<div class="container-fluid bg-dark col-8 col-md-5 p-3 px-4 rounded-4 shadow-effect">
+    <div class="d-flex justify-content-center">
+        <img src="./assets/images/quizAppLogo.png" alt="quizAppLogo" width="100" height="100" />
+    </div>
+    <h3 class="text-center text-light mb-4">QuizApp</h3>
+    <p class="text-warning" ng-show="serverMessage">{{serverMessage}}</p>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="userNameInput" placeholder="Username" ng-model="loginUsername"
+            ng-class="{'is-invalid': loginUsernameError }" ng-change="validateUserName()" />
+        <label for="userNameInput">Username</label>
+        <div id="userNameInputFeedback" class="invalid-feedback">{{loginUserNameFeedback}}</div>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="userPasswordInput" placeholder="Password" ng-model="loginPassword"
+            ng-class="{'is-invalid': loginPasswordError }" ng-change="validatePassword()" />
+        <label for="userPasswordInput">Password</label>
+        <div id="userPasswordInputFeedback" class="invalid-feedback">{{loginPasswordFeedback}}</div>
+    </div>
+    <div class="d-flex justify-content-center my-4">
+        <button class="btn w-50 m-auto btn-primary" type="submit" ng-click="userLoginAuth()">
+            Login <span class="spinner-border spinner-border-sm" aria-hidden="true" ng-if="validData"></span>
+        </button>
+    </div>
+</div>

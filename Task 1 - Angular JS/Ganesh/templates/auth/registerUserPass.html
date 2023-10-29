@@ -1,0 +1,26 @@
+<div class="container-fluid bg-dark col-8 col-md-5 p-3 px-4 rounded-4 shadow-effect">
+    <div class="d-flex justify-content-center">
+        <img src="./assets/images/quizAppLogo.png" alt="MyTODOapp" width="100" height="100" />
+    </div>
+    <h3 class="text-center text-light mb-4">QuizApp</h3>
+    <h6 class="text-light mb-4">{{user}}, you are almost there!</h6>
+    <p class="text-warning" ng-show="serverMessage">{{serverMessage}}</p>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="UsernameInput" placeholder="Username" ng-model="userName"
+            ng-class="{'is-invalid': usernameError }" ng-change="validateUserName()" ng-mouseenter="showHint()" ng-mouseleave="hideHint()"/>
+        <label for="UsernameInput">Username</label>
+        <p class="text-primary m-1" ng-show="hintMessage">{{hintMessage}}</p>
+        <div class="invalid-feedback">{{userNameFeedback}}</div>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="passwordInput" placeholder="Password" ng-model="password"
+            ng-class="{'is-invalid': passwordError }" ng-change="validatePassword()"/>
+        <label for="passwordInput">Password</label>
+        <div class="invalid-feedback">{{passwordFeedback}}</div>
+    </div>
+    <div class="d-flex justify-content-end my-4">
+        <button class="btn col-4 btn-primary" type="submit" ng-click="validateRegisterUser()">
+            Register <span class="spinner-border spinner-border-sm" aria-hidden="true" ng-if="validData"></span>
+        </button>
+    </div>
+</div>
