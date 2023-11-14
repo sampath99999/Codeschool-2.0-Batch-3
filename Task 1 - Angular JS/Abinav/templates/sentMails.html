@@ -1,0 +1,112 @@
+<div class="background" ng-controller="dashboard">
+    <div class="loaderContainer" ng-class="{'d-none':loader}">
+        <loader></loader>
+
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-2">
+            <a href="" class="d-flex align-items-center text-decoration-none ps-4">
+                <img src="https://www.google.com/gmail/about/static-2.0/images/logo-gmail.png?fingerprint=c2eaf4aae389c3f885e97081bb197b97"
+                    alt="" width="30px" height="30px">
+                <span class="headerLogo d-flex align-items-center ms-2" style="color: rgb(201, 201, 201) !important;">
+                    Gmail
+                </span>
+            </a>
+        </div>
+        <div class="col-8">
+
+            <input type="text" class="searchBar" placeholder="Search Mail" ng-model="searchText">
+
+
+        </div>
+        <div class="col-2">
+            <ul class="d-flex list-unstyled sideMenu">
+                <li><i class="bi bi-question-circle"></i></li>
+                <li><i class="bi bi-gear"></i></li>
+                <li><i class="bi bi-grid-3x3-gap"></i></li>
+                <li><img ng-src="./assests/images/logo.webp" alt="" width="35px" height="35px"
+                        class="ms-3 mt-1 rounded-circle"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2 pt-3">
+
+            <button class="composeButton" ng-click="showMailContainer()"><i class="bi bi-pen pe-3 text-dark"
+                    style="font-size: 18px !important;"></i>Compose</button>
+
+            <ul class="mainMenu pt-3 p-0 m-0">
+                <li role="button" ui-sref="dashboard"><i class="bi bi-envelope-open pe-3 ps-1"></i>Inbox</li>
+                <li role="button"><i class="bi bi-star pe-3 ps-1"></i>Starred</li>
+                <li role="button"><i class="bi bi-clock pe-3 ps-1"></i>Snoozed</li>
+                <li role="button"><i class="bi bi-send pe-3 ps-1"></i>Sent</li>
+                <li role="button"><i class="bi bi-file-earmark pe-3 ps-1"></i>Drafts</li>
+                <li role="button" ng-click="logout()"><i class="bi bi-box-arrow-right pe-3 ps-1"></i>Logout</li>
+
+                <li role="button"><i class="bi bi-chevron-down pe-3 ps-1"></i>More</li>
+            </ul>
+
+            <div class="toastContainer p-0" ng-class="{'d-none':mailContainer}">
+                <div class="d-flex justify-content-between ps-2 pt-1 pe-2 pb-2 mb-2" style="background-color: #F2F2F2;">
+                    <div>
+                        <span class="subHeading">New Message <span
+                                class="text-danger form-text">{{invalidRecipient}}</span> </span>
+                    </div>
+                    <div>
+                        <span class="subHeading pe-2">_</span>
+                        <span class="subHeading pe-1"><i class="bi bi-arrows-angle-expand"></i></span>
+                        <span class="subHeading pe-1" role="button" ng-click="closeMailContainer()"><i
+                                class="bi bi-x-lg"></i></span>
+                    </div>
+                </div>
+                <span class="text-dark ps-3">To:</span><input ng-model="receiverMail"
+                    class="text-dark border border-0 ps-2 ms-1" style="width: 29vw;">
+                <hr class="text-dark m-2">
+                <span class="text-dark ps-3">Subject:</span><input ng-model="subject"
+                    class="text-dark border border-0 ps-2 ms-1" style="width: 27vw;">
+                <hr class="text-dark m-2">
+                <textarea name="" id="" cols="64" class="ps-1 ms-2 border-0" rows="13" ng-model="message"></textarea>
+                <button class="sendButton" ng-click="sendMail()">Send</button>
+                <span style="padding-left: 110px;"><i class="bi bi-paperclip ms-5 ps-5"></i></span><i
+                    class="bi bi-geo-alt ms-2"></i><span><i class="bi bi-emoji-smile ms-2"></i></span><span><i
+                        class="bi bi-hdd ms-2"></i></span><span><i class="bi bi-lock ms-2"></i></span><span><i
+                        class="bi bi-pen ms-2"></i></span>
+            </div>
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Message...</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body text-success">
+                        Mail sent Successfuslly!
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-9 pt-2">
+            <div class="inbox p-3">
+                <div ng-repeat="item in sentMails | filter: searchText">
+                    <div class="row m-1">
+                        <div class="col-1">
+                            <span style="color: black;font-weight:500;">{{item.first_name}}</span>
+                        </div>
+                        <div class="col-11">
+                            <span style="font-size: 16px;">{{item.message}}</span>
+                        </div>
+                        <hr class="mt-1" style="color: rgb(0, 0, 0,0.3);">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-1">
+
+        </div>
+    </div>
+</div>
