@@ -1,0 +1,70 @@
+<div>
+    <div admin-header></div>
+    <div class="col-lg-6 col-11 m-auto row shadow-lg p-4 mt-5 mb-5 rounded-5 bg-white">
+        <div class="mt-2 p-0 m-0 h-25">
+            <img ng-src="quiz_logo.png" class="object-fit-contain h-25 w-25 m-0 p-0">
+        </div>
+
+        <div class="mb-3  col-12">
+            <label for="questionName" class="form-label">Question Name</label>
+            <input type="text" class="form-control" id="questionName" ng-model="questionName"
+                placeholder="ex: Solve 2+2=__?">
+            <p class="text-danger fw-bold">{{questionNameErr}}</p>
+        </div>
+        <div class="mb-3 col-lg-6 col-12">
+            <label for="option1" class="form-label">Option1</label>
+            <input type="text" class="form-control" id="option1" ng-model="option1" placeholder="ex: 4">
+            <p class="text-danger fw-bold">{{option1Err}}</p>
+        </div>
+        <div class="mb-3 col-lg-6 col-12">
+            <label for="option2" class="form-label">Option2</label>
+            <input type="text" class="form-control" id="option2" ng-model="option2" placeholder="ex: 0">
+            <p class="text-danger fw-bold">{{option2Err}}</p>
+        </div>
+        <div class="mb-3 col-lg-6 col-12">
+            <label for="option3" class="form-label">Option3</label>
+            <input type="text" class="form-control" id="option3" ng-model="option3" placeholder="ex: 2">
+            <p class="text-danger fw-bold">{{option3Err}}</p>
+        </div>
+        <div class="mb-3 col-lg-6 col-12">
+            <label for="option4" class="form-label">Option4</label>
+            <input type="text" class="form-control" id="option4" ng-model="option4" placeholder="ex: 1">
+            <p class="text-danger fw-bold">{{option4Err}}</p>
+        </div>
+
+        <div class="mb-3 col-12">
+            <label for="option5" class="form-label">Correct Answer</label>
+            <input type="text" class="form-control" id="option5" ng-model="option5" placeholder="ex: 4">
+            <p class="text-danger fw-bold">{{option5Err}}</p>
+        </div>
+
+        <div class="mb-3 col-lg-6 col-12">
+            <label for="subject" class="form-label">Subject</label>
+            <select class="form-select" aria-label="Default select example" ng-model="subject">
+                <option value="" selected>Select Subject</option>
+                <option value="1">Html</option>
+                <option value="2">CSS</option>
+                <option value="3">JavaScript</option>
+                <option value="3">BootStrap</option>
+            </select>
+            <p class="text-danger fw-medium">{{subjectErr}}</p>
+        </div>
+
+        <div class="mb-3 col-lg-6 col-12">
+            <label for="level" class="form-label">Level</label>
+            <select class="form-select" aria-label="Default select example" ng-model="level">
+                <option value="" selected>Select Level</option>
+                <option value="1">l1</option>
+                <option value="2">l2</option>
+                <option value="3">l3</option>
+            </select>
+            <p class="text-danger fw-medium">{{levelErr}}</p>
+        </div>
+
+
+        <div class="text-center">
+            <button ng-click="uploadData()" class="btn btn-primary text-center">Submit</button>
+        </div>
+    </div>
+</div>
+</div>

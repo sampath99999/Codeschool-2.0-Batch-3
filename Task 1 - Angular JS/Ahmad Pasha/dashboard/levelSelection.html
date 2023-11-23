@@ -1,0 +1,19 @@
+<div class="bg-dark">
+
+  <div header></div>
+  <h1 class="text-center fw-bold fs-1 fst-italic" style="text-shadow: 2px 2px 2px rgb(58, 57, 58); color:#FFCCCC">Select
+    Level</h1>
+  <div class="col-10 col-lg-4 m-auto text-center">
+    <img ng-src="level_png.png" style="min-height: 200px; max-height: 320px; width: 100%;">
+  </div>
+  <div class="row gap-4 col-8 m-auto justify-content-center">
+
+    <div class="card col-lg-4 col-10 shadow-lg py-4 m-3 text-center" ng-repeat="i in levels"
+      style="background-color: #7ED085;">
+      <a class="text-decoration-none fs-4 fw-bold text-white" style="text-shadow: 2px 2px 2px rgb(5, 151, 255)"
+        ui-sref='detailedView({subjectId:subject_id, levelId: i.id })'>{{i.name}}</a>
+    </div>
+  </div>
+
+
+</div>

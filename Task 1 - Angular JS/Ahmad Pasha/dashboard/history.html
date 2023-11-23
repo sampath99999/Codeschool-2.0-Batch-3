@@ -1,0 +1,27 @@
+<div>
+  <div header></div>
+  <h1>History</h1>
+  <div class="table-responsive col-11 m-auto">
+    <table class="table table-success table-striped text-center">
+      <thead class="text-dark fw-bold fs-5">
+        <tr>
+          <th scope="col-1">S.No</th>
+          <th scope="col-3">Subject Name</th>
+          <th scope="col-3">Level</th>
+          <th scope="col-2">Score</th>
+          <th scope="col-3">Time&Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="h in histories | orderBy: '-time'" class="fw-medium fs-5">
+          <td>{{$index+1}}</td>
+          <td>{{h.subjectname}}</td>
+          <td>{{h.level}}</td>
+          <td>{{h.score}}</td>
+          <td>{{getDate(h.time)}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

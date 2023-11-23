@@ -1,0 +1,58 @@
+<div>
+  <nav class="navbar navbar-expand-lg" style="background-color: #333545">
+    <div class="container-fluid col-lg-9 p-0 m-auto">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="p-0" ui-sref="home()">
+        <img ng-src="quiz_logo.png" class="col-4" style="height: 80px; width: 150px" />
+      </a>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+
+        <div class="d-flex me-0 gap-2 justify-content-end align-items-center">
+          <button ng-click="logout()" class="delete_button">LogOut</button>
+          <a ui-sref="history">
+          <button  class="historyBtn">
+            History
+          </button>
+        </a>
+          <a ui-sref="leaderBoard">
+            <button class="btn btn-info text-white py-2">
+              Leader Board
+            </button>
+          </a>
+          <!-- <p><span class="fw-bolder text-warning fs-4">Coins <i class="fa-solid fa-coins"></i> :</span>
+            <span>{{coins}}</span> </p> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="col-lg-8 m-auto my-5 py-3 shadow-lg rounded-3"
+    style=" background-image: linear-gradient(350deg, #0B347D, #e0ffff)">
+
+    <div loader ng-hide="{{'spinner'}}"></div>
+
+    <div class="col-11 m-auto">
+      <h1 class="fw-bold fs-2 ms-5 fst-italic text-white" style="text-shadow: 2px 2px 5px rgb(96, 89, 85)">Availabel
+        Quizs</h1>
+
+      <div class="col-lg-2 col-10 m-auto">
+        <img ng-src="cartoon-royalty-free-illustration-happy-people-3857d47a3d4b16d78e03cb7d47026bde.png" class="w-100">
+      </div>
+      <div class="row gap-4 col-lg-8 col-10 m-auto justify-content-center mb-3">
+        <button
+          class="card col-lg-4 col-10 m-auto border border-white shadow-lg py-3 m-3 bg-transparent  align-items-center"
+          ng-repeat="subjectName in subjectNames">
+          <a class="text-decoration-none fs-3 fw-bold fst-italic text-white text-center"
+            ui-sref='levelSelection({subjectId: subjectName.id})'
+            style="text-shadow: 2px 2px 5px rgb(96, 89, 85)">{{subjectName.name}}</a>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div>
+    <div header></div>
+    <div>
+        <h1>Leader Board</h1>
+        <p>Top 5 Members</p>
+        <div class="row gap-2 col-10 m-auto border border-primary py-5"
+            style="  background-image: linear-gradient(90deg, #fff0f5, #e0ffff)">
+            <div class="col-7 row gap-3">
+                <select ng-model="subject"
+                    class="m-auto border border-2 border-info col-lg-6 col-11 p-3 fw-medium fs-6">
+                    <option value="" selected>Select Subject</option>
+                    <option value="1">Html</option>
+                    <option value="2">CSS</option>
+                    <option value="3">JavaScript</option>
+                    <option value="4">BootStrap</option>
+                </select>
+                <select ng-model="level" class="m-auto border border-2 border-info col-lg-6 col-11 p-3 fw-medium">
+                    <option value="" selected>Select Level</option>
+                    <option value="1">L1</option>
+                    <option value="2">L2</option>
+                    <option value="3">L3</option>
+                </select>
+            </div>
+            <div class="col-4 m-auto">
+                <button ng-click="getDetails()" class="btn btn-success fw-bold">Get Details</button>
+            </div>
+        </div>
+
+        <h1 class="text-white fw-bold text-center">Top 5 Players</h1>
+        <div
+            class="bg-white my-3 col-10 py-3 fs-5 p-1 col-lg-7 border border-3 rounded-1 border-info m-auto row gap-3 fw-bold fst-italic text-center">
+
+            <div class="col-lg-3 col-5"><span>Player Name</span></div>
+            <div class="col-lg-3 d-none d-lg-block"><span>Subject Name</span></div>
+            <div class="col-lg-1 d-none d-lg-block"><span>Level</span></div>
+            <div class="col-lg-1 col-2"><span>Score</span></div>
+            <div class="col-lg-3 col-3"><span>Date&Time</span></div>
+
+        </div>
+
+        <div class="bg-white my-3 col-10 col-lg-7 m-auto row gap-3 text-center border border-2 border-info rounded-5 py-3"
+            ng-repeat="leader in leaders">
+
+            <span class="fw-bold fst-italic col-lg-3 col-5">{{leader.username}}</span>
+            <span class="col-lg-3 d-none d-lg-block">{{leader.subjectname}}</span>
+            <span class="col-lg-1 d-none d-lg-block">{{leader.level}}</span>
+            <span class="col-lg-1 col-2 fw-bold">{{leader.score}}</span>
+            <span class="col-3">{{getDate(leader.time)}}</span>
+
+        </div>
+
+    </div>
+</div>
