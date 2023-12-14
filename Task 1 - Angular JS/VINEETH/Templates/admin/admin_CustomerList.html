@@ -1,0 +1,30 @@
+<div class="col-10 m-auto" ng-controller="customerListCtrl">
+    
+    <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th class="col-1" scope="col">ID</th>
+                <th class="col-2" scope="col">NAME</th>
+                <th class="col-2" scope="col">EMAIL</th>
+                <th class="col-2" scope="col">CHANGE</th>
+              </tr>
+            </thead>
+            <tbody ng-repeat="x in customers">
+              <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.register_name}}</td>
+                <td>{{x.email}}</td>
+                <td>
+                  <button type="button" ng-click="edit(x.id)" class="btn btn-primary" >
+                     REMOVE
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+      
+          </table>
+
+
+    </div>
+</div>

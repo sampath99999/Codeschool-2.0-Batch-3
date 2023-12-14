@@ -1,0 +1,31 @@
+<div class="bg-light mt-5 pt-5" style="min-height: 100vh;">
+  <div class="col-lg-10 m-auto ">
+     <h4>YOUR ORDERS</h4>
+  </div>
+  <div class="col-lg-10 m-auto  bg-white" style=" box-shadow: 0 4px 12px 0 rgba(0,0,0,.05); " ng-controller="orderCtrl">
+    <div class="border p-lg-3">
+      <table class="table">
+        <thead>
+          <tr class="">
+            <th scope="col">ID</th>
+            <th scope="col">PRODUCT NAME</th>
+            <th scope="col">DATE</th>
+            <th scope="col">QUANTITY</th>
+            <th scope="col">PRICE</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="x in results">
+          <tr>
+            <td>{{$index+1}}</td>
+            <td>{{x.productname}}</td>
+            <td>{{x.date_time}}</td>
+            <td>{{x.product_quantity}}</td>
+            <td>{{x.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="admin_page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADMINS PAGE</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <script src = "https://unpkg.com/@uirouter/angularjs@1.0.7/release/angular-ui-router.min.js"></script>
+
+</head>
+<body ng-controller="adminCtrl">
+    <div class="d-flex">
+        <div class="col-2">
+            <div class="offcanvas  offcanvas-start show " tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel" style="height: 100vh;">
+                <div class="offcanvas-header p-1" style="box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);">
+                  <h5 class="offcanvas-title" id="offcanvasLabel" >MYNTRA</h5>
+                </div>
+                <div class="offcanvas-body " style="background-color:pink;">
+                    <div ui-sref="dashboard">DASHBOARD</div>
+                    <div ui-sref="manageProducts">MANAGE PRODUCTS</div>
+                    <div ui-sref="orders">MANAGE ORDERS</div>
+                    <div ui-sref="customers">CUSTOMER LIST</div>
+                    <div>MANAGE FAQS</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-10" style="height: 100vh;">
+            <div class="row col-12 m-0 p-1" style="box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);">
+                <div class="col-8 text-center">
+                    <h5>WELCOME ADMIN</h5>
+                </div>
+                <div class="row col-4 text-center">
+                    <div class="col-6">PROFILE</div>
+                    <div class="col-6 " type="button">LOGOUT</div>
+                </div>
+                
+            </div>
+            <div ui-view>
+                  
+            </div>
+         
+    
+        </div>
+    </div>
+    <script src="./../../assets/admin/admin_main.js"></script>
+    <script src="./../../assets/admin/manage_products.js"></script>
+    <script src="./../../assets/admin/manageOrders.js"></script>
+    <script src="./../../assets/admin/customerList.js"></script>
+    <script src="./../../assets/admin/admin_routes.js"></script>
+</body>
+</html>

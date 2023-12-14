@@ -1,0 +1,85 @@
+<div ng-controller="CartCtrl" class="mt-5 pt-5" >
+  <div class="container bg-white mt-3 row col-lg-10 m-auto border p-3"       style="background-color: white;box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);">
+    <div class="cartitem col-lg-6" >
+      <div ng-repeat="item in cartItems">
+        <div class="col-12 p-2 mb-2 d-flex border">
+          <div class="image col-lg-2" style="height: 120px; width: 100px">
+            <img
+              ng-src="{{ item.imagePath }}"
+              style="object-fit: fill"
+              class="col-10"
+            />
+          </div>
+          <div class="col-lg-8">
+            <div><h6>{{ item.name }}</h6></div>
+            <div>
+              <h4>
+                <i class="bi bi-currency-rupee"></i
+                ><span>{{ item.price }}</span>
+              </h4>
+            </div>
+            <div class="input-group mb-3" style="max-width: 120px">
+              <div class="input-group-prepend">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  ng-click="decrementQuantity(item)"
+                  
+                >
+                  -
+                </button>
+              </div>
+              <input
+                type="text"
+                class="form-control text-center"
+                ng-model="item.quantity"
+                aria-label="Quantity"
+                aria-describedby="basic-addon1"
+                readonly
+                style="background-color:white;"
+
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  ng-click="incrementQuantity(item)"
+                 
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div ng-click="removeItem(item)"><b>REMOVE</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="total col-lg-4">
+      <div class="border">
+        <div class="text-body-tertiary ps-2 pt-2">
+          <h6>PRICE DETAILS</h6>
+        </div>
+        <hr />
+        <div>
+          <div class="col-10 m-auto">
+            TOTAL AMOUNT IN RS: <span id="amount">{{ totalAmount.toFixed(2) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex col-lg-10 m-auto bg-white sticky-bottom">
+    <div class="col-lg-6 p-4 m-auto">
+      <div class="d-flex justify-content-end">
+        <button
+          class="p-2 border-0"
+          style="background-color:#ff527b"
+          ng-click="placeOrder()"
+        >
+          <b style="color: white">PLACE ORDER</b>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
